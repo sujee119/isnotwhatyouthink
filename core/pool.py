@@ -343,6 +343,13 @@ def src_wikipedia(limit: int = 80) -> tuple[list[dict], str]:
     return out, url
 
 
+def _xtext(node, path: str) -> str:
+    """One element's text, or "". Local because the trend parser was first
+    written against a different module whose helper was called `text`."""
+    el = node.find(path, HT)
+    return (el.text or "").strip() if el is not None and el.text else ""
+
+
 def src_trend_topics() -> tuple[list[dict], list[str]]:
     """Google Trends searches as CANDIDATES, not just a ranking signal.
 
@@ -361,16 +368,16 @@ def src_trend_topics() -> tuple[list[dict], list[str]]:
             except Exception:
                 continue
             for item in root.findall(".//item"):
-                q = text(item, "title")
+                q = _xtext(item, "title")
                 if not q:
                     continue
                 news = []
-                for n in item.findall("ht:news_item", NS):
-                    t = text(n, "ht:news_item_title")
-                    u = text(n, "ht:news_item_url")
+                for n in item.findall("ht:news_item", HT):
+                    t = _xtext(n, "ht:news_item_title")
+                    u = _xtext(n, "ht:news_item_url")
                     if t and u:
                         news.append({"title": t, "url": u,
-                                     "outlet": text(n, "ht:news_item_source")})
+                                     "outlet": _xtext(n, "ht:news_item_source")})
                 out.append({
                     "source": "trends",
                     "topic": q,
@@ -381,7 +388,7 @@ def src_trend_topics() -> tuple[list[dict], list[str]]:
                     "geo": geo,
                     "detail": "",
                     "news": news,
-                    "picture": text(item, "ht:picture"),
+                    "picture": _xtext(item, "ht:picture"),
                     "url": news[0]["url"] if news else "",
                 })
                 got = True
@@ -564,7 +571,13 @@ def classify(it: dict) -> tuple[str, str]:
     strength of these regexes -- the LLM gate decides, and this layer only
     hard-drops the obvious and ranks the rest.
     """
-    text = f"{it['topic']} {it.get('detail','')} {it.get('extract','')[:300]}"
+    # A trend topic's risk lives in its NEWS HEADLINES, not in its query:
+    # "betty mcguire" is harmless as a string and "Betty McGuire dies at
+    # 100" is not. Leaving the headlines out let a death reach the gate
+    # with the highest score in the pool.
+    headlines = " ".join(n.get("title", "") for n in (it.get("news") or []))
+    text = (f"{it['topic']} {it.get('detail','')} "
+            f"{it.get('extract','')[:300]} {headlines}")
     risks = risk_of(text)
     if risks:
         return "DROP", ", ".join(risks)
