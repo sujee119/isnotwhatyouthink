@@ -91,7 +91,24 @@ def cmd_build(args) -> int:
 
     # The shortlist and the flagged items both go to the gate: SHORT means
     # it survived the regexes, not that it is safe.
-    candidates = found["short"] + found["check"]
+    #
+    # Ordered by SCORE, not by verdict. Concatenating short+check put every
+    # trend behind every shortlisted item -- trends carry no Wikipedia
+    # description so they are all CHECK -- and the gate's 20-slot window
+    # filled with evergreen topics before reaching a single trend, which
+    # made the trends weighting pointless.
+    #
+    # The window is then split deliberately: trends get the larger share
+    # because they have priority, and the rest is reserved for other
+    # sources so the day still fills when every trend is rejected. On the
+    # observed yield that is most days.
+    ranked = sorted(found["short"] + found["check"],
+                    key=lambda i: -i.get("score", 0.0))
+    trend_slots = [i for i in ranked if i["source"] == "trends"][:12]
+    other_slots = [i for i in ranked if i["source"] != "trends"][:8]
+    candidates = trend_slots + other_slots
+    print(f"      to the gate: {len(trend_slots)} trend, "
+          f"{len(other_slots)} other")
     if not candidates:
         print("      nothing to put to the gate today")
         return NO_STORY

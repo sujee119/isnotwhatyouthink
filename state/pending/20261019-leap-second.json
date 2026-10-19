@@ -1,0 +1,34 @@
+{
+  "slug": "20261019-leap-second",
+  "subject": "Leap second",
+  "hook": "LEAP SECOND IS NOT WHAT YOU THINK",
+  "angle": "Leap seconds are officially being scrapped: metrologists voted to abandon the adjustments by 2027 and let civil time drift up to a full hour away from the Earth's actual rotation, because inserting single seconds wreaked havoc on digital networks.",
+  "angle_verdict": "agree",
+  "angle_support": [
+    "On 15 October 2026, the General Conference on Weights and Measures (CGPM) voted to discontinue the addition or subtraction of future leap seconds with effect from 20 May 2027, and to increase the limit on maximum permitted variance to one hour.",
+    "This practice was disruptive, particularly in modern digital systems that require continuous and precise timestamping. Since not all systems implemented leap-second adjustments uniformly, some computational, networking, and satellite-based systems encountered anomalies."
+  ],
+  "is_person": false,
+  "topic_source": "wikipedia",
+  "trending_on": [],
+  "title": "Why Scientists Are Officially Killing the Leap Second",
+  "description": "Global timekeepers have officially resolved to abandon leap-second adjustments by 2027. Rather than risking software crashes and telecommunication glitches, standard civil time will be allowed to separate from the planet's rotation by up to sixty minutes.",
+  "tags": [
+    "leap second",
+    "atomic clock",
+    "timekeeping",
+    "technology",
+    "astronomy"
+  ],
+  "narration": "LEAP SECOND IS NOT WHAT YOU THINK You probably assume our clocks must stay strictly locked to the planet's physical spin. But preserving that ancient alignment became a modern technological crisis. Injecting erratic extra seconds created severe bugs across data networks and satellites. Because digital infrastructure demands uninterrupted precision, international metrology officials voted to abolish leap seconds starting in 2027. Clocks will simply be permitted to diverge by up to an entire hour from Earth's astronomical cycle. Human civilization chose stable computer servers over the rising sun.",
+  "built_at": "2026-10-19T12:34:16.440284+00:00",
+  "status": "rendered",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Leap_second"
+    }
+  ],
+  "credits": "Image credits:\n- 11:29 by .Larry Page (CC BY) via Openverse\n- hanging in time by GollyGforce - Living My Worst  (CC BY) via Openverse\n- Black Marble - Asia and Australia by NASA Goddard Photo and Video (CC BY) via Openverse\n- Technical difficulties by Loozrboy (CC BY-SA) via Openverse\n- server room corridor by unknown (CC0) via Openverse\n- NASA GOES-11 Full Disk view of Earth June 17th 2 by NASA Goddard Photo and Video (CC BY) via Openverse\n- Satellite View of Earth on 11.11.11 by NASA Goddard Photo and Video (CC BY) via Openverse\n- Ceiling, Great Hall, Grove Park Inn, Grove Park- by w_lemay (CC BY-SA 2.0) via Wikimedia Commons\n- M01., Photo Display / Photo Shop by lyng883 (CC BY) via Openverse\n- Secretary Jennifer M Granholm visited all 17 DOE by U.S. Department of Energy (Public domain) via Wikimedia Commons\n- Time Signals (8700924583).jpg by National Institute of Standard (Public domain) via Wikimedia Commons\n- Glowing IBM zEnterprise EC12.JPG by Agiorgio (CC BY-SA 4.0) via Wikimedia Commons\n- neapolitan sunrise by jenny downing (CC BY) via Openverse",
+  "duration": 31.889649
+}
