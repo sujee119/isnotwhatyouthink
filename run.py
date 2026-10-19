@@ -116,7 +116,10 @@ def cmd_build(args) -> int:
     print("[3/7] gate")
     try:
         approved = gate.review(candidates)
-    except gate.GateUnavailable as exc:
+    # OSError too: a network timeout talking to the gate IS the gate
+    # being unavailable. Without it a transient blip raised past this
+    # handler and ended the run instead of failing closed.
+    except (gate.GateUnavailable, OSError) as exc:
         print(f"      ! {exc}")
         print("      the gate decides what may be built, so nothing is built")
         return 1
@@ -137,7 +140,9 @@ def cmd_build(args) -> int:
         # angle from it is recollection and can contradict the evidence.
         try:
             found = anglemod.derive(item["subject"], sources)
-        except anglemod.NoAngle as exc:
+        # OSError too: a timeout on one candidate should skip that
+        # candidate, not abandon every remaining one.
+        except (anglemod.NoAngle, OSError) as exc:
             print(f"      ! no angle: {exc}")
             continue
         item["angle"] = found["angle"]
@@ -151,7 +156,8 @@ def cmd_build(args) -> int:
         print("[5/7] script")
         try:
             sc = scriptmod.generate(item, sources)
-        except scriptmod.ScriptRefused as exc:
+        # OSError too, for the same reason as the angle step above.
+        except (scriptmod.ScriptRefused, OSError) as exc:
             print(f"      ! {exc}")
             continue
         print(f"      {sc.word_count()} words, {len(sc.shots)} shots")
