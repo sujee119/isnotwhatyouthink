@@ -135,7 +135,7 @@ COVER_SIZES = (104, 92, 78)
 COVER_TOP = int(os.getenv("COVER_TOP") or 330)
 COVER_ALIGN = os.getenv("COVER_ALIGN") or "middle"
 
-CTA_CARD = os.getenv("CTA_CARD") or "@isnotwhatyouthink"
+CTA_CARD = os.getenv("CTA_CARD", "")  # no outro: a Short loops, so a static card is dead screen every pass
 CTA_CARD_SECONDS = float(os.getenv("CTA_CARD_SECONDS") or 2.2)
 
 # --------------------------------------------------------------------- audio
