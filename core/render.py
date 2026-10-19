@@ -232,17 +232,52 @@ def mix_audio(narration: Path, music: Path | None, total: float,
     return out_path
 
 
+def countdown_filters(total: float, start_label: str,
+                      out_label: str) -> list[str]:
+    """A reverse countdown in the top corner.
+
+    The number is computed by ffmpeg per frame rather than drawn as
+    separate clips, so it costs one filter and cannot drift out of sync
+    with the audio. Deliberately small and in the corner: it is a
+    progress cue, not a competitor to the captions.
+    """
+    if not config.COUNTDOWN_ENABLED or total <= 1:
+        return []
+    size = int(config.COUNTDOWN_SIZE)
+    # %{eif:...} needs its colons and commas escaped inside drawtext.
+    expr = f"%{{eif\\:max(0\\,ceil({total:.2f}-t))\\:d}}"
+    return [
+        f"[{start_label}]drawtext=text='{expr}'"
+        f":fontfile={FONT_BOLD}"
+        f":fontsize={size}:fontcolor=white"
+        f":borderw=4:bordercolor=black@0.8"
+        f":box=1:boxcolor=black@0.45:boxborderw={max(10, size // 4)}"
+        f":x=w-text_w-{config.COUNTDOWN_MARGIN}"
+        f":y={config.COUNTDOWN_TOP}[{out_label}]"
+    ]
+
+
 def end_card(out_path: Path, seconds: float) -> Path:
     """A short follow card to close on."""
     W, H = config.WIDTH, config.HEIGHT
     lines = config.CTA_CARD.split("\\n") if "\\n" in config.CTA_CARD \
         else config.CTA_CARD.split("\n")
 
+    # Shrink any line that would run off the frame. The cover text has
+    # always done this; the end card did not, so "FOLLOW FOR MORE" at
+    # 104pt was clipped at both edges. All-caps bold runs wider per
+    # character than the cover's estimate, hence the fatter ratio here.
+    CAPS_W, USABLE = 0.78, W - 100
+
+    def fit(line: str, want: int) -> int:
+        n = max(1, len(line))
+        return max(34, min(want, int(USABLE / (n * CAPS_W))))
+
     draw = []
     y0 = H // 2 - (len(lines) * 70) // 2
     for i, line in enumerate(lines):
         safe = line.replace("'", "’").replace(":", "\\:").replace("%", "\\%")
-        size = 104 if i == 0 else 60
+        size = fit(line, 104 if i == 0 else 60)
         bold = "-Bold" if i == 0 else ""
         draw.append(
             f"drawtext=text='{safe}'"
@@ -395,13 +430,18 @@ def finish(sequence: Path, audio: Path, ass_file: Path, out_path: Path,
     base = list(chain)
     base_last = last
 
-    def _chain(with_cover: bool) -> list[str]:
+    def _chain(with_cover: bool, with_countdown: bool = True) -> list[str]:
         out, tail = list(base), base_last
         if with_cover:
             cov = cover_filters(cover, tail, "cov")
             if cov:
                 out += cov
                 tail = "cov"
+        if with_countdown:
+            cd = countdown_filters(total, tail, "cd")
+            if cd:
+                out += cd
+                tail = "cd"
         out.append(f"[{tail}]ass='{_esc(ass_file)}'[v]")
         return out
 
@@ -439,7 +479,11 @@ def finish(sequence: Path, audio: Path, ass_file: Path, out_path: Path,
     else:
         _assemble(_chain(False))
 
-    if not config.CTA_CARD.strip() or workdir is None:
+    # Empty card text or a non-positive duration both mean: no card. The
+    # duration check matters because a 0s card is not a no-op to ffmpeg,
+    # it is a broken input.
+    if (not config.CTA_CARD.strip() or workdir is None
+            or config.CTA_CARD_SECONDS <= 0):
         if body_path != out_path:
             body_path.replace(out_path)
         return out_path

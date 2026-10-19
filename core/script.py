@@ -75,8 +75,8 @@ PROOF (about {proof_words} words)
   padding.
 
 BUTTON (about {button_words} words)
-  One line that lands it. No call to action, no "follow for more", no
-  rhetorical question.
+  One line that lands it. No rhetorical question.
+{cta_rule}
 
 == RULES ==
 
@@ -169,6 +169,14 @@ def _sizes() -> dict:
         "button_words": max(5, round(target_words * 0.12)),
         "shots_min": max(4, round(total / 3.8)),
         "shots_max": max(6, round(total / 2.6)),
+        # The call to action lives on the end card by default, so the
+        # narration is told to stay out of it.
+        "cta_rule": ("  Then one short closing line inviting a follow -- "
+                     "keep it under six words."
+                     if config.SPOKEN_CTA else
+                     '  No call to action, no "follow for more". The video '
+                     'ends on this line and loops straight back into the '
+                     'hook, so make it land.'),
     }
 
 
@@ -270,7 +278,10 @@ def generate(item: dict, sources: list[dict], attempts: int = 3) -> Script:
         if words > sizes["max_words"]:
             problems.append(f"too long at {words} words; cut to "
                             f"{sizes['target_words']}")
-        elif words < sizes["target_words"] * 0.6:
+        # Length is controlled here rather than by stretching the audio.
+        # At 3 words/sec this band keeps finished videos near thirty
+        # seconds without ever distorting the delivery to hit a number.
+        elif words < sizes["target_words"] * 0.90:
             problems.append(f"too short at {words} words; aim for "
                             f"{sizes['target_words']}")
 

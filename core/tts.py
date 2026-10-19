@@ -42,6 +42,10 @@ class NarrationFailed(RuntimeError):
 # Which engine produced the last narration, for the caller to report.
 last_engine = ""
 
+# render.finish() adds this much after the narration, so narration of
+# (EXACT_DURATION - TAIL_SECONDS) produces a video of EXACT_DURATION.
+TAIL_SECONDS = 0.6
+
 # Voices to try before giving up on edge-tts. A 403 is usually about the
 # endpoint rather than the voice, but a bad or retired voice name looks
 # identical from here, so vary it.
@@ -476,6 +480,12 @@ def _fit_pace(text: str, mp3_path: Path,
     against an 85s target while the config said 3.3 words/sec. Measuring
     the result and correcting it is the only way the setting means
     anything across engines.
+
+    The target is a RATE, not a length. Forcing every video to an exact
+    runtime means stretching or compressing the voice to fit, which
+    drawls a short script and gabbles a long one. Length is controlled
+    where it belongs -- in how many words get written -- and the delivery
+    is left alone.
     """
     n = len(text.split())
     want = n / max(0.5, config.WORDS_PER_SECOND)

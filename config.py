@@ -44,7 +44,7 @@ VARIATIONS = int(os.getenv("VARIATIONS") or 1)
 
 # 30-40s finished. Narration target plus the end card lands in that band.
 TARGET_SECONDS = int(os.getenv("TARGET_SECONDS") or 30)
-MAX_SECONDS = int(os.getenv("MAX_SECONDS") or 36)
+MAX_SECONDS = int(os.getenv("MAX_SECONDS") or 33)
 WORDS_PER_SECOND = float(os.getenv("WORDS_PER_SECOND") or 3.0)
 
 # ---------------------------------------------------------------- the pool
@@ -135,8 +135,30 @@ COVER_SIZES = (104, 92, 78)
 COVER_TOP = int(os.getenv("COVER_TOP") or 330)
 COVER_ALIGN = os.getenv("COVER_ALIGN") or "middle"
 
-CTA_CARD = os.getenv("CTA_CARD", "")  # no outro: a Short loops, so a static card is dead screen every pass
+# No end card. A Short LOOPS: whatever sits at the end replays on every
+# pass, so a static card is dead screen in each loop and costs both of
+# the things Shorts ranks on -- view duration as a fraction of length,
+# and loop rate. YouTube already overlays the handle and the subscribe
+# button, and the hook burned over the opening is the channel name, so a
+# "follow for more" card duplicates what is on screen anyway.
+#
+# Set CTA_CARD to switch one back on and A/B it, e.g.
+#   gh variable set CTA_CARD --body "FOLLOW FOR MORE\nTHINGS YOU DON'T KNOW"
+# A reverse countdown in the top corner. Small and out of the way: it is
+# a progress cue, not a second caption track.
+COUNTDOWN_ENABLED = (os.getenv("COUNTDOWN_ENABLED") or "1") not in (
+    "0", "false", "False")
+COUNTDOWN_SIZE = int(os.getenv("COUNTDOWN_SIZE") or 78)
+COUNTDOWN_TOP = int(os.getenv("COUNTDOWN_TOP") or 96)
+COUNTDOWN_MARGIN = int(os.getenv("COUNTDOWN_MARGIN") or 60)
+
+CTA_CARD = os.getenv("CTA_CARD", "")
 CTA_CARD_SECONDS = float(os.getenv("CTA_CARD_SECONDS") or 2.2)
+
+# Set SPOKEN_CTA=1 to have the narration itself end on a follow line.
+# Off by default: it costs about two seconds of a thirty-second video and
+# delays the payoff. Worth testing against retention, not assuming.
+SPOKEN_CTA = (os.getenv("SPOKEN_CTA") or "0") not in ("0", "false", "False")
 
 # --------------------------------------------------------------------- audio
 
