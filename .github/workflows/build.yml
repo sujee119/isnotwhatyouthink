@@ -1,0 +1,190 @@
+name: Build a short
+
+# Eight slots a day. How many of them actually post is random between
+# DAILY_MIN and DAILY_MAX, seeded from the date so every run that day
+# agrees without shared state -- see core/plan.py. A slot that is not
+# chosen today exits early and costs nothing.
+#
+# Times are UTC and deliberately on odd minutes: GitHub delays scheduled
+# runs that land on :00 under load, which silently skipped slots on the
+# reels pipeline.
+on:
+  schedule:
+    - cron: "17  8 * * *"   # 19:17 Sydney      -- AU evening
+    - cron: "23 10 * * *"   # 21:23 Sydney
+    - cron: "19 17 * * *"   # 18:19 London      -- UK evening
+    - cron: "41 19 * * *"   # 20:41 London
+    - cron: "13 23 * * *"   # 19:13 New York    -- US east evening
+    - cron: "37  1 * * *"   # 20:37 New York / 17:37 Los Angeles
+    - cron: "11  3 * * *"   # 22:11 New York / 19:11 Los Angeles
+    - cron: "29  5 * * *"   # 21:29 Los Angeles -- US west evening
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Build but do not upload"
+        type: boolean
+        default: false
+
+# One run at a time: two builds would race on state/ and on the used-topic
+# list, and could make two videos about the same subject.
+concurrency:
+  group: short-state
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: System packages
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg espeak-ng fonts-dejavu-core
+
+      - name: Python packages
+        run: pip install -q -r requirements.txt
+
+      # Which of the eight slots is this? The schedule string is the only
+      # thing that distinguishes one scheduled run from another.
+      - name: Work out the slot
+        id: slot
+        run: |
+          case "${{ github.event.schedule }}" in
+            "17  8 * * *"|"17 8 * * *")  S=1 ;;
+            "23 10 * * *")               S=2 ;;
+            "19 17 * * *")               S=3 ;;
+            "41 19 * * *")               S=4 ;;
+            "13 23 * * *")               S=5 ;;
+            "37  1 * * *"|"37 1 * * *")  S=6 ;;
+            "11  3 * * *"|"11 3 * * *")  S=7 ;;
+            "29  5 * * *"|"29 5 * * *")  S=8 ;;
+            *)                           S=0 ;;   # manual: always builds
+          esac
+          echo "n=$S" >> "$GITHUB_OUTPUT"
+          echo "slot $S"
+
+      - name: Build and upload
+        id: build
+        env:
+          SCRIPT_PROVIDER: ${{ vars.SCRIPT_PROVIDER || 'gemini' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-flash-latest' }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+
+          GATE_ENABLED: ${{ vars.GATE_ENABLED || '1' }}
+          DAILY_MIN: ${{ vars.DAILY_MIN }}
+          DAILY_MAX: ${{ vars.DAILY_MAX }}
+          WIKI_DEPTH: ${{ vars.WIKI_DEPTH }}
+          TRENDS_GEOS: ${{ vars.TRENDS_GEOS }}
+          TARGET_SECONDS: ${{ vars.TARGET_SECONDS }}
+          MAX_SECONDS: ${{ vars.MAX_SECONDS }}
+
+          TTS_PROVIDERS: ${{ vars.TTS_PROVIDERS || 'gemini,azure,edge,gtts,espeak' }}
+          GEMINI_TTS_MODEL: ${{ vars.GEMINI_TTS_MODEL || 'gemini-3.8-flash-tts' }}
+          GEMINI_TTS_VOICE: ${{ vars.GEMINI_TTS_VOICE || 'Charon' }}
+          GEMINI_TTS_STYLE: ${{ vars.GEMINI_TTS_STYLE }}
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ vars.AZURE_SPEECH_REGION }}
+          TTS_RATE: ${{ vars.TTS_RATE || '+40%' }}
+          WORDS_PER_SECOND: ${{ vars.WORDS_PER_SECOND || '3.0' }}
+          VOICE_DEEPEN: ${{ vars.VOICE_DEEPEN || '0.88' }}
+
+          SFX_STYLE: ${{ vars.SFX_STYLE || 'whoosh' }}
+          SFX_GAIN: ${{ vars.SFX_GAIN }}
+          SFX_AT: ${{ vars.SFX_AT }}
+          MUSIC_GAIN: ${{ vars.MUSIC_GAIN }}
+          COVER_ALIGN: ${{ vars.COVER_ALIGN || 'middle' }}
+          VIDEO_PRESET: ${{ vars.VIDEO_PRESET || 'veryfast' }}
+
+          YT_ENABLED: ${{ vars.YT_ENABLED || '0' }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          YT_PRIVACY: ${{ vars.YT_PRIVACY || 'public' }}
+          YT_CATEGORY_ID: ${{ vars.YT_CATEGORY_ID || '27' }}
+
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          set +e
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python -u run.py build --slot "${{ steps.slot.outputs.n }}" --dry-run
+          else
+            python -u run.py build --slot "${{ steps.slot.outputs.n }}"
+          fi
+          RC=$?
+          echo "rc=$RC" >> "$GITHUB_OUTPUT"
+          # 2 means "nothing to build today" -- a chosen-slot day with no
+          # approved topic, or a slot that is not posting. Not a failure.
+          if [ "$RC" = "2" ]; then exit 0; fi
+          exit $RC
+
+      # State is committed even when the build failed, so a failed attempt
+      # is recorded rather than lost. The push loop checks for unpushed
+      # commits explicitly: an earlier version printed "no changes" after a
+      # rebase and exited 0 with the commit still local.
+      - name: Commit state
+        if: ${{ !cancelled() }}
+        run: |
+          git config user.name "reel-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A state/ || true
+          if git diff --cached --quiet; then
+            echo "no state changes"
+            exit 0
+          fi
+          git commit -q -m "state $(date -u +%FT%TZ)"
+          BR="${GITHUB_REF_NAME}"
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q -X theirs origin "$BR" || true
+            if git push -q origin "HEAD:$BR"; then
+              echo "pushed"
+              break
+            fi
+            AHEAD=$(git rev-list --count "origin/$BR..HEAD" 2>/dev/null || echo 1)
+            echo "push $i failed, $AHEAD commit(s) still local"
+            sleep $((i * 5))
+          done
+          if [ "$(git rev-list --count "origin/$BR..HEAD" 2>/dev/null || echo 0)" != "0" ]; then
+            echo "::error::state could not be pushed"
+            exit 1
+          fi
+
+      - name: Tell me it failed
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          [ -n "$TELEGRAM_BOT_TOKEN" ] || exit 0
+          curl -s -X POST \
+            "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
+            -d chat_id="$TELEGRAM_CHAT_ID" \
+            -d text="isnotwhatyouthink: slot ${{ steps.slot.outputs.n }} failed. ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null
+
+      # A timeout CANCELS rather than fails, so failure() never fires and
+      # the run looks grey instead of red. That hid a dead pipeline for a
+      # day on the reels repo.
+      - name: Tell me it was cancelled
+        if: cancelled()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          [ -n "$TELEGRAM_BOT_TOKEN" ] || exit 0
+          curl -s -X POST \
+            "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
+            -d chat_id="$TELEGRAM_CHAT_ID" \
+            -d text="isnotwhatyouthink: slot ${{ steps.slot.outputs.n }} was CANCELLED (likely the 60min timeout). ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null
