@@ -121,6 +121,14 @@ CAPTION_MARGIN_V = int(os.getenv("CAPTION_MARGIN_V") or 420)
 # line, so unlike the reels pipeline it is never optional.
 COVER_ENABLED = True
 COVER_SECONDS = float(os.getenv("COVER_SECONDS") or 3.4)
+
+# Which frame becomes the channel-grid thumbnail, in milliseconds. A Short
+# plays straight away in the feed, so the first frame is what most viewers
+# see -- and the cover is already fully opaque from t=0. But the grid,
+# search results and the Shorts shelf show a still, and YouTube picks that
+# frame itself unless one is set. This must land inside COVER_SECONDS or
+# the thumbnail will not have the catchphrase on it.
+COVER_THUMB_MS = int(os.getenv("COVER_THUMB_MS") or 900)
 COVER_FADE = 0.35
 COVER_MAX_LINES = 3
 COVER_SIZES = (104, 92, 78)

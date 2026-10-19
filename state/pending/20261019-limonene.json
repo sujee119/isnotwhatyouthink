@@ -1,0 +1,28 @@
+{
+  "slug": "20261019-limonene",
+  "subject": "Limonene",
+  "hook": "LIMONENE IS NOT WHAT YOU THINK",
+  "angle": "The exact same molecule responsible for the scent of citrus smells like pine needles simply by existing as its mirror-image twin.",
+  "is_person": false,
+  "topic_source": "wikipedia",
+  "trending_on": [],
+  "title": "The Citrus Molecule That Secretly Smells Like Pine",
+  "description": "Limonene gives citrus fruits their characteristic fragrance, but the molecule exists in two distinct geometric forms. When its chemical structure is flipped into a mirror image, the compound produces the scent of pine needles instead. This structural shift demonstrates how tiny spatial differences alter aroma.",
+  "tags": [
+    "limonene",
+    "chemistry",
+    "citrus",
+    "enantiomers",
+    "science"
+  ],
+  "narration": "LIMONENE IS NOT WHAT YOU THINK You picture fresh orange groves and pure citrus zest. But reverse the orientation of this exact molecule, and that sunny fruit aroma vanishes into deep evergreen woods. Limonene is chiral, occurring as two mirror-image enantiomers. Its primary form creates the sweet aroma of orange peels. But its opposite isomer contains the exact same atoms, yet gives off the sharp odor of coniferous pine needles and turpentine. A simple mirror reflection turns an orange grove into a pine forest.",
+  "built_at": "2026-10-19T11:35:07.680419+00:00",
+  "status": "rendered",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Limonene"
+    }
+  ],
+  "duration": 30.856315
+}

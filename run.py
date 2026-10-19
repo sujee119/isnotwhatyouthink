@@ -296,7 +296,40 @@ def _upload(manifest: dict, video: Path) -> int:
     manifest["status"] = "published"
     manifest.pop("youtube_error", None)
     print(f"      -> {manifest['watch_url']}")
+
+    # The catchphrase frame as the grid thumbnail. Cosmetic, and it runs
+    # after the video is live, so a failure is reported and nothing else.
+    thumb = _cover_frame(video)
+    if thumb:
+        why = youtube.set_thumbnail(vid, thumb)
+        if why:
+            manifest["thumbnail_note"] = why[:160]
+            print(f"      thumbnail not set: {why[:110]}")
+        else:
+            manifest["thumbnail"] = "set"
+            print(f"      thumbnail: the cover frame at "
+                  f"{config.COVER_THUMB_MS}ms")
     return 0
+
+
+def _cover_frame(video: Path) -> Path | None:
+    """Pull one frame from inside the cover hold, so the catchphrase is on
+    it. Returns None if ffmpeg cannot, which is not worth failing over."""
+    import subprocess
+
+    at = max(0.05, config.COVER_THUMB_MS / 1000.0)
+    if at >= config.COVER_SECONDS:
+        # Past the hold the overlay has faded and the frame would be bare.
+        at = max(0.05, config.COVER_SECONDS * 0.4)
+    out = video.with_name("thumbnail.jpg")
+    try:
+        subprocess.run(
+            ["ffmpeg", "-y", "-v", "error", "-ss", f"{at:.2f}",
+             "-i", str(video), "-frames:v", "1", "-q:v", "3", str(out)],
+            check=True, capture_output=True)
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
+    return out if out.exists() and out.stat().st_size > 2000 else None
 
 
 def cmd_doctor(args) -> int:

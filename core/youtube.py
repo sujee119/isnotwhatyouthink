@@ -195,5 +195,51 @@ def upload(video: Path, title: str, description: str,
     raise last or YouTubeError("upload failed")
 
 
+THUMB_URL = ("https://www.googleapis.com/upload/youtube/v3/thumbnails/set"
+             "?videoId={vid}&uploadType=media")
+
+
+def set_thumbnail(video_id: str, image: Path) -> str:
+    """Put the cover frame on the channel grid.
+
+    Returns "" on success or a short reason on failure. Never raises: the
+    video is already live by the time this runs, and a missing custom
+    thumbnail is cosmetic -- YouTube falls back to a frame it picks itself.
+
+    Needs a phone-verified channel. Without verification this is a 403,
+    which is worth saying plainly rather than logging as a mystery.
+    """
+    if not image.exists():
+        return "no thumbnail file"
+    size = image.stat().st_size
+    if size > 2 * 1024 * 1024:
+        return f"thumbnail too large ({size // 1024}KB, limit 2MB)"
+
+    try:
+        token = access_token()
+    except Exception as exc:
+        # Not just YouTubeError: access_token converts HTTP errors but lets
+        # a URLError through, and that escaping here would kill the run
+        # after the video is already live.
+        return f"token: {type(exc).__name__} {str(exc)[:70]}"
+
+    req = urllib.request.Request(
+        THUMB_URL.format(vid=video_id), data=image.read_bytes(),
+        headers={"Authorization": f"Bearer {token}",
+                 "Content-Type": "image/jpeg"})
+    try:
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            resp.read()
+        return ""
+    except urllib.error.HTTPError as exc:
+        body = exc.read()[:200].decode("utf-8", "ignore")
+        if exc.code == 403:
+            return ("403 -- the channel is not phone-verified, so custom "
+                    "thumbnails are not allowed yet")
+        return f"{exc.code}: {body}"
+    except Exception as exc:
+        return f"{type(exc).__name__}: {str(exc)[:80]}"
+
+
 def watch_url(video_id: str) -> str:
     return f"https://youtube.com/shorts/{video_id}"

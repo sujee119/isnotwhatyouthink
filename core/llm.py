@@ -17,6 +17,8 @@ import urllib.request
 
 import config
 
+# Defined above the range this was lifted from, so it came across as an
+# undefined name and every LLM call raised NameError.
 UA = "isnotwhatyouthink/1.0"
 
 def _post_json(url: str, payload: dict, headers: dict, timeout: int = 90) -> dict:
