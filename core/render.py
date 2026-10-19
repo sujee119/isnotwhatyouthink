@@ -392,7 +392,8 @@ def cover_filters(text: str, start_label: str, out_label: str) -> list[str]:
 
 def finish(sequence: Path, audio: Path, ass_file: Path, out_path: Path,
            kicker: str | None = None, music: Path | None = None,
-           workdir: Path | None = None, cover: str = "") -> Path:
+           workdir: Path | None = None, cover: str = "",
+           countdown: bool = True) -> Path:
     """Burn captions over the shot sequence, add music, append the card."""
     dur = probe_duration(audio)
     if dur <= 0:
@@ -437,7 +438,7 @@ def finish(sequence: Path, audio: Path, ass_file: Path, out_path: Path,
             if cov:
                 out += cov
                 tail = "cov"
-        if with_countdown:
+        if with_countdown and countdown:
             cd = countdown_filters(total, tail, "cd")
             if cd:
                 out += cd

@@ -158,12 +158,18 @@ def cmd_build(args) -> int:
         print(f"      title: {sc.title}")
 
         slug = _slug(item["subject"])
+        # Half of each week's posts carry the countdown, chosen at random
+        # but balanced, so the two arms are comparable.
+        show_cd, arm = plan.countdown_for(slot)
+        print(f"      countdown: {'yes' if show_cd else 'no'} ({arm} arm)")
         manifest = {
             "slug": slug,
             "subject": item["subject"],
             "hook": item["hook"],
             "angle": item["angle"],
             "angle_verdict": item.get("angle_verdict", ""),
+            "countdown": show_cd,
+            "countdown_arm": arm,
             "angle_support": found["support"],
             "is_person": item.get("is_person", False),
             "topic_source": item["source"],
@@ -180,7 +186,7 @@ def cmd_build(args) -> int:
 
         print("[6/7] render")
         try:
-            out, credits = _render(sc, slug)
+            out, credits = _render(sc, slug, countdown=show_cd)
             manifest["credits"] = credits
         except Exception as exc:
             manifest["status"] = "failed"
@@ -210,7 +216,7 @@ def cmd_build(args) -> int:
     return NO_STORY
 
 
-def _render(sc, slug: str) -> tuple[Path, str]:
+def _render(sc, slug: str, countdown: bool = True) -> tuple[Path, str]:
     """Same render path as the reels pipeline, which is proven -- only the
     cover text and the reveal sound differ.
 
@@ -255,7 +261,8 @@ def _render(sc, slug: str) -> tuple[Path, str]:
     video = render.finish(
         sequence, narration, workdir / "captions.ass",
         workdir / "short.mp4",
-        music=music, workdir=workdir, cover=sc.cover_text)
+        music=music, workdir=workdir, cover=sc.cover_text,
+        countdown=countdown)
     return video, credits
 
 
@@ -441,13 +448,55 @@ def cmd_list(args) -> int:
     return 0
 
 
+def cmd_ab(args) -> int:
+    """The countdown experiment: who is in which arm, and their video ids.
+
+    This reports the ASSIGNMENT, not the result. YouTube holds the
+    retention numbers; paste the ids into Studio or export average view
+    duration and compare the two groups.
+    """
+    arms: dict[str, list] = {"with": [], "without": [], "manual": [],
+                             "all": [], "off": []}
+    for f in sorted(PENDING.glob("*.json")):
+        try:
+            m = json.loads(f.read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+        if m.get("status") != "published":
+            continue
+        arm = m.get("countdown_arm") or "unassigned"
+        arms.setdefault(arm, []).append(m)
+
+    for arm in ("with", "without", "manual", "all", "off", "unassigned"):
+        rows = arms.get(arm) or []
+        if not rows:
+            continue
+        print(f"\n{arm.upper()} countdown -- {len(rows)} published")
+        for m in rows:
+            print(f"  {m.get('built_at','')[:16]:18}"
+                  f"{str(m.get('duration',''))[:4]:>5}s  "
+                  f"{(m.get('youtube_id') or '-'):13}{m.get('hook','')[:40]}")
+
+    a, b = len(arms.get("with") or []), len(arms.get("without") or [])
+    print(f"\n  with {a}   without {b}")
+    if a + b < 20:
+        print("  Too few to read anything yet. Around 20 per arm is the "
+              "point where a LARGE difference would start to show; a small "
+              "one will not be visible at this sample size whatever the "
+              "numbers look like.")
+    else:
+        print("  Compare average view duration between the groups in "
+              "YouTube Studio. Treat a gap under about 10% as noise.")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(prog="run.py", description=__doc__)
     sub = ap.add_subparsers(dest="cmd")
 
     for name, fn in (("pool", cmd_pool), ("plan", cmd_plan),
                      ("build", cmd_build), ("doctor", cmd_doctor),
-                     ("list", cmd_list)):
+                     ("list", cmd_list), ("ab", cmd_ab)):
         p = sub.add_parser(name)
         p.set_defaults(fn=fn)
         if name == "build":

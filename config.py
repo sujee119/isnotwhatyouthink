@@ -149,6 +149,10 @@ COVER_ALIGN = os.getenv("COVER_ALIGN") or "middle"
 COUNTDOWN_ENABLED = (os.getenv("COUNTDOWN_ENABLED") or "1") not in (
     "0", "false", "False")
 COUNTDOWN_SIZE = int(os.getenv("COUNTDOWN_SIZE") or 78)
+# Run the countdown as an A/B: exactly half of each week's posts get it,
+# chosen at random but balanced, so the two arms are comparable. Set to 0
+# to put the countdown on everything instead.
+COUNTDOWN_AB = (os.getenv("COUNTDOWN_AB") or "1") not in ("0", "false", "False")
 COUNTDOWN_TOP = int(os.getenv("COUNTDOWN_TOP") or 96)
 COUNTDOWN_MARGIN = int(os.getenv("COUNTDOWN_MARGIN") or 60)
 

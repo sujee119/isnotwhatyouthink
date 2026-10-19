@@ -55,3 +55,43 @@ def should_build(slot: int, day: dt.date | None = None) -> tuple[bool, str]:
                       f"(target {n}, slots {chosen})")
     return False, (f"slot {slot} is not posting today "
                    f"(target {n}, slots {chosen})")
+
+
+# ------------------------------------------------- the countdown experiment
+
+def _week_assignment(day: dt.date) -> tuple[list, set]:
+    """Every scheduled post in day's ISO week, and which half gets the
+    countdown.
+
+    Block randomisation rather than a per-video coin flip: a flip can
+    hand one arm 14 of 22 in a week by chance alone, and with samples
+    this small that swamps the effect being measured. Enumerating the
+    week and splitting it exactly in half removes that, and seeding from
+    the Monday keeps every run's answer identical without shared state.
+    """
+    monday = day - dt.timedelta(days=day.weekday())
+    pairs = []
+    for i in range(7):
+        d = monday + dt.timedelta(days=i)
+        for s in slots_for(d):
+            pairs.append((d.isoformat(), s))
+
+    order = list(range(len(pairs)))
+    _seed(monday, "countdown-ab").shuffle(order)
+    half = len(pairs) // 2
+    on = {pairs[i] for i in order[:half]}
+    return pairs, on
+
+
+def countdown_for(slot: int, day: dt.date | None = None) -> tuple[bool, str]:
+    """(show_countdown, arm). Manual runs sit outside the experiment."""
+    if not config.COUNTDOWN_ENABLED:
+        return False, "off"
+    if not config.COUNTDOWN_AB:
+        return True, "all"
+    day = day or dt.date.today()
+    if slot <= 0:
+        return True, "manual"          # not counted in either arm
+    _, on = _week_assignment(day)
+    hit = (day.isoformat(), slot) in on
+    return hit, "with" if hit else "without"
