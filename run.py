@@ -132,6 +132,7 @@ def cmd_build(args) -> int:
             "angle": item["angle"],
             "is_person": item.get("is_person", False),
             "topic_source": item["source"],
+            "trending_on": item.get("trending_on", []),
             "title": sc.title,
             "description": sc.description,
             "tags": sc.tags,
@@ -222,6 +223,48 @@ def _duration(path: Path) -> float:
         return 0.0
 
 
+def _tags_for(manifest: dict) -> list[str]:
+    """Topic tags from the writer, plus whatever trend phrase matched.
+
+    The trend match is the only part with search demand behind it, so it
+    is worth carrying into the metadata even though Trends does not pick
+    the topic.
+    """
+    pool: list[str] = []
+    pool += [str(t) for t in (manifest.get("tags") or [])]
+    pool += [str(p) for p in (manifest.get("trending_on") or [])]
+    subject = manifest.get("subject", "")
+    if subject:
+        pool.append(subject)
+    pool.append("shorts")
+
+    out, seen = [], set()
+    for raw in pool:
+        t = re.sub(r"\s+", " ", str(raw).replace("#", "")).strip().lower()
+        if len(t) < 3 or t in seen:
+            continue
+        seen.add(t)
+        out.append(t)
+    return out[:12]
+
+
+def _hashtags(tags: list[str]) -> str:
+    """Three topical hashtags plus #Shorts.
+
+    YouTube ignores EVERY hashtag in a description once there are more
+    than fifteen, and reads an irrelevant pile as spam, so this stays
+    deliberately small. The first three are what show above the title.
+    """
+    picked = []
+    for t in tags:
+        if t == "shorts" or " " in t:
+            continue
+        picked.append("#" + re.sub(r"[^a-z0-9]", "", t))
+        if len(picked) == 3:
+            break
+    return " ".join(picked + ["#Shorts"])
+
+
 def _upload(manifest: dict, video: Path) -> int:
     from core import youtube
 
@@ -230,15 +273,18 @@ def _upload(manifest: dict, video: Path) -> int:
         manifest["status"] = "rendered"
         return 0
 
+    tags = _tags_for(manifest)
     desc = manifest["description"]
     srcs = [s["url"] for s in manifest.get("sources", []) if s.get("url")]
     if srcs:
         desc += "\n\nSources:\n" + "\n".join(srcs[:5])
+    desc += "\n\n" + _hashtags(tags)
+    manifest["yt_tags"] = tags
 
     try:
         vid = youtube.upload(video, manifest["title"], desc,
                              category_id=config.YT_CATEGORY_ID,
-                             privacy=config.YT_PRIVACY)
+                             privacy=config.YT_PRIVACY, tags=tags)
     except Exception as exc:
         manifest["status"] = "render_only"
         manifest["youtube_error"] = str(exc)[:300]

@@ -120,9 +120,40 @@ def _send_bytes(location: str, token: str, path: Path, size: int) -> dict:
         raise YouTubeError(f"sending video: {exc.read().decode()[:400]}") from exc
 
 
+TAGS_MAX = 500          # YouTube's total character budget for snippet.tags
+
+
+def clean_tags(tags) -> list[str]:
+    """Dedupe, strip punctuation, and stay inside YouTube's budget.
+
+    snippet.tags is capped at 500 characters in total, not per tag, and an
+    over-budget list rejects the whole upload -- so the list is trimmed
+    here rather than discovered at the API.
+    """
+    out, seen, used = [], set(), 0
+    for raw in (tags or []):
+        # Guard before stringifying: str(None) is "none", which would
+        # otherwise ship as a tag.
+        if not isinstance(raw, str):
+            if raw is None or isinstance(raw, bool):
+                continue
+            raw = str(raw)
+        t = " ".join(raw.replace("#", "").split()).lower()
+        if len(t) < 3 or t in seen:
+            continue
+        # +2 for the quoting YouTube applies to tags containing spaces.
+        cost = len(t) + (2 if " " in t else 0) + 1
+        if used + cost > TAGS_MAX:
+            break
+        seen.add(t)
+        out.append(t)
+        used += cost
+    return out
+
+
 def upload(video: Path, title: str, description: str,
            category_id: str = "", privacy: str = "",
-           attempts: int = 3) -> str:
+           tags=None, attempts: int = 3) -> str:
     """Upload and return the video id. Retries the transient failures."""
     if not enabled():
         raise YouTubeError("YouTube is not configured (YT_* secrets missing)")
@@ -135,6 +166,7 @@ def upload(video: Path, title: str, description: str,
             "title": title,
             "description": description,
             "categoryId": str(category_id or config.YT_CATEGORY_ID),
+            "tags": clean_tags(tags),
         },
         "status": {
             "privacyStatus": privacy or config.YT_PRIVACY,
