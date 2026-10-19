@@ -17,6 +17,8 @@ import urllib.request
 
 import config
 
+UA = "isnotwhatyouthink/1.0"
+
 def _post_json(url: str, payload: dict, headers: dict, timeout: int = 90) -> dict:
     req = urllib.request.Request(
         url,
