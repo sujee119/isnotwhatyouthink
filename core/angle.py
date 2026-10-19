@@ -79,9 +79,15 @@ For "stale", write the angle using the current fact only, and say in
 
 For "thin", return {"verdict": "thin", "why": "one sentence"}.
 
-"support" must contain at least two entries drawn from at least two
-different sources for any verdict except "thin". If you cannot fill it,
-the verdict is "thin"."""
+Every entry in "support" must be text you can point at IN THE SOURCES --
+quoted or closely paraphrased. Each one is checked against the source
+text automatically, and any that cannot be found is discarded. If none
+survive, the topic is dropped. So do not write support from memory: if
+the sources do not contain it, leave it out and return "thin".
+
+One substantial source is enough. A long encyclopedia article is not a
+single assertion -- two passages from different parts of it support an
+angle perfectly well. For "disputed" you need both sides quotable."""
 
 
 class NoAngle(RuntimeError):
@@ -98,15 +104,73 @@ def _user(subject: str, sources: list[dict]) -> str:
     return "\n".join(parts)
 
 
+def _norm(text: str) -> str:
+    return re.sub(r"[^a-z0-9 ]+", " ", text.lower()).strip()
+
+
+def _shingles(text: str, n: int = 5) -> set:
+    w = _norm(text).split()
+    return {" ".join(w[i:i + n]) for i in range(max(0, len(w) - n + 1))}
+
+
+_STOP = {
+    "the", "a", "an", "and", "or", "but", "of", "in", "on", "at", "to",
+    "for", "with", "by", "from", "as", "is", "are", "was", "were", "be",
+    "been", "it", "its", "this", "that", "these", "those", "which", "who",
+    "not", "no", "all", "any", "some", "more", "most", "than", "then",
+    "so", "can", "could", "would", "will", "has", "have", "had", "do",
+    "does", "did", "while", "when", "where", "there", "their", "them",
+    "they", "he", "she", "his", "her", "about", "into", "over", "also",
+}
+
+
+def quote_found(quote: str, blob: str, blob_words: set | None = None) -> bool:
+    """Is this supporting quote actually in the sources?
+
+    Checked in code rather than trusted, because this is the guard that
+    matters: counting sources could never have caught the 2035 figure, as
+    no source contained it.
+
+    Word-run matching turned out useless here -- a genuine paraphrase
+    scored 0.14 to 0.44 and an invented claim 0.00, so no threshold
+    separated them safely. Content-word recall does, and numbers are
+    checked EXACTLY, because a fabricated date or figure is both the most
+    likely invention and the most damaging.
+    """
+    q = _norm(quote)
+    if len(q.split()) < 3:
+        return False
+    if q in blob:
+        return True
+
+    # Any number in the quote must appear in the sources. This alone is
+    # what rejects "leap seconds end in 2035".
+    src_nums = set(re.findall(r"\d+", blob))
+    if set(re.findall(r"\d+", q)) - src_nums:
+        return False
+
+    words = {w for w in q.split() if len(w) > 2 and w not in _STOP}
+    if len(words) < 3:
+        return False
+    if blob_words is None:
+        blob_words = set(blob.split())
+    return len(words & blob_words) / len(words) >= 0.7
+
+
 def derive(subject: str, sources: list[dict]) -> dict:
     """Return {"angle", "verdict", "support", "confidence", "note"}.
 
     Raises NoAngle when the sources do not support one, which is a reason
     to try the next topic rather than to write something unsupported.
     """
-    if len(sources) < 2:
-        raise NoAngle(f"only {len(sources)} source(s); a single source is "
-                      f"an assertion, not a finding")
+    # One source is fine when it is substantial. Requiring two killed
+    # every good topic on the first real run: Leap second, Heraldic
+    # hatching and Limonene are encyclopedia subjects, so a news search
+    # for them returns nothing and Wikipedia is legitimately the only
+    # source. A 5,000-word cited article is not "a single assertion".
+    words = sum(len(s["text"].split()) for s in sources)
+    if not sources or words < 300:
+        raise NoAngle(f"only {words} words across {len(sources)} source(s)")
 
     fn = llm.PROVIDERS.get(config.SCRIPT_PROVIDER)
     if fn is None:
@@ -138,23 +202,44 @@ def derive(subject: str, sources: list[dict]) -> dict:
     if len(angle.split()) < 4:
         raise NoAngle("the angle came back too short to write to")
 
-    support = [" ".join(str(s).split()) for s in (obj.get("support") or [])
-               if str(s).strip()]
-    if len(support) < 2:
-        # The two-source rule is the whole point: it is what would have
-        # caught the 2035 figure, which no source actually contained.
-        raise NoAngle(f"verdict '{verdict}' but only {len(support)} "
-                      f"supporting quote(s); needs two from two sources")
+    raw_support = [" ".join(str(s).split()) for s in (obj.get("support") or [])
+                   if str(s).strip()]
+    if not raw_support:
+        raise NoAngle(f"verdict '{verdict}' with no supporting quote")
+
+    # Every quote is checked against the actual source text. This is the
+    # real guard: an angle whose support cannot be found in the sources is
+    # the model's recollection, which is exactly the 2035 failure.
+    blob = _norm(" ".join(s["text"] for s in sources))
+    blob_words = set(blob.split())
+    support = [q for q in raw_support
+               if quote_found(q, blob, blob_words)]
+    invented = len(raw_support) - len(support)
+    if not support:
+        raise NoAngle(
+            f"none of the {len(raw_support)} supporting quote(s) appear in "
+            f"the sources -- the angle was recalled, not read")
+    if verdict == "disputed" and len(support) < 2:
+        # Both sides have to be quotable, or it is not a real dispute.
+        raise NoAngle("verdict 'disputed' but only one side is in the "
+                      "sources")
 
     try:
         conf = float(obj.get("confidence", 0.0))
     except (TypeError, ValueError):
         conf = 0.0
 
+    if invented:
+        # Not fatal when at least one quote checked out, but it is a
+        # reliability signal worth carrying into the manifest.
+        print(f"      ! {invented} supporting quote(s) were not in the "
+              f"sources and were discarded")
+
     return {
         "angle": angle,
         "verdict": verdict,
         "support": support[:4],
+        "unverified_quotes": invented,
         "confidence": max(0.0, min(1.0, conf)),
         "note": " ".join(str(obj.get("note", "")).split())[:200],
     }

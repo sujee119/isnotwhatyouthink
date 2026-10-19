@@ -281,29 +281,114 @@ def get_json(url: str, timeout: int = 25) -> dict:
     return json.loads(get(url, timeout))
 
 
-def src_wikipedia(limit: int = 80) -> tuple[list[dict], str]:
-    """Yesterday's most-viewed articles. Yesterday because today's counts
-    are still being filled in and rank badly."""
-    day = dt.date.today() - dt.timedelta(days=1)
+def _wiki_ranks(day: dt.date) -> dict:
+    """{article: rank} for one day's most-viewed list."""
     url = WIKI_TOP.format(y=day.year, m=f"{day.month:02d}", d=f"{day.day:02d}")
     data = get_json(url)
     arts = (data.get("items") or [{}])[0].get("articles") or []
+    return {a.get("article", ""): int(a.get("rank") or i + 1)
+            for i, a in enumerate(arts) if a.get("article")}
+
+
+def src_wikipedia(limit: int = 80) -> tuple[list[dict], str]:
+    """Most-viewed articles, scored by how much they MOVED.
+
+    Raw view count is a popularity signal but not a daily one: the same
+    perennial articles sit near the top every day, which is how an
+    evergreen topic that could have been published any decade ends up
+    leading the pool. What makes a topic today's is the JUMP -- an
+    article people have suddenly started looking up.
+
+    So yesterday's list is compared with the day before's. A new entrant
+    or a big climber is what we want; something flat is being read at its
+    usual rate and is not news to anybody.
+
+    Two extra API calls in total, not per article.
+    """
+    day = dt.date.today() - dt.timedelta(days=1)   # today's counts are partial
+    prev = day - dt.timedelta(days=1)
+    url = WIKI_TOP.format(y=day.year, m=f"{day.month:02d}", d=f"{day.day:02d}")
+
+    today_ranks = _wiki_ranks(day)
+    try:
+        prev_ranks = _wiki_ranks(prev)
+    except Exception:
+        prev_ranks = {}                            # no baseline, no spike bonus
+
     out = []
-    for a in arts:
-        title = a.get("article", "")
+    for title, rank in sorted(today_ranks.items(), key=lambda kv: kv[1]):
         if not title or WIKI_SKIP.search(title):
             continue
+        was = prev_ranks.get(title)
+        if was is None:
+            spike, why = (3.0, "new to the list") if prev_ranks else (0.0, "")
+        else:
+            climb = was - rank
+            # A climb of 50+ places is a real surge; flat or falling is not.
+            spike = max(0.0, min(3.0, climb / 40.0))
+            why = f"up {climb} places" if climb > 0 else "flat or falling"
         out.append({
             "source": "wikipedia",
             "topic": title.replace("_", " "),
             "key": title,
-            "views": a.get("views", 0),
+            "views": 0,          # rank movement is the signal, not the level
+            "rank": rank,
+            "spike": spike,
+            "spike_why": why,
             "detail": "",
             "url": f"https://en.wikipedia.org/wiki/{title}",
         })
         if len(out) >= limit:
             break
     return out, url
+
+
+def src_trend_topics() -> tuple[list[dict], list[str]]:
+    """Google Trends searches as CANDIDATES, not just a ranking signal.
+
+    These are the only inherently same-day topics in the pool, and they
+    arrive with news links attached -- which is the multi-source material
+    a Wikipedia-only topic lacks. The filter and the gate still apply:
+    roughly four in forty survive them, so Trends contributes rather than
+    carries the day.
+    """
+    out, notes = [], []
+    for geo in TRENDS_GEOS:
+        got = False
+        for tmpl in TRENDS_ENDPOINTS:
+            try:
+                root = ET.fromstring(get(tmpl.format(geo=geo)))
+            except Exception:
+                continue
+            for item in root.findall(".//item"):
+                q = text(item, "title")
+                if not q:
+                    continue
+                news = []
+                for n in item.findall("ht:news_item", NS):
+                    t = text(n, "ht:news_item_title")
+                    u = text(n, "ht:news_item_url")
+                    if t and u:
+                        news.append({"title": t, "url": u,
+                                     "outlet": text(n, "ht:news_item_source")})
+                out.append({
+                    "source": "trends",
+                    "topic": q,
+                    "key": q,
+                    "views": 0,
+                    "spike": 3.0,          # a trend is by definition today's
+                    "spike_why": f"trending in {geo}",
+                    "geo": geo,
+                    "detail": "",
+                    "news": news,
+                    "picture": text(item, "ht:picture"),
+                    "url": news[0]["url"] if news else "",
+                })
+                got = True
+            if got:
+                break
+        notes.append(f"{geo}: {'ok' if got else 'unreachable'}")
+    return out, notes
 
 
 def enrich_wikipedia(items: list[dict], pause: float = 0.35) -> None:
@@ -458,7 +543,11 @@ def src_trend_phrases() -> tuple[set[str], list[str]]:
 
 # ------------------------------------------------------------------ scoring
 
-WEIGHT = {"wikipedia": 3.0, "reddit/til": 3.5, "reddit/eli5": 3.0, "hn": 2.0}
+# Trends has priority: a surviving trend topic should always outrank an
+# evergreen one. The other sources fill the day, which on the observed
+# yield (about four of forty trends survive) is most of it.
+WEIGHT = {"trends": 6.0, "reddit/til": 3.5, "wikipedia": 3.0,
+          "reddit/eli5": 3.0, "hn": 2.0}
 
 
 def hook_line(subject: str, is_person: bool) -> str:
@@ -527,6 +616,8 @@ def score(it: dict, trend_phrases: set[str]) -> float:
         it["trending_on"] = sorted(hits)[:3]
     if it.get("historical"):
         s += 1.2
+    # What makes a topic today's rather than merely popular.
+    s += float(it.get("spike") or 0.0)
     # A multi-word subject carries the hook better than a bare noun:
     # "DAYLIGHT SAVING TIME IS NOT WHAT YOU THINK" works, "LAUNCH" does not.
     n = len(it["topic"].split())
@@ -718,11 +809,18 @@ def gather(wiki_limit: int = 0, enrich: bool = True) -> dict:
         notes.append(f"reddit FAILED {type(exc).__name__}")
 
     try:
+        got, tnotes = src_trend_topics()
+        items += got
+        notes.append(f"trends {len(got)} topics ({'; '.join(tnotes)})")
+    except Exception as exc:
+        notes.append(f"trend topics FAILED {type(exc).__name__}")
+
+    try:
         phrases, _ = src_trend_phrases()
-        notes.append(f"trends {len(phrases)} phrases")
+        notes.append(f"{len(phrases)} trend phrases for boosting")
     except Exception as exc:
         phrases = set()
-        notes.append(f"trends FAILED {type(exc).__name__}")
+        notes.append(f"trend phrases FAILED {type(exc).__name__}")
 
     if enrich:
         wiki = [i for i in items if i["source"] == "wikipedia"]

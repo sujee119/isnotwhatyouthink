@@ -118,6 +118,18 @@ def widen(item: dict, want: int = 8) -> list[dict]:
             sources.append({"kind": "origin", "title": item["topic"],
                             "url": origin, "text": text})
 
+    # 2b. A trend topic arrives with its own news links already. Use them
+    # before searching: they are the outlets Google associated with this
+    # exact query, so they are closer to the subject than a fresh search.
+    for link in (item.get("news") or []):
+        if len(sources) >= want:
+            break
+        text = fetch_article(link["url"])
+        if len(text.split()) < MIN_WORDS:
+            continue
+        sources.append({"kind": "trend-news", "title": link["title"],
+                        "url": link["url"], "text": text})
+
     # 3. News coverage of the subject.
     seen_outlets = {s.get("url", "") and domain_of(s["url"])
                     for s in sources}
