@@ -2,33 +2,44 @@
   "slug": "20261019-leap-second",
   "subject": "Leap second",
   "hook": "LEAP SECOND IS NOT WHAT YOU THINK",
-  "angle": "Leap seconds are not added because the Earth is slowing down. Between 1972 and 2016, the Earth's rotation actually sped up overall, yet 27 leap seconds were added simply because each day was still slightly longer than an exact 86,400 atomic seconds.",
+  "angle": "Leap seconds are being eliminated entirely: after adding 27 seconds to civil time between 1972 and 2016, international authorities voted to abandon the disruptive practice and let atomic clocks drift up to a full hour away from solar time.",
   "angle_verdict": "agree",
   "angle_support": [
-    "It is a mistake, however, to consider leap seconds as indicators of a slowing of Earth's rotation rate; more properly, they are indicators of the accumulated difference between atomic time and time measured by Earth rotation.",
-    "The plot at the top of this section shows that in 1972 the average length of day was approximately 86400.003 seconds and in 2016 it was approximately 86400.001 seconds, indicating an overall increase in Earth's rotation rate over that time period."
+    "In total, 27 leap seconds were added to UTC, with the final occurring on 31 December 2016; thus the difference between UTC and TAI has been, since January 2017, 37 seconds.",
+    "On 15 October 2026, the General Conference on Weights and Measures (CGPM) voted to discontinue the addition or subtraction of future leap seconds with effect from 20 May 2027, and to increase the limit on maximum permitted variance to one hour."
   ],
   "is_person": false,
   "topic_source": "wikipedia",
   "trending_on": [],
-  "title": "Why Leap Seconds Don't Mean Earth Is Slowing Down",
-  "description": "Most people assume leap seconds are added because Earth's rotation is steadily slowing. In reality, our planet actually spun faster over the decades leap seconds were introduced. The adjustment exists only because our atomic definition of a day is slightly shorter than a solar one.",
+  "title": "Why Timekeepers Voted to Kill the Leap Second",
+  "description": "For decades, global standards inserted occasional corrections to synchronize atomic time with our planet's rotation. Software disruptions have prompted international authorities to abandon the system, allowing modern clocks to diverge from solar noon.",
   "tags": [
     "leap second",
     "atomic clock",
-    "earth rotation",
-    "physics",
-    "timekeeping"
+    "timekeeping",
+    "utc",
+    "physics"
   ],
-  "narration": "LEAP SECOND IS NOT WHAT YOU THINK You picture our planet grinding to a halt, forcing us to pause our clocks. But between 1972 and 2016, Earth's rotational spin actually accelerated overall. Yet timekeepers still inserted twenty-seven leap seconds. That is because an average solar day remained roughly one to three milliseconds longer than exactly eighty-six thousand four hundred atomic seconds. Even while accelerating, that surplus kept accumulating. We were never measuring planetary fatigue, just an ancient, slightly oversized day.",
-  "built_at": "2026-10-19T12:52:14.987493+00:00",
-  "status": "rendered",
+  "narration": "LEAP SECOND IS NOT WHAT YOU THINK You picture clocks eternally tied to the sun overhead. But pausing digital networks for Earth's wobbling spin caused too much chaos, so officials decided to abandon the fix. From 1972 through 2016, authorities injected twenty-seven extra ticks into civil time to track solar noon. Now, they have voted to stop entirely, allowing atomic readings to drift by up to a full hour. Human schedules are officially leaving the sun behind.",
+  "built_at": "2026-10-19T13:19:46.849625+00:00",
+  "status": "published",
   "sources": [
     {
       "kind": "wikipedia",
       "url": "https://en.wikipedia.org/wiki/Leap_second"
     }
   ],
-  "credits": "Image credits:\n- Atomic Fountain by jurvetson (CC BY) via Openverse\n- False Color View of Mercury (8497942353).png by NASA Goddard Space Flight Cent (Public domain) via Wikimedia Commons\n- Beautiful Face of Vintage French Wall Clock by YourCastlesDecor (CC BY) via Openverse\n- Saharan dust off western Europe by NASA Goddard Photo and Video (CC BY) via Openverse\n- Vintage Timex Men's Electronic LED Watch, Red Fa by France1978 (CC BY-SA) via Openverse\n- Sunset from Ocean City (#1) by Tony Fischer Photography (CC BY) via Openverse\n- Sunday Morning by MarLeah Joy (CC BY) via Openverse\n- Atomic Clock006.jpg by National Institute of Standard (Public domain) via Wikimedia Commons\n- Hourglass by Jamiesrabbits (CC BY) via Openverse\n- Royal Observatory Greenwich - Altazimuth Pavilio by ell brown (CC BY) via Openverse\n- Lincoln 06-10-2012 by Karen Roe (CC BY) via Openverse",
-  "duration": 29.522982
+  "credits": "Image credits:\n- Mk. 1 caesium clock ScienceMuseum (20845609130). by Richard Ash (CC BY-SA 2.0) via Wikimedia Commons\n- Tempus Batriceseiae Est by Kevan (CC BY) via Openverse\n- Server Rooms by oosp (CC BY-SA) via Openverse\n- Earth - Global Elevation Model with Satellite Im by Kevin M. Gill (CC BY) via Openverse\n- Earth - Global Elevation Model with Satellite Im by Kevin M. Gill (CC BY) via Openverse\n- Brian T.English Receiving Award of £120 for his  by stmunchins (CC BY) via Openverse\n- Digital timer png sticker, object by unknown (CC0) via Openverse\n- Photograph Contact Sheets from March 4, 9-12, 14 by Clinton White House (Public domain) via Wikimedia Commons\n- pocketwatch play by GollyGforce - Living My Worst  (CC BY) via Openverse\n- Lower Manhattan from Jersey City November 2014 p by King of Hearts (CC BY-SA 3.0) via Wikimedia Commons",
+  "duration": 26.3,
+  "yt_tags": [
+    "leap second",
+    "atomic clock",
+    "timekeeping",
+    "utc",
+    "physics",
+    "shorts"
+  ],
+  "youtube_id": "Pi2sRE3CcAs",
+  "watch_url": "https://youtube.com/shorts/Pi2sRE3CcAs",
+  "thumbnail_note": "403 -- the channel is not phone-verified, so custom thumbnails are not allowed yet"
 }
