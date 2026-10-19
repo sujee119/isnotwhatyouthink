@@ -1,0 +1,28 @@
+{
+  "slug": "20261019-heraldic-hatching",
+  "subject": "Heraldic hatching",
+  "hook": "HERALDIC HATCHING IS NOT WHAT YOU THINK",
+  "angle": "Engravers invented a standardized visual code of lines and dots so black-and-white prints could convey full heraldic colors.",
+  "is_person": false,
+  "topic_source": "wikipedia",
+  "trending_on": [],
+  "title": "Why Old Shields Are Covered in Secret Dots and Lines",
+  "description": "Before color printing existed, artists needed a way to display family crests accurately in monochrome. Here is how engravers encoded full heraldic colors into tiny engraved patterns.",
+  "tags": [
+    "heraldry",
+    "engraving",
+    "history",
+    "printmaking",
+    "symbols"
+  ],
+  "narration": "HERALDIC HATCHING IS NOT WHAT YOU THINK You picture decorative shading drawn across an antique coat of arms. But those fine scratches were never intended to show shadow. They were a precise method of painting without paint. Seventeenth-century copperplate printmakers could not affordably reproduce tinctures. So craftsmen devised an exact visual cipher. Distinct patterns of horizontal bars, vertical dashes, and speckles told readers whether a shield was red, azure, or gold. Every patterned line was secretly broadcasting a specific brilliant hue.",
+  "built_at": "2026-10-19T11:45:20.308016+00:00",
+  "status": "rendered",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Hatching_(heraldry)"
+    }
+  ],
+  "duration": 29.856315
+}

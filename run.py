@@ -74,7 +74,8 @@ def cmd_plan(args) -> int:
 
 
 def cmd_build(args) -> int:
-    from core import gate, plan, pool, script as scriptmod, topic
+    from core import angle as anglemod, gate, plan, pool
+    from core import script as scriptmod, topic
 
     slot = int(getattr(args, "slot", 0) or 0)
     go, why = plan.should_build(slot)
@@ -108,12 +109,27 @@ def cmd_build(args) -> int:
 
     for item in approved:
         print(f"[4/7] topic: {item['subject']}  ({item['hook']})")
-        print(f"      angle: {item['angle'][:90]}")
         sources = topic.widen(item)
         print(f"      sources: {topic.describe(sources) or 'none'}")
         if not sources:
             print("      ! no readable sources; next topic")
             continue
+
+        # The angle is derived from the sources, never before them. The
+        # gate approves the subject on safety; it has read nothing, so an
+        # angle from it is recollection and can contradict the evidence.
+        try:
+            found = anglemod.derive(item["subject"], sources)
+        except anglemod.NoAngle as exc:
+            print(f"      ! no angle: {exc}")
+            continue
+        item["angle"] = found["angle"]
+        item["angle_verdict"] = found["verdict"]
+        print(f"      sources {found['verdict']}, "
+              f"confidence {found['confidence']:.1f}")
+        print(f"      angle: {found['angle'][:88]}")
+        if found.get("note"):
+            print(f"      note: {found['note'][:88]}")
 
         print("[5/7] script")
         try:
@@ -130,6 +146,8 @@ def cmd_build(args) -> int:
             "subject": item["subject"],
             "hook": item["hook"],
             "angle": item["angle"],
+            "angle_verdict": item.get("angle_verdict", ""),
+            "angle_support": found["support"],
             "is_person": item.get("is_person", False),
             "topic_source": item["source"],
             "trending_on": item.get("trending_on", []),
@@ -145,7 +163,8 @@ def cmd_build(args) -> int:
 
         print("[6/7] render")
         try:
-            out = _render(sc, slug)
+            out, credits = _render(sc, slug)
+            manifest["credits"] = credits
         except Exception as exc:
             manifest["status"] = "failed"
             manifest["last_error"] = f"{type(exc).__name__}: {exc}"[:400]
@@ -174,9 +193,16 @@ def cmd_build(args) -> int:
     return NO_STORY
 
 
-def _render(sc, slug: str) -> Path:
+def _render(sc, slug: str) -> tuple[Path, str]:
     """Same render path as the reels pipeline, which is proven -- only the
-    cover text and the reveal sound differ."""
+    cover text and the reveal sound differ.
+
+    Returns (video, credits). The credits are not optional: Openverse and
+    Wikimedia Commons serve CC-BY and CC-BY-SA images, which require
+    attribution. Using them in a monetised video without it breaches the
+    licence, and an earlier version of this function silently dropped
+    them.
+    """
     from core import captions, render, tts, visuals
     from core.visuals import Shot
 
@@ -200,15 +226,20 @@ def _render(sc, slug: str) -> Path:
                 for i, s in enumerate(shots))
     print(f"      imagery: {found}/{len(shots)} found")
 
+    credits = visuals.credits_block(shots)
+    attributed = sum(1 for s in shots if s.credit)
+    print(f"      attribution: {attributed} image(s) credited")
+
     captions.build_ass(words, workdir / "captions.ass")
     sequence = render.build_sequence(shots, workdir)
     music = render.pick_music()
     print(f"      music: {music.name if music else 'none'}")
 
-    return render.finish(
+    video = render.finish(
         sequence, narration, workdir / "captions.ass",
         workdir / "short.mp4",
         music=music, workdir=workdir, cover=sc.cover_text)
+    return video, credits
 
 
 def _duration(path: Path) -> float:
@@ -278,7 +309,14 @@ def _upload(manifest: dict, video: Path) -> int:
     srcs = [s["url"] for s in manifest.get("sources", []) if s.get("url")]
     if srcs:
         desc += "\n\nSources:\n" + "\n".join(srcs[:5])
+    # Attribution before the hashtags, and never trimmed away: CC-BY
+    # requires it, so if anything has to be dropped for length it is the
+    # source links, not the credits.
+    if manifest.get("credits"):
+        desc += "\n\n" + manifest["credits"]
     desc += "\n\n" + _hashtags(tags)
+    if len(desc) > 4900:
+        desc = desc[:4900].rsplit("\n", 1)[0] + "\n\n" + _hashtags(tags)
     manifest["yt_tags"] = tags
 
     try:

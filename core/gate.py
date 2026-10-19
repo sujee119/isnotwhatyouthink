@@ -78,15 +78,21 @@ For every APPROVE, also return:
   (this picks "IS NOT WHO YOU THINK" over "IS NOT WHAT YOU THINK")
 - "subject": the subject as it should appear in the hook, 1-4 words, no
   parentheses, no leading article
-- "angle": one sentence naming the surprise the video is about, specific
-  enough that a writer could not drift off it
-- "confidence": 0-1, how sure you are the angle is true and surprising
+- "confidence": 0-1, how likely it is that there is a real, checkable
+  surprise to be found about this subject
+
+Do NOT supply the angle. You have not read any sources -- only a title and
+a one-line description -- so any specific claim you make here would be
+recollection, and recollection contradicts the sources. That is exactly
+what happened once: this step asserted a date that no source contained,
+and the writer had to refuse. The angle is derived later, from the
+sources themselves. Your job is whether the subject is SAFE and whether
+it is PROMISING, nothing more.
 
 Return ONLY valid JSON, no markdown fence:
 {"verdicts": [
   {"n": 1, "verdict": "approve", "is_person": false,
-   "subject": "Daylight saving time", "angle": "It was never about
-   farmers, who lobbied against it for decades.", "confidence": 0.9},
+   "subject": "Daylight saving time", "confidence": 0.9},
   {"n": 2, "verdict": "reject", "reason": "living person"}
 ]}
 
@@ -169,12 +175,11 @@ def review(candidates: list[dict], limit: int = 20) -> list[dict]:
                                  else "no verdict returned")[:120]
             continue
 
-        angle = " ".join(str(v.get("angle", "")).split()).strip()
         subject = " ".join(str(v.get("subject") or it["subject"]).split())
         subject = re.sub(r"\s*\([^)]*\)\s*", " ", subject).strip(" ,.:;-")
-        if not angle or len(subject.split()) > 6 or not subject:
+        if not subject or len(subject.split()) > 6:
             it["gate"] = "reject"
-            it["gate_reason"] = "approved without a usable subject or angle"
+            it["gate_reason"] = "approved without a usable subject"
             continue
 
         try:
@@ -186,7 +191,8 @@ def review(candidates: list[dict], limit: int = 20) -> list[dict]:
         it["subject"] = subject
         it["is_person"] = bool(v.get("is_person", False))
         it["hook"] = hook_for(subject, it["is_person"])
-        it["angle"] = angle
+        # No angle here by design -- core.angle derives it from the
+        # sources once they have been read.
         it["confidence"] = conf
         it["score"] = it.get("score", 0.0) + 2.0 * conf
         approved.append(it)
