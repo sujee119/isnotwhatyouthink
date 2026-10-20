@@ -1,0 +1,48 @@
+{
+  "slug": "20261020-la-jamais-contente",
+  "subject": "La Jamais Contente",
+  "hook": "LA JAMAIS CONTENTE IS NOT WHAT YOU THINK",
+  "angle": "La Jamais Contente was not a gas-guzzling invention, but an electric vehicle that reached over 100 km/h, highlighting that electric cars were the speed leaders before combustion engines took over.",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "It was a Belgian electric vehicle with a light-alloy torpedo-shaped bodywork and batteries.",
+    "After this exploit, the gasoline-fuelled combustion engine would increasingly supplant electric technology for the next century."
+  ],
+  "is_person": false,
+  "topic_source": "reddit/til",
+  "trending_on": [],
+  "title": "The 1899 Electric Car That Broke Every Speed Record",
+  "description": "Before gasoline engines dominated the industry, electric vehicles set the standard for performance. La Jamais Contente proved that battery power could reach historic speeds at the dawn of the automotive age.",
+  "tags": [
+    "electric vehicles",
+    "automotive history",
+    "speed record",
+    "1899",
+    "engineering"
+  ],
+  "narration": "LA JAMAIS CONTENTE IS NOT WHAT YOU THINK You picture an early, slow, gas-powered relic. It was actually a silent, electric speed machine that proved electricity could dominate the road long before combustion took over. In 1899, this torpedo-shaped vehicle smashed the hundred kilometer per hour barrier. Built from an aluminum alloy called partinium, its dual motors produced sixty-eight horsepower, pushing it to a verified record of over one hundred five kilometers per hour. The true pioneer of high speed was powered by electricity alone.",
+  "built_at": "2026-10-20T01:57:15.510938+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- 1926 Lancia Lambda Torpedo - Front.jpg by Shaunak Modi (CC BY-SA 4.0) via Wikimedia Commons\n- Water wheel-driven gasoline-making perpetual-mot by Darron Birgenheier (CC BY-SA) via Openverse\n- DIY Automatic Wire Stripper by oomlout (CC BY-SA) via Openverse\n- Arduino PID Motor Control by Drew & Mithi (CC BY) via Openverse\n- Acid Rain Christmas Tree by dvanzuijlekom (CC BY-SA) via Openverse\n- Brushed Metal iPhone Background by Patrick Hoesly (CC BY) via Openverse\n- Electric pencil! by Elsie esq. (CC BY) via Openverse\n- Stepper motor tutorial breadboard step by jedibfa (CC BY) via Openverse\n- fuel guage by Sean MacEntee (CC BY) via Openverse\n- Chiriaco Summit Classic Car Garage - No Service  by kevin dooley (CC BY) via Openverse",
+  "duration": 28.966667,
+  "yt_tags": [
+    "electric vehicles",
+    "automotive history",
+    "speed record",
+    "1899",
+    "engineering",
+    "la jamais contente",
+    "shorts"
+  ],
+  "youtube_id": "q6qdBoyYQ-4",
+  "watch_url": "https://youtube.com/shorts/q6qdBoyYQ-4",
+  "thumbnail": "set"
+}
