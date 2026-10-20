@@ -1,0 +1,47 @@
+{
+  "slug": "20261020-metric-system",
+  "subject": "Metric system",
+  "hook": "METRIC SYSTEM IS NOT WHAT YOU THINK",
+  "angle": "Until May 2019, the metric system's baseline for mass was not an immutable physical constant, but a single man-made metal cylinder in France that was slowly deteriorating and had diverged by 50 micrograms from its worldwide copies.",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "Today, all base units are defined by physical constants – not by prototypes in the form of physical objects, as they were in the past.",
+    "It became apparent that either the IPK or the replicas or both were deteriorating, and are no longer comparable: they had diverged by 50 μg since fabrication, so figuratively, the accuracy of the kilogram was no better than 5 parts in a hundred million or a relative accuracy of 5×10−8."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Why the Kilogram Actually Changed in 2019",
+  "description": "For over a century, the metric baseline for mass depended on a single physical cylinder stored in France. Here is how tiny microscopic changes in that metal forced scientists to redefine the kilogram.",
+  "tags": [
+    "metric system",
+    "kilogram",
+    "physics",
+    "science history",
+    "measurement"
+  ],
+  "narration": "METRIC SYSTEM IS NOT WHAT YOU THINK You picture modern measurement anchored to pure, unchanging laws of nature. Yet until recently, the world's standard for mass was tied to something far more vulnerable: a solitary, manufactured hunk of metal. Until May 2019, a kilogram was officially whatever a platinum-iridium cylinder in a French laboratory weighed. But the artefact was steadily deteriorating, ultimately drifting by fifty micrograms apart from copies distributed worldwide. Global precision rested entirely on an object that was quietly changing.",
+  "built_at": "2026-10-20T22:46:25.746566+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- 45/366 by ♥ jules (CC BY-SA) via Openverse\n- Wikipedia - Art Historian by mikeedesign (CC BY) via Openverse\n- Bird on Wire by Kilworth-Simmonds (CC BY-SA) via Openverse\n- Harley-Davidson by Patrick Theiner (CC BY-SA) via Openverse\n- 1950 Your New Home by SportSuburban (CC BY) via Openverse\n- Cleanroom (9148358991).jpg by UCL Mathematical and Physical  (CC BY 2.0) via Wikimedia Commons\n- Li Island by oakridgelabnews (CC BY) via Openverse\n- 2000 Squier Precision Special 5-string bass guit by Tim Walker from United Kingdom (CC BY 2.0) via Wikimedia Commons\n- World's Watch over Time by Thoth, God of Knowledge (CC BY) via Openverse\n- hanging in time by GollyGforce - Living My Worst  (CC BY) via Openverse",
+  "duration": 27.966667,
+  "yt_tags": [
+    "metric system",
+    "kilogram",
+    "physics",
+    "science history",
+    "measurement",
+    "shorts"
+  ],
+  "youtube_id": "Ggfp5Alg654",
+  "watch_url": "https://youtube.com/shorts/Ggfp5Alg654",
+  "thumbnail": "set"
+}
