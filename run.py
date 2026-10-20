@@ -104,8 +104,10 @@ def cmd_build(args) -> int:
     # observed yield that is most days.
     ranked = sorted(found["short"] + found["check"],
                     key=lambda i: -i.get("score", 0.0))
-    trend_slots = [i for i in ranked if i["source"] == "trends"][:12]
-    other_slots = [i for i in ranked if i["source"] != "trends"][:8]
+    trend_slots = [i for i in ranked
+                   if i["source"] == "trends"][:config.GATE_TREND_SLOTS]
+    other_slots = [i for i in ranked
+                   if i["source"] != "trends"][:config.GATE_OTHER_SLOTS]
     candidates = trend_slots + other_slots
     print(f"      to the gate: {len(trend_slots)} trend, "
           f"{len(other_slots)} other")
@@ -123,7 +125,7 @@ def cmd_build(args) -> int:
         print(f"      ! {exc}")
         print("      the gate decides what may be built, so nothing is built")
         return 1
-    print(f"      {len(approved)} approved of {min(len(candidates), 20)} asked")
+    print(f"      {len(approved)} approved of {len(candidates)} asked")
     if not approved:
         return NO_STORY
 
@@ -132,7 +134,12 @@ def cmd_build(args) -> int:
         sources = topic.widen(item)
         print(f"      sources: {topic.describe(sources) or 'none'}")
         if not sources:
+            # Burn it. mark_used() otherwise only runs after a successful
+            # build, so this subject wins the gate again on every single
+            # run and blocks the day -- which is exactly what "Heraldic
+            # hatching" did. The pool offers 300+ candidates a run.
             print("      ! no readable sources; next topic")
+            pool.mark_used(item["topic"])
             continue
 
         # The angle is derived from the sources, never before them. The
@@ -144,6 +151,9 @@ def cmd_build(args) -> int:
         # candidate, not abandon every remaining one.
         except (anglemod.NoAngle, OSError) as exc:
             print(f"      ! no angle: {exc}")
+            # A real verdict burns the subject; a network blip does not.
+            if isinstance(exc, anglemod.NoAngle):
+                pool.mark_used(item["topic"])
             continue
         item["angle"] = found["angle"]
         item["angle_verdict"] = found["verdict"]
@@ -159,6 +169,9 @@ def cmd_build(args) -> int:
         # OSError too, for the same reason as the angle step above.
         except (scriptmod.ScriptRefused, OSError) as exc:
             print(f"      ! {exc}")
+            # A real refusal burns the subject; a network blip does not.
+            if isinstance(exc, scriptmod.ScriptRefused):
+                pool.mark_used(item["topic"])
             continue
         print(f"      {sc.word_count()} words, {len(sc.shots)} shots")
         print(f"      title: {sc.title}")

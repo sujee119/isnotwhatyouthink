@@ -72,6 +72,16 @@ USED_FILE = STATE_DIR / "used.json"
 # The regex layer ranks and hard-drops; it does not clear anything.
 GATE_ENABLED = (os.getenv("GATE_ENABLED") or "1") not in ("0", "false", "False")
 
+# How many candidates reach the gate, by source. The gate rejects nearly
+# every trend by design -- trending subjects are people, deaths, sport
+# and politics -- so the NON-trend slots are what actually fill the day.
+# Eight of them yielded one approval out of twenty on 19 Oct; that one
+# failed on sources and the channel produced nothing. The gate is a
+# single batched call, so asking about more subjects costs one larger
+# call, not more calls.
+GATE_TREND_SLOTS = int(os.getenv("GATE_TREND_SLOTS") or 12)
+GATE_OTHER_SLOTS = int(os.getenv("GATE_OTHER_SLOTS") or 32)
+
 SCRIPT_PROVIDER = os.getenv("SCRIPT_PROVIDER") or "gemini"
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 GEMINI_MODEL = os.getenv("GEMINI_MODEL") or "gemini-flash-latest"
