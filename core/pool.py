@@ -44,9 +44,15 @@ WIKI_SUMMARY = "https://en.wikipedia.org/api/rest_v1/page/summary/{title}"
 # know: roughly ten thousand subjects, which is precisely the property
 # the hook needs. "People" is left out -- the gate rejects anyone not
 # dead a century, so fetching them wastes gate slots.
+# "Level 4" with a SPACE. "Level/4" exists only as a redirect, and
+# action=parse returns the REDIRECT's own links unless redirects=1 is
+# set -- four Wikipedia-namespace links and no articles, which read as
+# "no vital-articles list". plnamespace is not a parameter of
+# action=parse (the API says so in a warning); ns filtering happens in
+# _famous_list instead.
 VITAL_API = ("https://en.wikipedia.org/w/api.php?action=parse"
-             "&page=Wikipedia%3AVital%20articles%2FLevel%2F4%2F{sub}"
-             "&prop=links&plnamespace=0&format=json&formatversion=2")
+             "&page=Wikipedia%3AVital%20articles%2FLevel%204%2F{sub}"
+             "&prop=links&redirects=1&format=json&formatversion=2")
 VITAL_SUBPAGES = ("History", "Geography", "Arts", "Philosophy_and_religion",
                   "Everyday_life", "Society_and_social_sciences",
                   "Biology_and_health_sciences", "Physical_sciences",
