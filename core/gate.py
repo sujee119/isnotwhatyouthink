@@ -133,10 +133,9 @@ def _ask(candidates: list[dict]) -> dict:
             bits.append(f"   the regex layer flagged: {it['why']}")
         lines.append("\n".join(bits))
 
-    provider = config.SCRIPT_PROVIDER
-    fn = llm.PROVIDERS.get(provider)
-    if fn is None:
-        raise GateUnavailable(f"no such LLM provider: {provider}")
+    # The whole chain, not one provider. A single Gemini 503 used to
+    # end the run right here.
+    fn = llm.call
 
     raw = fn(SYSTEM, "CANDIDATES\n\n" + "\n\n".join(lines))
     raw = re.sub(r"^```(?:json)?|```$", "", (raw or "").strip(),

@@ -93,6 +93,14 @@ GATE_FAMOUS_SLOTS = int(os.getenv("GATE_FAMOUS_SLOTS") or 16)
 HOOK_FAMILIAR_MIN = float(os.getenv("HOOK_FAMILIAR_MIN") or 0.45)
 
 SCRIPT_PROVIDER = os.getenv("SCRIPT_PROVIDER") or "gemini"
+# A CHAIN, like TTS_PROVIDERS. Asking one provider meant a Gemini 503
+# ended the run outright on 20 Oct; narration never had that problem
+# because it has always had a chain to fall through. SCRIPT_PROVIDER
+# still works and leads the chain, so nothing existing changes.
+# ollama costs nothing to keep here -- on a runner it refuses the
+# connection instantly, and on a machine running Ollama it just works.
+SCRIPT_PROVIDERS = (os.getenv("SCRIPT_PROVIDERS")
+                    or f"{SCRIPT_PROVIDER},groq,ollama")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 GEMINI_MODEL = os.getenv("GEMINI_MODEL") or "gemini-flash-latest"
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")

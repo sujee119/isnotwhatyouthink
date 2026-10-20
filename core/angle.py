@@ -172,9 +172,7 @@ def derive(subject: str, sources: list[dict]) -> dict:
     if not sources or words < 300:
         raise NoAngle(f"only {words} words across {len(sources)} source(s)")
 
-    fn = llm.PROVIDERS.get(config.SCRIPT_PROVIDER)
-    if fn is None:
-        raise NoAngle(f"no such provider: {config.SCRIPT_PROVIDER}")
+    fn = llm.call          # the whole provider chain, not one name
 
     raw = fn(SYSTEM, _user(subject, sources))
     raw = re.sub(r"^```(?:json)?|```$", "", (raw or "").strip(),

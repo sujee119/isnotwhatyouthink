@@ -221,9 +221,7 @@ def generate(item: dict, sources: list[dict], attempts: int = 3) -> Script:
     user = _user_prompt(item, sources)
     source_text = " ".join(s["text"] for s in sources)
 
-    fn = llm.PROVIDERS.get(config.SCRIPT_PROVIDER)
-    if fn is None:
-        raise ScriptRefused(f"no such provider: {config.SCRIPT_PROVIDER}")
+    fn = llm.call          # the whole provider chain, not one name
 
     last = ""
     for attempt in range(1, attempts + 1):

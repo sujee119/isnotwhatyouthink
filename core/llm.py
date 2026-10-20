@@ -101,11 +101,13 @@ def _call_gemini(system: str, user: str) -> str:
                 # entire slot and the day's video -- which is what the
                 # 20 Oct 09:33 run did. core/tts.py has waited this out
                 # for the same reason all along; this path never did.
-                if exc.code == 429:
+                if exc.code == 429 or 500 <= exc.code < 600:
                     if attempt < 3:
                         wait = 25 * attempt
-                        print(f"  ! gemini rate-limited (429), waiting "
-                              f"{wait}s -- attempt {attempt} of 3")
+                        why = ("rate-limited (429)" if exc.code == 429
+                               else f"returned {exc.code}, its end not ours")
+                        print(f"  ! gemini {why}, waiting {wait}s "
+                              f"-- attempt {attempt} of 3")
                         time.sleep(wait)
                         continue
                     last = exc
@@ -165,3 +167,46 @@ def _call_ollama(system: str, user: str) -> str:
 
 
 PROVIDERS = {"gemini": _call_gemini, "groq": _call_groq, "ollama": _call_ollama}
+
+
+class AllProvidersFailed(OSError):
+    """Every provider in the chain failed.
+
+    OSError on purpose: each failure was a failed network call, and
+    run.py already catches OSError around the gate, the angle step and
+    the script step. So this needs no new handler -- the gate fails
+    closed and the other two skip the candidate, which is the correct
+    behaviour for a provider outage.
+    """
+
+
+def call(system: str, user: str) -> str:
+    """Ask each provider in turn until one answers.
+
+    Narration has worked this way since the beginning:
+    TTS_PROVIDERS is "gemini,azure,edge,gtts,espeak" and speak() walks
+    it, which is why a dead voice service has never cost a video. The
+    script and the gate asked a single provider, so Gemini returning
+    503 on 20 Oct stopped all three channels at once.
+
+    Same signature as a provider function, so callers that already do
+    fn(system, user) need no other change.
+    """
+    names = [n.strip() for n in config.SCRIPT_PROVIDERS.split(",") if n.strip()]
+    problems: list[str] = []
+    for name in names:
+        fn = PROVIDERS.get(name)
+        if fn is None:
+            problems.append(f"{name}: no such provider")
+            continue
+        try:
+            out = fn(system, user)
+        except Exception as exc:
+            problems.append(f"{name}: {type(exc).__name__} {str(exc)[:80]}")
+            print(f"  ! {name} unavailable, trying the next provider")
+            continue
+        if name != names[0]:
+            print(f"  ! answered by '{name}', not '{names[0]}'")
+        return out
+    raise AllProvidersFailed(
+        "no script provider answered:\n  " + "\n  ".join(problems))
