@@ -270,7 +270,10 @@ _STOP_AT = {
 
 def hook_subject(topic: str, source: str) -> str:
     """A 1-3 word subject the template can carry."""
-    if source == "wikipedia":
+    # "famous" items are vital-article TITLES, so they take the title
+    # path. The free-text path below cuts at the first stop-word, and
+    # "of" is one -- which turned Statue of Liberty into "Statue".
+    if source in ("wikipedia", "famous"):
         # "Street Fighter (2026 film)" -> "Street Fighter". Wikipedia's
         # disambiguators are for Wikipedia, not for a hook.
         return re.sub(r"\s*\([^)]*\)\s*$", "", topic).strip() or topic
