@@ -117,7 +117,11 @@ def cmd_build(args) -> int:
 
     print("[3/7] gate")
     try:
-        approved = gate.review(candidates)
+        # limit= is load-bearing: review() defaults to limit=20 and
+        # slices candidates[:limit], so without it the 32 non-trend
+        # candidates assembled above are truncated straight back to 8
+        # and widening the slots changes nothing at all.
+        approved = gate.review(candidates, limit=len(candidates))
     # OSError too: a network timeout talking to the gate IS the gate
     # being unavailable. Without it a transient blip raised past this
     # handler and ended the run instead of failing closed.

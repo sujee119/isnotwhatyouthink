@@ -91,15 +91,32 @@ def _call_gemini(system: str, user: str) -> str:
 
     last = None
     for model in models[:6]:
-        try:
-            return _gemini_once(model, system, user)
-        except urllib.error.HTTPError as exc:
-            if exc.code != 404:
-                raise
-            last = exc
-            print(f"  ! model '{model}' not available, trying next")
-            if model in _GEMINI_MODEL_CACHE:
-                _GEMINI_MODEL_CACHE.remove(model)
+        for attempt in (1, 2, 3):
+            try:
+                return _gemini_once(model, system, user)
+            except urllib.error.HTTPError as exc:
+                # 429 is the free tier's per-minute cap, and it is
+                # transient. The gate is ONE call covering the whole
+                # shortlist, so losing it to a momentary 429 costs the
+                # entire slot and the day's video -- which is what the
+                # 20 Oct 09:33 run did. core/tts.py has waited this out
+                # for the same reason all along; this path never did.
+                if exc.code == 429:
+                    if attempt < 3:
+                        wait = 25 * attempt
+                        print(f"  ! gemini rate-limited (429), waiting "
+                              f"{wait}s -- attempt {attempt} of 3")
+                        time.sleep(wait)
+                        continue
+                    last = exc
+                    break
+                if exc.code != 404:
+                    raise
+                last = exc
+                print(f"  ! model '{model}' not available, trying next")
+                if model in _GEMINI_MODEL_CACHE:
+                    _GEMINI_MODEL_CACHE.remove(model)
+                break
     raise last or RuntimeError("no usable Gemini model")
 
 
