@@ -513,19 +513,60 @@ def cmd_ab(args) -> int:
     return 0
 
 
+def cmd_hours_since_build(args) -> int:
+    """Hours since the newest short was built, or 999 if there are none.
+
+    The watchdog's only question. Printed, not returned, so the workflow
+    can compare it in shell.
+    """
+    newest = None
+    for mf in PENDING.glob("*.json"):
+        try:
+            ts = json.loads(mf.read_text()).get("built_at")
+            when = dt.datetime.fromisoformat(ts) if ts else None
+        except (json.JSONDecodeError, OSError, TypeError, ValueError):
+            continue
+        if when and (newest is None or when > newest):
+            newest = when
+    if newest is None:
+        print("999")
+        return 0
+    if newest.tzinfo is None:
+        newest = newest.replace(tzinfo=dt.timezone.utc)
+    print(f"{(dt.datetime.now(dt.timezone.utc) - newest).total_seconds() / 3600:.1f}")
+    return 0
+
+
+def cmd_alert(args) -> int:
+    """Send a plain Telegram message, so a dead channel is noticed
+    without anyone reading Actions logs."""
+    from core import telegram
+    if not telegram.enabled():
+        print("  telegram not configured, skipping alert")
+        return 0
+    telegram.send_text(args.text)
+    print("  alert sent")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(prog="run.py", description=__doc__)
     sub = ap.add_subparsers(dest="cmd")
 
     for name, fn in (("pool", cmd_pool), ("plan", cmd_plan),
                      ("build", cmd_build), ("doctor", cmd_doctor),
-                     ("list", cmd_list), ("ab", cmd_ab)):
+                     ("list", cmd_list), ("ab", cmd_ab),
+                     ("hours-since-build", cmd_hours_since_build)):
         p = sub.add_parser(name)
         p.set_defaults(fn=fn)
         if name == "build":
             p.add_argument("--slot", type=int, default=0,
                            help="cron slot 1..SLOTS; 0 means build regardless")
             p.add_argument("--dry-run", action="store_true")
+
+    a = sub.add_parser("alert")
+    a.add_argument("text")
+    a.set_defaults(fn=cmd_alert)
 
     args = ap.parse_args()
     if not getattr(args, "fn", None):

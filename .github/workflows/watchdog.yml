@@ -1,0 +1,75 @@
+name: Watchdog
+
+# Every other failure mode here reports itself. This one cannot: if the
+# channel quietly builds nothing -- a dropped schedule, a rate-limited
+# gate, every candidate rejected -- the run still exits 0 and silence
+# means both "fine" and "dead for a day".
+#
+# The reels repos have had this for a while. This channel did not, which
+# is why it sat producing nothing on 19 Oct without anyone noticing.
+#
+# Minute :07 deliberately: the other two repos check at :23 and :53, and
+# three repos checking in the same minute would collide.
+on:
+  schedule:
+    - cron: "7 0 * * *"        # 09:07 Seoul
+    - cron: "7 4 * * *"        # 13:07 Seoul
+    - cron: "7 8 * * *"        # 17:07 Seoul
+    - cron: "7 12 * * *"       # 21:07 Seoul
+    - cron: "7 16 * * *"       # 01:07 Seoul
+    - cron: "7 20 * * *"       # 05:07 Seoul
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write               # to dispatch a catch-up build
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install -q requests
+
+      # 16h, not the reels' 10: only 4-8 of 8 slots post on any given day,
+      # so a run of unchosen slots can legitimately leave a 12h gap.
+      - name: Has this channel built anything?
+        id: check
+        env:
+          MAX_QUIET_HOURS: ${{ vars.MAX_QUIET_HOURS || '16' }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          AGE=$(python -u run.py hours-since-build)
+          echo "last short built ${AGE}h ago (limit ${MAX_QUIET_HOURS}h)"
+          if python -c "import os,sys; sys.exit(0 if float('$AGE') > float(os.environ['MAX_QUIET_HOURS']) else 1)"; then
+            echo "stale=yes" >> "$GITHUB_OUTPUT"
+            python -u run.py alert "No short has been built for ${AGE}h. Starting a catch-up build. If this repeats, check the gate: a rate-limited or over-strict gate approves nothing and the run still exits 0." || true
+          else
+            echo "stale=no" >> "$GITHUB_OUTPUT"
+            echo "healthy, saying nothing"
+          fi
+
+      # Noticing is not enough -- close the gap too. A manual dispatch is
+      # slot 0, which builds regardless of today's chosen slots.
+      - name: Kick a build
+        if: steps.check.outputs.stale == 'yes'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run build.yml --repo "${{ github.repository }}"
+
+      - name: Tell me the watchdog itself broke
+        if: failure() || cancelled()
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python -u run.py alert "Shorts watchdog failed. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
