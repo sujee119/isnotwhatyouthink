@@ -81,6 +81,16 @@ GATE_ENABLED = (os.getenv("GATE_ENABLED") or "1") not in ("0", "false", "False")
 # call, not more calls.
 GATE_TREND_SLOTS = int(os.getenv("GATE_TREND_SLOTS") or 12)
 GATE_OTHER_SLOTS = int(os.getenv("GATE_OTHER_SLOTS") or 32)
+# Famous subjects get their own reserved slots. They are the lane the
+# hook actually works on -- Katana ran 6x the rate of a better story
+# with an unrecognisable name -- so they must not compete with trends
+# for the same allocation.
+GATE_FAMOUS_SLOTS = int(os.getenv("GATE_FAMOUS_SLOTS") or 16)
+
+# Minimum share of viewers who must recognise the hook's subject line.
+# "LA JAMAIS CONTENTE IS NOT WHAT YOU THINK" scores about 0.05 and is
+# the reason this exists. Raise it to be stricter about fame.
+HOOK_FAMILIAR_MIN = float(os.getenv("HOOK_FAMILIAR_MIN") or 0.45)
 
 SCRIPT_PROVIDER = os.getenv("SCRIPT_PROVIDER") or "gemini"
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")

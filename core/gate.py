@@ -60,6 +60,11 @@ without characterising anybody; a nation or a people cannot.
 
 REJECT also, on quality:
 - a film, series, game, album or event release -- traffic without content
+- a dominant present-day tech platform, app or AI product: YouTube,
+  ChatGPT, Instagram and their like. Famous is necessary but not
+  sufficient -- something everybody uses and the press writes about
+  weekly has no hidden thing left to reveal, and the video would be a
+  description of a product
 - a country, state, city or military base as a subject
 - a navigational query: a login page, a score, a schedule, a lottery draw
 - a subject with nothing surprising to say, where the video would be a
@@ -76,8 +81,18 @@ APPROVE only when all of these hold:
 For every APPROVE, also return:
 - "is_person": true only for a long-dead historical figure, false otherwise
   (this picks "IS NOT WHO YOU THINK" over "IS NOT WHAT YOU THINK")
-- "subject": the subject as it should appear in the hook, 1-4 words, no
-  parentheses, no leading article
+- "subject": the name a general viewer RECOGNISES ON SIGHT, 1-4 words,
+  no parentheses, no leading article. This line becomes the hook, and
+  the hook is the whole video: "X IS NOT WHAT YOU THINK" only works if
+  the viewer already holds a belief about X to overturn. Prefer the
+  familiar name over the formally correct one -- "The first electric
+  car", not "La Jamais Contente". Strip qualifiers nobody says aloud:
+  "Ancient Cappadocian language" is "Cappadocian", "Domestic cat" is
+  "Cats". Keep the shortest form that still names the thing.
+- "familiar": 0-1, the share of ordinary viewers who would recognise
+  the subject line you just wrote, without looking it up. Score the
+  NAME, not the topic behind it: "Katana" is 0.9, "La Jamais Contente"
+  is 0.05 even though its story is excellent.
 - "confidence": 0-1, how likely it is that there is a real, checkable
   surprise to be found about this subject
 
@@ -92,7 +107,7 @@ it is PROMISING, nothing more.
 Return ONLY valid JSON, no markdown fence:
 {"verdicts": [
   {"n": 1, "verdict": "approve", "is_person": false,
-   "subject": "Daylight saving time", "confidence": 0.9},
+   "subject": "Daylight saving time", "familiar": 0.95, "confidence": 0.9},
   {"n": 2, "verdict": "reject", "reason": "living person"}
 ]}
 
@@ -181,6 +196,20 @@ def review(candidates: list[dict], limit: int = 20) -> list[dict]:
             it["gate"] = "reject"
             it["gate_reason"] = "approved without a usable subject"
             continue
+
+        # A hook nobody recognises is not a hook. Defaults to 1.0 when
+        # the model omits the field, so an older model degrades to the
+        # old behaviour rather than emptying the pool.
+        try:
+            familiar = float(v.get("familiar", 1.0))
+        except (TypeError, ValueError):
+            familiar = 1.0
+        if familiar < config.HOOK_FAMILIAR_MIN:
+            it["gate"] = "reject"
+            it["gate_reason"] = (f"nobody would recognise "
+                                 f"'{subject}' ({familiar:.2f})")
+            continue
+        it["familiar"] = familiar
 
         try:
             conf = float(v.get("confidence", 0.0))

@@ -104,13 +104,16 @@ def cmd_build(args) -> int:
     # observed yield that is most days.
     ranked = sorted(found["short"] + found["check"],
                     key=lambda i: -i.get("score", 0.0))
+    famous_slots = [i for i in ranked
+                    if i["source"] == "famous"][:config.GATE_FAMOUS_SLOTS]
     trend_slots = [i for i in ranked
                    if i["source"] == "trends"][:config.GATE_TREND_SLOTS]
     other_slots = [i for i in ranked
-                   if i["source"] != "trends"][:config.GATE_OTHER_SLOTS]
-    candidates = trend_slots + other_slots
-    print(f"      to the gate: {len(trend_slots)} trend, "
-          f"{len(other_slots)} other")
+                   if i["source"] not in ("trends", "famous")
+                   ][:config.GATE_OTHER_SLOTS]
+    candidates = famous_slots + trend_slots + other_slots
+    print(f"      to the gate: {len(famous_slots)} famous, "
+          f"{len(trend_slots)} trend, {len(other_slots)} other")
     if not candidates:
         print("      nothing to put to the gate today")
         return NO_STORY
@@ -143,7 +146,7 @@ def cmd_build(args) -> int:
             # run and blocks the day -- which is exactly what "Heraldic
             # hatching" did. The pool offers 300+ candidates a run.
             print("      ! no readable sources; next topic")
-            pool.mark_used(item["topic"])
+            pool.mark_used(item["topic"], item.get("subject", ""))
             continue
 
         # The angle is derived from the sources, never before them. The
@@ -157,7 +160,7 @@ def cmd_build(args) -> int:
             print(f"      ! no angle: {exc}")
             # A real verdict burns the subject; a network blip does not.
             if isinstance(exc, anglemod.NoAngle):
-                pool.mark_used(item["topic"])
+                pool.mark_used(item["topic"], item.get("subject", ""))
             continue
         item["angle"] = found["angle"]
         item["angle_verdict"] = found["verdict"]
@@ -175,7 +178,7 @@ def cmd_build(args) -> int:
             print(f"      ! {exc}")
             # A real refusal burns the subject; a network blip does not.
             if isinstance(exc, scriptmod.ScriptRefused):
-                pool.mark_used(item["topic"])
+                pool.mark_used(item["topic"], item.get("subject", ""))
             continue
         print(f"      {sc.word_count()} words, {len(sc.shots)} shots")
         print(f"      title: {sc.title}")
@@ -231,7 +234,7 @@ def cmd_build(args) -> int:
         rc = _upload(manifest, out)
         _save(manifest["slug"], manifest)
         if rc == 0:
-            pool.mark_used(item["topic"])
+            pool.mark_used(item["topic"], item.get("subject", ""))
             _telegram(f"{manifest['hook']}\n{manifest.get('watch_url','')}")
         return rc
 

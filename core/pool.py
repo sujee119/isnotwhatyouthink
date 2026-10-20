@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import random
 import re
 import sys
 import time
@@ -38,6 +39,18 @@ HT = {"ht": "https://trends.google.com/trending/rss"}
 WIKI_TOP = ("https://wikimedia.org/api/rest_v1/metrics/pageviews/top/"
             "en.wikipedia/all-access/{y}/{m}/{d}")
 WIKI_SUMMARY = "https://en.wikipedia.org/api/rest_v1/page/summary/{title}"
+
+# Wikipedia's own curated list of what an educated reader is expected to
+# know: roughly ten thousand subjects, which is precisely the property
+# the hook needs. "People" is left out -- the gate rejects anyone not
+# dead a century, so fetching them wastes gate slots.
+VITAL_API = ("https://en.wikipedia.org/w/api.php?action=parse"
+             "&page=Wikipedia%3AVital%20articles%2FLevel%2F4%2F{sub}"
+             "&prop=links&plnamespace=0&format=json&formatversion=2")
+VITAL_SUBPAGES = ("History", "Geography", "Arts", "Philosophy_and_religion",
+                  "Everyday_life", "Society_and_social_sciences",
+                  "Biology_and_health_sciences", "Physical_sciences",
+                  "Technology", "Mathematics")
 
 REDDIT_FEEDS = [
     ("til", "https://www.reddit.com/r/todayilearned/top/.rss?t=day"),
@@ -133,7 +146,15 @@ MEDIA_DESC = re.compile(
 # pageviews, so the view bonus promoted them for it. Only a long-dead
 # figure is safe material; a recent death is the worst case on the list,
 # worse than a living person.
-DECEASED = re.compile(r"\((?:c\.\s*)?(\d{3,4})\s*[-–—]\s*(\d{3,4})\)")
+# The second date may carry a word: Wikipedia writes "disappeared",
+# "died", "d." and "c." inside the brackets. Without this, Amelia
+# Earhart's "(1897-disappeared 1937)" matched nothing, so she was not a
+# person (hook said WHAT, not WHO) and -- the part that matters -- a
+# recent death written the same way would skip the DROP entirely.
+DECEASED = re.compile(
+    r"\((?:c\.\s*)?(\d{3,4})\s*[-–—]\s*"
+    r"(?:disappeared\s+|died\s+|d\.\s*|c\.\s*|after\s+|before\s+)?"
+    r"(\d{3,4})\)")
 HISTORICAL_AFTER_YEARS = config.HISTORICAL_AFTER_YEARS
 
 # Nation states, territories and political geography. "UNITED STATES IS
@@ -290,6 +311,65 @@ def _wiki_ranks(day: dt.date) -> dict:
             for i, a in enumerate(arts) if a.get("article")}
 
 
+def _famous_list() -> list[str]:
+    """The vital-articles titles, cached for a month.
+
+    The list changes by a handful of entries a year, so refetching it
+    every run would be ten API calls an hour for nothing.
+    """
+    cache = config.STATE_DIR / "famous.json"
+    try:
+        d = json.loads(cache.read_text())
+        age = (dt.date.today() - dt.date.fromisoformat(d["fetched"])).days
+        if age < 30 and d.get("titles"):
+            return d["titles"]
+    except (OSError, json.JSONDecodeError, KeyError, ValueError):
+        pass
+
+    titles: list[str] = []
+    for sub in VITAL_SUBPAGES:
+        try:
+            data = get_json(VITAL_API.format(sub=sub), timeout=20)
+            titles += [l["title"] for l
+                       in ((data.get("parse") or {}).get("links") or [])
+                       if l.get("ns") == 0 and l.get("title")]
+            time.sleep(0.3)
+        except Exception:
+            continue          # one dead subpage must not cost the source
+    titles = sorted({t for t in titles if t and ":" not in t})
+    if titles:
+        try:
+            cache.write_text(json.dumps(
+                {"fetched": dt.date.today().isoformat(), "titles": titles}))
+        except OSError:
+            pass
+    return titles
+
+
+def src_famous(n: int = 40) -> tuple[list[dict], str]:
+    """Subjects the viewer already has an opinion about.
+
+    "X IS NOT WHAT YOU THINK" needs the viewer to hold a belief about X.
+    src_wikipedia scores famous-but-flat articles at zero by design,
+    which starves this format of exactly the subjects it works best on:
+    Katana ran at 137 views/hour, while La Jamais Contente -- a better
+    story with a name nobody knows -- ran at 22.
+
+    Sampled rather than ranked, because every entry is famous by
+    construction and there is nothing to rank on. The date seed means
+    every run that day draws the same sample without shared state.
+    """
+    titles = _famous_list()
+    if not titles:
+        return [], "no vital-articles list"
+    rnd = random.Random(f"{config.CHANNEL}:famous:{dt.date.today().isoformat()}")
+    picked = rnd.sample(titles, min(n, len(titles)))
+    out = [{"source": "famous", "topic": t.replace("_", " "), "key": t,
+            "views": 0, "rank": 0, "spike": 0.0}
+           for t in picked]
+    return out, f"{len(picked)} sampled from {len(titles)} vital articles"
+
+
 def src_wikipedia(limit: int = 80) -> tuple[list[dict], str]:
     """Most-viewed articles, scored by how much they MOVED.
 
@@ -408,7 +488,7 @@ def enrich_wikipedia(items: list[dict], pause: float = 0.35) -> None:
     longer and a 429 is retried once.
     """
     for it in items:
-        if it["source"] != "wikipedia":
+        if it["source"] not in ("wikipedia", "famous"):
             continue
         d = None
         for attempt in (1, 2):
@@ -553,8 +633,8 @@ def src_trend_phrases() -> tuple[set[str], list[str]]:
 # Trends has priority: a surviving trend topic should always outrank an
 # evergreen one. The other sources fill the day, which on the observed
 # yield (about four of forty trends survive) is most of it.
-WEIGHT = {"trends": 6.0, "reddit/til": 3.5, "wikipedia": 3.0,
-          "reddit/eli5": 3.0, "hn": 2.0}
+WEIGHT = {"trends": 6.0, "famous": 4.5, "reddit/til": 3.5,
+          "wikipedia": 3.0, "reddit/eli5": 3.0, "hn": 2.0}
 
 
 def hook_line(subject: str, is_person: bool) -> str:
@@ -663,6 +743,7 @@ def report() -> None:
             wiki_limit = max(10, min(400, int(a.split("=", 1)[1])))
 
     for label, fn in (("wikipedia", lambda: src_wikipedia(wiki_limit)),
+                      ("famous", src_famous),
                       ("hn", src_hn)):
         try:
             got, note = fn()
@@ -691,7 +772,8 @@ def report() -> None:
         sys.exit("\nEvery source failed. Nothing to judge.")
 
     if enrich:
-        wiki = [i for i in items if i["source"] == "wikipedia"]
+        wiki = [i for i in items
+                if i["source"] in ("wikipedia", "famous")]
         print(f"\n  enriching {len(wiki)} Wikipedia candidates with their "
               f"one-line descriptions...")
         enrich_wikipedia(wiki)
@@ -783,9 +865,18 @@ def _used() -> set[str]:
         return set()
 
 
-def mark_used(topic: str) -> None:
+def mark_used(*names: str) -> None:
+    """Record every name this subject could come back under.
+
+    The pool topic and the hook subject are usually different strings
+    -- a Reddit question against "Katana" -- and dedup_key sorts words,
+    so recording one leaves the other free to be built again tomorrow.
+    """
     used = _used()
-    used.add(dedup_key(topic))
+    for n in names:
+        key = dedup_key(n or "")
+        if key:
+            used.add(key)
     config.USED_FILE.write_text(json.dumps(sorted(used), indent=0))
 
 
@@ -806,6 +897,13 @@ def gather(wiki_limit: int = 0, enrich: bool = True) -> dict:
         notes.append(f"wikipedia {len(got)}")
     except Exception as exc:
         notes.append(f"wikipedia FAILED {type(exc).__name__}")
+
+    try:
+        got, fnote = src_famous()
+        items += got
+        notes.append(f"famous {len(got)}")
+    except Exception as exc:
+        notes.append(f"famous FAILED {type(exc).__name__}")
 
     try:
         got, _ = src_hn()
@@ -836,7 +934,8 @@ def gather(wiki_limit: int = 0, enrich: bool = True) -> dict:
         notes.append(f"trend phrases FAILED {type(exc).__name__}")
 
     if enrich:
-        wiki = [i for i in items if i["source"] == "wikipedia"]
+        wiki = [i for i in items
+                if i["source"] in ("wikipedia", "famous")]
         enrich_wikipedia(wiki)
         missing = sum(1 for i in wiki if i.get("enrich_error"))
         if missing:
@@ -863,11 +962,16 @@ def gather(wiki_limit: int = 0, enrich: bool = True) -> dict:
     already = _used()
     short, check, rejected, repeats = [], [], 0, 0
     for it in best.values():
-        if dedup_key(it["topic"]) in already:
+        # The subject is derived BEFORE the used check, and both keys
+        # are tested. A Reddit title and the subject it becomes are
+        # different strings, so checking only the topic let the same
+        # subject through under a second name.
+        it["subject"] = hook_subject(it["topic"], it["source"])
+        if (dedup_key(it["topic"]) in already
+                or dedup_key(it["subject"]) in already):
             repeats += 1
             continue
         it["verdict"], it["why"] = classify(it)
-        it["subject"] = hook_subject(it["topic"], it["source"])
         it["hook"] = hook_line(it["subject"], it.get("is_person", False))
         it["score"] = score(it, phrases)
         if it.get("also_in"):
