@@ -2,28 +2,28 @@
   "slug": "20261022-holy-grail",
   "subject": "Holy Grail",
   "hook": "HOLY GRAIL IS NOT WHAT YOU THINK",
-  "angle": "The Holy Grail was not originally the sacred cup of Christ: in its very first literary appearance it was introduced simply as a deep serving platter, and in a major German retelling, it was actually a fallen gemstone.",
+  "angle": "The Holy Grail was not originally a sacred religious relic, but a common serving dish or tray, and the idea that it relates to Jesus Christ was a later invention added by subsequent authors.",
   "angle_verdict": "agree",
   "countdown": true,
   "countdown_arm": "with",
   "angle_support": [
-    "Chrétien refers to this object not as \"the Grail\" but as \"a grail\" (un graal), showing the word was used, in its earliest literary context, as a common noun. For Chrétien, a grail was a wide, somewhat deep, dish or bowl",
-    "In Parzival, the author Wolfram von Eschenbach, citing the authority of a certain (probably fictional) Kyot the Provençal, claimed the Grail was a gemstone, the sanctuary of the neutral angels who took neither side during Lucifer's rebellion."
+    "Chrétien refers to this object not as \"the Grail\" but as \"a grail\" (un graal), showing the word was used, in its earliest literary context, as a common noun.",
+    "Robert de Boron in Joseph d'Arimathie portrayed the Grail as Jesus's vessel from the Last Supper... Thereafter, the Holy Grail became interwoven with the legend of the Holy Chalice"
   ],
   "is_person": false,
   "topic_source": "famous",
   "trending_on": [],
-  "title": "The True Medieval Origin of the Holy Grail",
-  "description": "Long before Arthurian romances connected the Grail to the Last Supper, early medieval authors envisioned something entirely different. The earliest preserved romance described a simple banquet platter, while later German lore recast it as a fallen celestial stone.",
+  "title": "The Holy Grail Was Originally Just a Serving Dish",
+  "description": "Before it was reimagined as Christ's sacred chalice, the grail appeared in twelfth-century literature as an ordinary dining platter. Subsequent medieval authors altered the original story to create one of folklore's most famous Christian relics.",
   "tags": [
     "holy grail",
     "arthurian legend",
     "medieval history",
-    "king arthur",
+    "chretien de troyes",
     "mythology"
   ],
-  "narration": "HOLY GRAIL IS NOT WHAT YOU THINK You picture a radiant golden chalice used at Christ's Last Supper. But medieval storytellers didn't start with a sacred cup. When the legend first began, the object wasn't even holy. In an unfinished romance around eleven ninety, Chrétien de Troyes introduced a grail simply as a deep serving platter carried during a banquet. Years later, Wolfram von Eschenbach's German retelling recast it completely—not as tableware, but as a magical fallen gemstone. The world's most famous sacred cup started as a dinner tray.",
-  "built_at": "2026-10-22T08:39:56.062153+00:00",
+  "narration": "HOLY GRAIL IS NOT WHAT YOU THINK You picture a glowing golden chalice blessed by Christ. But in its very first literary appearance, it was simply dinnerware: an ordinary wide dish brought out to serve food during a feast. Around 1190, French poet Chrétien de Troyes wrote of \"a grail\"—using the term as a common noun for a banquet platter. Only later did author Robert de Boron reinvent that kitchen tray into the sacred cup of Jesus. Medieval storytellers turned an everyday dinner plate into history's most famous holy relic.",
+  "built_at": "2026-10-22T22:54:17.049710+00:00",
   "status": "render_only",
   "sources": [
     {
@@ -31,13 +31,13 @@
       "url": ""
     }
   ],
-  "credits": "Image credits:\n- Book of Hours (Use of Metz) Fol. 27r, Decorated  by Unknown artistUnknown artist (Public domain) via Wikimedia Commons\n- Church of St Mary Swaffham Prior Cambridgeshire  by David from Colorado Springs, U (CC BY 2.0) via Wikimedia Commons\n- NLC Ancient Books Library (20211107143535).jpg by N509FZ (CC BY-SA 4.0) via Wikimedia Commons\n- NLC Ancient Books Library 1.jpg by EditQ (CC BY-SA 4.0) via Wikimedia Commons\n- A study in light and dark (1) - geograph.org.uk  by Alan Murray-Rust (CC BY-SA 2.0) via Wikimedia Commons\n- Dead Sea Scroll fragment with Hebrew text, Wadi  by Daderot (CC0) via Wikimedia Commons\n- -Man Serving Head on a Platter- MET DP257725.jpg by Creator:William Robert Bowles (CC0) via Wikimedia Commons\n- Fyrkat hus stor.jpg by unknown (CC BY-SA 3.0) via Wikimedia Commons\n- History of mediæval art (1893) (14780059975).jpg by Internet Archive Book Images (No restrictions) via Wikimedia Commons\n- A Roman copper alloy incomplete Type III (probab by West Berkshire, Kate Sutton, 2 (CC BY-SA 4.0) via Wikimedia Commons\n- <div class='fn'> Table, presentation</div> by Unknown authorUnknown author (CC BY) via Openverse",
-  "duration": 30.3,
+  "credits": "Image credits:\n- CollectibleBooks.Org,Medieval Illuminated Manusc by coxisaiah@rocketmail.com (CC BY) via Openverse\n- New Rose Window Inside the Patriarchal Basilica  by Northfielder (CC BY) via Openverse\n- Dead Sea Scroll -- the World's Oldest Secrets.jp by Ken and Nyetta (CC BY 2.0) via Wikimedia Commons\n- Antique pewter trophy by quinet (CC BY) via Openverse\n- Schallmeyer by Kathleen Tyler Conklin (CC BY) via Openverse\n- Anglo-Saxon scribe by Futurilla (CC BY) via Openverse\n- History of the Expedition to Jerusalem by The British Library (CC BY-SA) via Openverse\n- Rustic ceramic plate with patterns by themet (CC0) via Openverse\n- Café&Meal MUJI 2012 (6913780664).jpg by chinnian from Singapore (CC BY-SA 2.0) via Wikimedia Commons\n- Last supper stained glass by quinet (CC BY) via Openverse\n- <div class='fn'> A ceramic eagle fragment from a by Museum of London, Ben Paites,  (CC BY-SA) via Openverse\n- A Gothic Altar Motive (140896679).jpeg by Dave Gonzalez Formerly Mr G Ph (CC BY 3.0) via Wikimedia Commons",
+  "duration": 30.633333,
   "yt_tags": [
     "holy grail",
     "arthurian legend",
     "medieval history",
-    "king arthur",
+    "chretien de troyes",
     "mythology",
     "shorts"
   ],
