@@ -1,0 +1,45 @@
+{
+  "slug": "20261022-mantis-shrimp",
+  "subject": "Mantis shrimp",
+  "hook": "MANTIS SHRIMP IS NOT WHAT YOU THINK",
+  "angle": "Mantis shrimp strikes are so fast that they cannot be controlled once they begin, because the movement happens faster than the animal's nerve conduction speed.",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "The power amplifier spring mechanism mediated by a latch has the limitation that the time taken for the strikes being executed is shorter than the nerve conduction time of the mantis shrimp; consequently, the strike cannot be controlled or directed whilst it is being executed",
+    "the trajectory of the strike must be prepared either before or after it is delivered."
+  ],
+  "is_person": false,
+  "topic_source": "wikipedia",
+  "trending_on": [],
+  "title": "Mantis Shrimp Strikes Are Impossible To Control",
+  "description": "While mantis shrimp are legendary for their speed, the reality is that they lose all control the moment they strike. Because the movement is faster than their nerves can signal, they are effectively flying blind.",
+  "tags": [
+    "mantis shrimp",
+    "nature",
+    "biology",
+    "science",
+    "predator"
+  ],
+  "narration": "MANTIS SHRIMP IS NOT WHAT YOU THINK You picture a calculated predator, precisely aiming its claws to strike. It was closer to a blind, uncontrollable launch that happens faster than its own nervous system. The strike is so rapid that the time taken for the movement is shorter than the mantis shrimp's nerve conduction time. Because of this, the animal cannot control or redirect the strike once it is initiated. The entire trajectory must be perfectly calculated and prepared before the release of the latch mechanism. Once they pull the trigger, they are just along for ride.",
+  "built_at": "2026-10-22T06:50:00.792113+00:00",
+  "status": "render_only",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Mantis_shrimp"
+    }
+  ],
+  "credits": "Image credits:\n- Careful now... by Christian Gloor (CC BY) via Openverse\n- Florida Crown Conch (Melongena corona) by bob in swamp (CC BY) via Openverse\n- Conus mus (mouse cone snail) (San Salvador Islan by James St. John (CC BY) via Openverse\n- Underwater Bubble by Monica Arnold Photography (CC BY-SA) via Openverse\n- Hippocampus barbouri (10.3897-zoologia.37.e53734 by Senarat S, Kettratad J, Kaneko (CC0) via Openverse\n- Indian Navy - Green Strike Force.jpg by Indian Navy (GODL-India) via Wikimedia Commons\n- Journal of entomology and zoology (1916) (147785 by Internet Archive Book Images (No restrictions) via Wikimedia Commons\n- Mantis-Shrimp-Eyes.jpg by Daniel Sasse (CC BY 4.0) via Wikimedia Commons\n- Ammodytes hexapterus.jpg by Mandy Lindeberg, NOAA/NMFS/AKF (Public domain) via Wikimedia Commons\n- Anémona tubo mediterránea (Cerianthus membranace by Diego Delso (CC BY-SA 4.0) via Wikimedia Commons\n- Mathematic calculation blackboard illustration by unknown (CC0) via Openverse\n- <div class='fn'> 4 illustrations showing mathema by unknown (CC BY) via Openverse\n- Great White Shark Encounter by mdalmuld (CC BY) via Openverse",
+  "duration": 33.7,
+  "yt_tags": [
+    "mantis shrimp",
+    "nature",
+    "biology",
+    "science",
+    "predator",
+    "shorts"
+  ],
+  "youtube_error": "starting upload: {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"The request metadata specifies an invalid video description.\",\n    \"errors\": [\n      {\n        \"message\": \"The request metadata specifies an invalid video description.\",\n        \"domain\": \"youtube.video\",\n        \"reason\": \"invalidDesc"
+}
