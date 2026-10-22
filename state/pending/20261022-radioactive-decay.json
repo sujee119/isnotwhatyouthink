@@ -1,0 +1,48 @@
+{
+  "slug": "20261022-radioactive-decay",
+  "subject": "Radioactive decay",
+  "hook": "RADIOACTIVE DECAY IS NOT WHAT YOU THINK",
+  "angle": "Radioactive decay is a fundamentally random process at the level of single atoms, making it impossible to predict when any specific atom will decay, regardless of its age.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "manual",
+  "angle_support": [
+    "Radioactive decay is a random process at the level of single atoms.",
+    "According to quantum theory, it is impossible to predict when a particular atom will decay, regardless of how long the atom has existed."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Why Radioactive Decay is Random",
+  "description": "Contrary to the perception of a ticking clock, radioactive decay is a fundamentally random process. Individual atoms do not age, and their decay remains impossible to predict.",
+  "tags": [
+    "physics",
+    "science",
+    "quantum",
+    "radioactivity",
+    "atoms"
+  ],
+  "narration": "RADIOACTIVE DECAY IS NOT WHAT YOU THINK You picture atoms aging like a clock, ticking down toward a final expiration. It was closer to a game of pure chance at the atomic level. Quantum theory dictates that decay is entirely random. Whether an atom is one second old or a billion years old, you cannot predict when it will disintegrate. It acts without memory, defying any fixed schedule for individual particles. Chaos reigns within the nucleus, indifferent to the passage of time.",
+  "built_at": "2026-10-22T06:30:06.139364+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- Hubble Turns its Gaze Towards New Gravitational- by NASA Goddard Photo and Video (CC BY) via Openverse\n- Tick-Tock Frame by Double--M (CC BY) via Openverse\n- Retro Punk by Pranavian (CC BY) via Openverse\n- Rolling Dice@DOKA by Dorron (CC BY-SA) via Openverse\n- FibonacciSeries-2a by Gmesaga (CC BY) via Openverse\n- Asset-Prices-Simulated-using-the-Brownian-Motion by NivedRajeev (CC BY-SA 4.0) via Wikimedia Commons\n- Donsker theorem for normal distributions.gif by Cosmia Nebula (CC BY-SA 4.0) via Wikimedia Commons\n- Mystery glow by Rd. Vortex (CC BY) via Openverse\n- WFD009: Figure 1.6a by Rosenfeld Media (CC BY) via Openverse\n- The rainbow calendar [Front cover] by Boston Public Library (CC BY) via Openverse\n- The hunt for evidence of a nuclear explosion (IF by The Official CTBTO Photostream (CC BY) via Openverse",
+  "duration": 27.966667,
+  "yt_tags": [
+    "physics",
+    "science",
+    "quantum",
+    "radioactivity",
+    "atoms",
+    "radioactive decay",
+    "shorts"
+  ],
+  "youtube_id": "nYzawbbSIW0",
+  "watch_url": "https://youtube.com/shorts/nYzawbbSIW0",
+  "thumbnail": "set"
+}
