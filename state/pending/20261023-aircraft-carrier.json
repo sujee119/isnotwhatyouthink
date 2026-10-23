@@ -1,0 +1,47 @@
+{
+  "slug": "20261023-aircraft-carrier",
+  "subject": "Aircraft carrier",
+  "hook": "AIRCRAFT CARRIER IS NOT WHAT YOU THINK",
+  "angle": "The term 'supercarrier' is not an official designation used by any national navy, despite its common use in media and military reporting.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "The appellation 'supercarrier' is not an official designation with any national navy, but a term used predominantly by the media"
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "The Supercarrier Myth",
+  "description": "The term supercarrier is widely used by the media to describe large warships, but it holds no official status within any global navy. This label was coined in 1938 and remains a journalistic invention rather than a military classification.",
+  "tags": [
+    "navy",
+    "ships",
+    "military",
+    "history",
+    "factcheck"
+  ],
+  "narration": "AIRCRAFT CARRIER IS NOT WHAT YOU THINK You picture the massive vessels called supercarriers. You assume this is a formal military classification. It was closer to a media term than an official navy designation. No national navy recognizes the word supercarrier as a technical category. It is strictly a journalistic label, appearing first in 1938 to describe the HMS Ark Royal. Official fleets only use terms like fleet or light carriers. The term is just a headline, never a naval standard.",
+  "built_at": "2026-10-23T01:33:02.113424+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- The War of the Nations_WW1_428 by O Suave Gigante (CC0) via Openverse\n- Aircraft carrier HMS Ark Royal (R07) pic 32.jpg by self (Public domain) via Wikimedia Commons\n- RADM Mordicai Endicott by U.S. Navy Seabee Museum (CC BY) via Openverse\n- Looking across a sea of molasses [Boston Daily G by Boston Public Library (CC BY) via Openverse\n- CORNER, LOOKING EAST - Naval Operating Base Dutc by unknown (Public domain) via Wikimedia Commons\n- KTUU reporter Steve MacDonald preparing to inter by RadioKAOS (CC BY-SA) via Openverse\n- Coaling Ship by Eli Dark (CC BY-SA) via Openverse\n- HMS Ambush Alongside RFA Diligence by Defence Images (CC BY-SA) via Openverse\n- Ocean horizon from fire island pines by brianga (CC BY-SA) via Openverse",
+  "duration": 27.633333,
+  "yt_tags": [
+    "navy",
+    "ships",
+    "military",
+    "history",
+    "factcheck",
+    "aircraft carrier",
+    "shorts"
+  ],
+  "youtube_id": "wm2y23t6R5k",
+  "watch_url": "https://youtube.com/shorts/wm2y23t6R5k",
+  "thumbnail": "set"
+}
