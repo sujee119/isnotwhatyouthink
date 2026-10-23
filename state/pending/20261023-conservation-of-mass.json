@@ -1,0 +1,48 @@
+{
+  "slug": "20261023-conservation-of-mass",
+  "subject": "Conservation of mass",
+  "hook": "CONSERVATION OF MASS IS NOT WHAT YOU THINK",
+  "angle": "The law of conservation of mass is not a universal truth, but rather a classical approximation that fails in high-energy processes like particle annihilation or nuclear reactions where mass is converted into energy.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "manual",
+  "angle_support": [
+    "In general, mass is not conserved. The conservation of mass is a law that holds only in the classical limit.",
+    "For example, the overlap of the electron and positron wave functions... will proceed to annihilate via electromagnetic interaction. This process creates two photons and is the mechanism for PET scans."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Why Conservation of Mass Is Actually Wrong",
+  "description": "The law of conservation of mass is a fundamental concept in chemistry, but it fails in high-energy physics. Matter and energy are interchangeable in extreme conditions.",
+  "tags": [
+    "physics",
+    "science",
+    "mass",
+    "energy",
+    "chemistry"
+  ],
+  "narration": "CONSERVATION OF MASS IS NOT WHAT YOU THINK You picture matter as a permanent, unchanging quantity in every physical system. It was closer to a classical approximation that breaks down entirely at high energy levels. Mass is not fundamentally conserved. In nuclear reactions or particle annihilation, mass converts directly into energy. When electrons and positrons collide, they vanish, turning their entire mass into pure photons. This reality defies simple classical chemical rules. Nature trades mass for energy whenever the stakes get high enough.",
+  "built_at": "2026-10-23T18:18:20.190643+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- Coriolis-1.jpg by Gaspard-Gustave de Coriolis (Public domain) via Wikimedia Commons\n- Fluorescence rainbow.JPG by Maxim Bilovitskiy (CC BY-SA 4.0) via Wikimedia Commons\n- A Post Medieval iron padlock (17th century). (Fi by Museum of London, Felicity Win (CC BY-SA 4.0) via Wikimedia Commons\n- Gordon Block, Downtown Stratford, Ontario (21651 by Ken Lund from Reno, Nevada, US (CC BY-SA 2.0) via Wikimedia Commons\n- Dandelion Brooch w Auto Glass by Jan Yager.jpg by YagerEtc (CC BY-SA 4.0) via Wikimedia Commons\n- De Molen (windmill) and the nuclear power plant  by Trougnouf (CC BY 4.0) via Wikimedia Commons\n- Hallam-nuclear-power-facility-site.jpg by United States Atomic Energy Co (Public domain) via Wikimedia Commons\n- Winds of Change by NASA Goddard Photo and Video (CC BY) via Openverse\n- KEKB.png by Krib (CC0) via Wikimedia Commons\n- Morninglight by enneafive (CC BY) via Openverse\n- 1885 periodic table of elements.jpg by Dmitri Mendeleev (Public domain) via Wikimedia Commons\n- Balance scale IMGP9722.jpg by Nikodem Nijaki (CC BY-SA 3.0) via Wikimedia Commons",
+  "duration": 28.3,
+  "yt_tags": [
+    "physics",
+    "science",
+    "mass",
+    "energy",
+    "chemistry",
+    "conservation of mass",
+    "shorts"
+  ],
+  "youtube_id": "GPqpODdEyKg",
+  "watch_url": "https://youtube.com/shorts/GPqpODdEyKg",
+  "thumbnail": "set"
+}
