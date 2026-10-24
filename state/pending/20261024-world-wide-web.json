@@ -1,0 +1,48 @@
+{
+  "slug": "20261024-world-wide-web",
+  "subject": "World Wide Web",
+  "hook": "WORLD WIDE WEB IS NOT WHAT YOU THINK",
+  "angle": "The World Wide Web is not the same thing as the Internet; it is a system of linked documents that runs on top of the Internet's global network infrastructure.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "manual",
+  "angle_support": [
+    "The terms Internet and World Wide Web are often used without much distinction. However, the two terms do not mean the same thing.",
+    "The Internet is a global system of computer networks interconnected through telecommunications and optical networking. In contrast, the World Wide Web is a global collection of documents and other resources, linked by hyperlinks and URIs."
+  ],
+  "is_person": false,
+  "topic_source": "wikipedia",
+  "trending_on": [],
+  "title": "The Web vs The Internet: What's the Difference?",
+  "description": "Many people use these terms interchangeably, but they refer to completely different layers of technology. This video clarifies the distinction between the global network infrastructure and the document system built on top of it.",
+  "tags": [
+    "internet",
+    "worldwideweb",
+    "technology",
+    "webdevelopment",
+    "networking"
+  ],
+  "narration": "WORLD WIDE WEB IS NOT WHAT YOU THINK You picture the web as the entire internet. It was closer to a specific application running on top of that massive global infrastructure of connected computer networks. The internet is a physical system of hardware and cables. The web is merely a collection of linked documents accessed via HTTP. It is just one service riding atop the network, like email or file transfers. The web is the content, the internet is the road.",
+  "built_at": "2026-10-24T14:16:50.053730+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/World_Wide_Web"
+    }
+  ],
+  "credits": "Image credits:\n- new IKEA shelves I painted nuclear green by blakespot (CC BY) via Openverse\n- THE NEW STATUE OF TERRY WOGAN [THE PEOPLE OF LIM by infomatique (CC BY-SA) via Openverse\n- iPhone Wallpaper - Freemason by Patrick Hoesly (CC BY) via Openverse\n- Map of African Undersea Fiber Optic Cables (Vers by Steve Song (CC BY-SA 4.0) via Wikimedia Commons\n- Home Server by DeclanTM (CC BY) via Openverse\n- Blizzard of 2015 New York City by Anthony Quintano (CC BY) via Openverse\n- Nullsleep and jodi by Rosa Menkman (CC BY) via Openverse\n- Earth - Global Elevation Model with Satellite Im by Kevin M. Gill (CC BY) via Openverse\n- The Creation of the Universe: The Short Form by John Scalzi (CC BY) via Openverse\n- Networked by jessicafm (CC BY) via Openverse",
+  "duration": 27.6,
+  "yt_tags": [
+    "internet",
+    "worldwideweb",
+    "technology",
+    "webdevelopment",
+    "networking",
+    "world wide web",
+    "shorts"
+  ],
+  "youtube_id": "-fEXplqtinA",
+  "watch_url": "https://youtube.com/shorts/-fEXplqtinA",
+  "thumbnail": "set"
+}
