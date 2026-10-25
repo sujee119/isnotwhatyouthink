@@ -1,0 +1,46 @@
+{
+  "slug": "20261025-m-bius-strip",
+  "subject": "Möbius strip",
+  "hook": "MÖBIUS STRIP IS NOT WHAT YOU THINK",
+  "angle": "The Möbius strip was not a modern mathematical invention but appeared in Roman mosaics and mechanical designs centuries before mathematicians formalized it in 1858.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "manual",
+  "angle_support": [
+    "As a mathematical object, it was discovered by Johann Benedict Listing and August Ferdinand Möbius in 1858, but it had already appeared in Roman mosaics from the third century CE.",
+    "An image of a chain pump in a work of Ismail al-Jazari from 1206 depicts a Möbius strip configuration for its drive chain."
+  ],
+  "is_person": false,
+  "topic_source": "wikipedia",
+  "trending_on": [],
+  "title": "The Möbius Strip Wasn't Invented In 1858",
+  "description": "While mathematicians officially cataloged the Möbius strip in the mid-19th century, history shows that ancient Romans and medieval engineers were using the concept in art and machinery centuries earlier.",
+  "tags": [
+    "geometry",
+    "mathematics",
+    "history",
+    "engineering",
+    "mosaics"
+  ],
+  "narration": "MÖBIUS STRIP IS NOT WHAT YOU THINK You picture an abstract 1858 mathematical discovery created by German scholars. It was closer to a practical device used by ancient artisans and engineers long before that. Roman mosaics from the third century already depicted these twisted ribbons. By 1206, mechanical chain pumps utilized this configuration for drive belts, proving that the geometry was an observed physical reality centuries before formal mathematical definitions existed. The math finally caught up to what the builders already knew.",
+  "built_at": "2026-10-25T19:14:42.115449+00:00",
+  "status": "render_only",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Möbius_strip"
+    }
+  ],
+  "credits": "Image credits:\n- Ancient Roman Mosaic in Utica, Tunisia 09.jpg by Kritzolina (CC BY-SA 4.0) via Wikimedia Commons\n- Pattern / 模様(もよう) by TANAKA Juuyoh (田中十洋) (CC BY) via Openverse\n- From an Old Math Book - Copyright 1917 by vanhookc (CC BY-SA) via Openverse\n- Dülmen, Hausdülmen, Golden Retriever -- 2022 --  by Dietmar Rabich (CC BY-SA 4.0) via Wikimedia Commons\n- <div class='fn'> Post-Medieval 'Tankard' Measure by David Basford, Frank Basford,  (CC BY-SA) via Openverse\n- Belt drive at VITM.jpg by Anup Sadi (CC BY-SA 4.0) via Wikimedia Commons\n- Bronze statuette of an artisan with silver eyes  by unknown (CC0) via Wikimedia Commons\n- Ancient Ruins of Sabratha, Libya.jpg by Rortie (CC BY 4.0) via Wikimedia Commons\n- Tumulus of Achilles and sacrifice of Polyxena by Dosseman (Dick Osseman) (CC BY-SA) via Openverse\n- Le zodiaque de Denderah (Neues Museum, Berlin) by dalbera (CC BY) via Openverse\n- <div class='fn'> Trevisker sherd (profile)</div> by Royal Institution of Cornwall, (CC BY) via Openverse\n- Dress (AM 2003.48.1-28).jpg by unknown (CC BY 4.0) via Wikimedia Commons\n- Trevisker sherd (profile) (FindID 777914).jpg by Royal Institution of Cornwall, (CC BY 2.0) via Wikimedia Commons\n- Mathematical compass, geometry drawing tool by unknown (CC0) via Openverse",
+  "duration": 30.189649,
+  "yt_tags": [
+    "geometry",
+    "mathematics",
+    "history",
+    "engineering",
+    "mosaics",
+    "möbius strip",
+    "shorts"
+  ],
+  "youtube_error": "starting upload: {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"The request metadata specifies an invalid video description.\",\n    \"errors\": [\n      {\n        \"message\": \"The request metadata specifies an invalid video description.\",\n        \"domain\": \"youtube.video\",\n        \"reason\": \"invalidDesc"
+}
