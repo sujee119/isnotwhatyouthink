@@ -184,7 +184,7 @@ COUNTDOWN_AB = (os.getenv("COUNTDOWN_AB") or "1") not in ("0", "false", "False")
 COUNTDOWN_TOP = int(os.getenv("COUNTDOWN_TOP") or 96)
 COUNTDOWN_MARGIN = int(os.getenv("COUNTDOWN_MARGIN") or 60)
 
-CTA_CARD = os.getenv("CTA_CARD", "")
+CTA_CARD = os.getenv("CTA_CARD") or "FOLLOW\nfor more Unknown Facts"
 CTA_CARD_SECONDS = float(os.getenv("CTA_CARD_SECONDS") or 2.2)
 
 # Set SPOKEN_CTA=1 to have the narration itself end on a follow line.

@@ -106,6 +106,7 @@ jobs:
           SFX_AT: ${{ vars.SFX_AT }}
           MUSIC_GAIN: ${{ vars.MUSIC_GAIN }}
           COVER_ALIGN: ${{ vars.COVER_ALIGN || 'middle' }}
+          CTA_CARD: ${{ vars.CTA_CARD || 'FOLLOW\nfor more Unknown Facts' }}
           VIDEO_PRESET: ${{ vars.VIDEO_PRESET || 'veryfast' }}
 
           YT_ENABLED: ${{ vars.YT_ENABLED || '0' }}
