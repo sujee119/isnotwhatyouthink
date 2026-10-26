@@ -1,0 +1,48 @@
+{
+  "slug": "20261026-daylight-saving-time",
+  "subject": "Daylight saving time",
+  "hook": "DAYLIGHT SAVING TIME IS NOT WHAT YOU THINK",
+  "angle": "Daylight saving time was not invented to help farmers, but was actually first implemented as a wartime measure to conserve coal.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "The first nation-wide implementations were by the German and Austro-Hungarian Empires, both starting on 30 April 1916.",
+    "The first states to adopt DST (German: Sommerzeit) nationally were those of the German Empire and its World War I ally Austria-Hungary commencing on 30 April 1916, as a way to conserve coal during wartime."
+  ],
+  "is_person": false,
+  "topic_source": "wikipedia",
+  "trending_on": [],
+  "title": "The Real Reason Daylight Saving Time Was Invented",
+  "description": "Many people believe daylight saving time was created for farmers, but the historical record shows it was actually first adopted by nations during World War I to save coal. This video explores the true origins of the clock shift.",
+  "tags": [
+    "history",
+    "daylight saving",
+    "world war 1",
+    "energy",
+    "clocks"
+  ],
+  "narration": "DAYLIGHT SAVING TIME IS NOT WHAT YOU THINK You picture farmers needing extra hours in the fields. It was actually closer to a strategic wartime necessity. The concept was never about helping the agricultural industry thrive. The first national implementation occurred in April 1916. The German and Austro-Hungarian Empires mandated the change as a desperate measure to conserve coal supplies during World War I. Britain and the United States followed shortly after. It started not for the harvest, but for the war.",
+  "built_at": "2026-10-26T23:29:41.453387+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Daylight_saving_time"
+    }
+  ],
+  "credits": "Image credits:\n- Vintage alarm clock illustration by unknown (CC0) via Openverse\n- Set it off......352/365 {ABED!!!!!!!} by AndYaDontStop (CC BY) via Openverse\n- Farmers in Field at Dusk by UnitedSoybeanBoard (CC BY) via Openverse\n- First world war map of Bazias by sludgegulper (CC BY-SA) via Openverse\n- How 'Experts' Saw World War II by roger4336 (CC BY-SA) via Openverse\n- 1950 Your New Home by SportSuburban (CC BY) via Openverse\n- Drink O. & O. tea! [back] by Boston Public Library (CC BY) via Openverse\n- The Ludlow Massacre Memorial, April 20th, 1914,  by Beverly & Pack (CC BY) via Openverse\n- Old City’s Clock Tower by Mohamed Hwedi (CC BY-SA) via Openverse\n- First World War trench scene at Dover Castle - g by Marathon (CC BY-SA) via Openverse",
+  "duration": 30.189649,
+  "yt_tags": [
+    "history",
+    "daylight saving",
+    "world war 1",
+    "energy",
+    "clocks",
+    "daylight saving time",
+    "shorts"
+  ],
+  "youtube_id": "ce3H4ZcxYsw",
+  "watch_url": "https://youtube.com/shorts/ce3H4ZcxYsw",
+  "thumbnail": "set"
+}
