@@ -1,0 +1,48 @@
+{
+  "slug": "20261028-ring-nebula",
+  "subject": "Ring Nebula",
+  "hook": "RING NEBULA IS NOT WHAT YOU THINK",
+  "angle": "The Ring Nebula is not actually a ring, but a prolate spheroid viewed from an angle that makes it look like a ring.",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "M57 is thought to be a prolate spheroid with strong concentrations of material along its equator.",
+    "From Earth, the symmetrical axis is viewed at about 30°."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "The Ring Nebula is a Lie",
+  "description": "The iconic Ring Nebula is not a flat disk. It is actually a prolate spheroid, and we are simply viewing it from an angle that creates a visual illusion.",
+  "tags": [
+    "space",
+    "astronomy",
+    "nebula",
+    "science",
+    "physics"
+  ],
+  "narration": "RING NEBULA IS NOT WHAT YOU THINK You picture a perfect, flat cosmic hoop suspended in the void. It was closer to a three-dimensional, glowing, prolate spheroid that we see from a deceptive angle. This structure is actually shaped like a football, with dense material concentrated along its equator. Because we view its symmetrical axis at about thirty degrees, our perspective flattens the cloud into the familiar ring we observe from Earth. Geometry creates the circle, but physics reveals the true, elongated shape.",
+  "built_at": "2026-10-28T22:00:36.993777+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- pier, ocean, sea, waves, clouds, sunset, dusk, c by ChristianBodhi (Pixabay Licence) via Pixabay\n- basketball, hoop, net, urban, street, outdoors,  by JoshuaWoroniecki (Pixabay Licence) via Pixabay\n- american football, sport, american, game, helmet by tommyvideo (Pixabay Licence) via Pixabay\n- american football, ball, sport, football, game,  by tommyvideo (Pixabay Licence) via Pixabay\n- ai generated, space, nebula, cosmic, gas, abstra by doktorkleinmusic (Pixabay Licence) via Pixabay\n- ai generated, cosmic, space, nebula, explosion,  by doktorkleinmusic (Pixabay Licence) via Pixabay\n- pencil, scissors, pencil sharpener, protractor,  by AlLes (Pixabay Licence) via Pixabay\n- birds, flock, fly, sky, circle, freedom, animals by ChristianBodhi (Pixabay Licence) via Pixabay\n- day, night, dark, time lapse, timelapse, dusk, s by adege (Pixabay Licence) via Pixabay\n- nebula, galaxy, space, fantasy, exploration, cos by tommyvideo (Pixabay Licence) via Pixabay",
+  "duration": 30.522982,
+  "yt_tags": [
+    "space",
+    "astronomy",
+    "nebula",
+    "science",
+    "physics",
+    "ring nebula",
+    "shorts"
+  ],
+  "youtube_id": "nvjPad-t-9w",
+  "watch_url": "https://youtube.com/shorts/nvjPad-t-9w",
+  "thumbnail": "set"
+}
