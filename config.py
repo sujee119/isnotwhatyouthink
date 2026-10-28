@@ -131,6 +131,15 @@ MAX_SHOT_SECONDS = 4.0
 MIN_SHOT_SECONDS = 1.6
 SHOT_DIM = 0.22
 
+# Stock FOOTAGE rather than stills. The renderer fakes motion on a
+# photo with zoompan; a real clip just moves. Needs PEXELS_API_KEY --
+# without it the video sources return nothing and the build falls back
+# to photos exactly as before.
+STOCK_VIDEO = (os.getenv("STOCK_VIDEO") or "1") not in ("0", "false", "False")
+# Reject clips shorter than this edge, in pixels. Stock libraries serve
+# several renditions per clip and the small ones look soft full-frame.
+STOCK_VIDEO_MIN_PX = int(os.getenv("STOCK_VIDEO_MIN_PX") or 540)
+
 PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "")
 PIXABAY_API_KEY = os.getenv("PIXABAY_API_KEY", "")
 
