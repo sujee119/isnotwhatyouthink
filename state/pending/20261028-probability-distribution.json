@@ -1,0 +1,48 @@
+{
+  "slug": "20261028-probability-distribution",
+  "subject": "Probability distribution",
+  "hook": "PROBABILITY DISTRIBUTION IS NOT WHAT YOU THINK",
+  "angle": "In continuous probability distributions, the probability of any single, exact outcome occurring is mathematically zero.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "In contrast, when a random variable takes values from a continuum, then unless the probability density function has any infinitely-dense peaks, any individual outcome has probability zero.",
+    "For example, consider measuring the weight of a piece of ham in the supermarket... the probability that it weighs exactly 500 g must be zero because no matter how high the level of precision chosen, it cannot be assumed that there are no non-zero digits after those output by the scale."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Why a precise outcome in a continuous distribution is impossible",
+  "description": "Most people assume a continuous variable can hit an exact value, but mathematics shows that the chance of any single precise outcome is zero. The proof lies in how probability density functions work over intervals, not points.",
+  "tags": [
+    "probability",
+    "statistics",
+    "continuous",
+    "math",
+    "distribution"
+  ],
+  "narration": "PROBABILITY DISTRIBUTION IS NOT WHAT YOU THINK You think a continuous variable can land on a specific value, like exactly 500 g on a scale. It’s actually impossible—any single exact outcome has probability zero in theory. Mathematically, for a continuous random variable the probability density integrates over an interval, and because the integral over a single point is zero, P(X = x) = 0 unless the density contains an infinite spike, which standard distributions in practice lack. Thus, any measurement you name has zero chance of occurring in continuous models theoretically.",
+  "built_at": "2026-10-28T23:43:15.123033+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- 0009-cmls-2012 preview ecran.jpg by Jérémy Barande (CC BY-SA 3.0) via Wikimedia Commons\n- chart, line graph, statistics, business, analysi by DziarskiLisek (Pixabay Licence) via Pixabay\n- graph, gain graph, chart, data, up graph, busine by terski (Pixabay Licence) via Pixabay\n- fiat 500, car, vintage, car wallpapers, rear, fi by philippbrack76 (Pixabay Licence) via Pixabay\n- libra, scale, kilogram, pay, measure up, weight, by wal_172619 (Pixabay Licence) via Pixabay\n- curve, texture, pattern, abstract by subunc5 (Pixabay Licence) via Pixabay\n- skate, sport, water, action, exercise, flying, g by JosephSenior (Pixabay Licence) via Pixabay\n- design, art, wallpaper, background, wireframe, h by tunnelmotions (Pixabay Licence) via Pixabay\n- bird, nature, colorful, bee-eater, twig, perched by MBRAJEEV (Pixabay Licence) via Pixabay\n- burning, love, letter, away, valentine, romance, by Nika_Akin (Pixabay Licence) via Pixabay\n- glitter, particles, glow, abstract, beautiful wa by skarletmotion (Pixabay Licence) via Pixabay",
+  "duration": 33.189649,
+  "yt_tags": [
+    "probability",
+    "statistics",
+    "continuous",
+    "math",
+    "distribution",
+    "probability distribution",
+    "shorts"
+  ],
+  "youtube_id": "AqbSPo9CY3k",
+  "watch_url": "https://youtube.com/shorts/AqbSPo9CY3k",
+  "thumbnail": "set"
+}
