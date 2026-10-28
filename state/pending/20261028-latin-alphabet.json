@@ -1,0 +1,48 @@
+{
+  "slug": "20261028-latin-alphabet",
+  "subject": "Latin alphabet",
+  "hook": "LATIN ALPHABET IS NOT WHAT YOU THINK",
+  "angle": "The modern 26-letter Latin alphabet is a relatively recent invention, as the letter 'W' was not added until the Middle Ages, and the distinct letters 'J' and 'U' were only separated from 'I' and 'V' during the Early Modern era.",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "It was not until the Middle Ages that the letter ⟨W⟩ (originally a ligature of two ⟨V⟩s) was added to the Latin alphabet",
+    "only after the Renaissance did the convention of treating ⟨I⟩ and ⟨U⟩ as vowels, and ⟨J⟩ and ⟨V⟩ as consonants, become established. Prior to that they were allographs."
+  ],
+  "is_person": false,
+  "topic_source": "reddit/til",
+  "trending_on": [],
+  "title": "The Latin Alphabet Isn't Ancient",
+  "description": "We assume the 26-letter alphabet is timeless, but it underwent major changes well after the classical era. The letters W, J, and U were historical additions or late-stage refinements.",
+  "tags": [
+    "history",
+    "linguistics",
+    "alphabet",
+    "writing",
+    "etymology"
+  ],
+  "narration": "LATIN ALPHABET IS NOT WHAT YOU THINK You picture the 26-letter standard as an ancient, rigid relic. It was closer to a work-in-progress, evolving significantly long after the Roman Empire had already fallen away. The letter W was only added during the Middle Ages to accommodate Germanic sounds. Furthermore, the letters J and U were not distinct from I and V until the Early Modern era, functioning only as stylistic variations. Our modern alphabet is a surprisingly recent invention, still settling down.",
+  "built_at": "2026-10-28T02:16:43.758683+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- Bust of a Man Holding a Scroll, Roman, Eastern E by Daderot (CC0) via Wikimedia Commons\n- -1A - 'Temple of the Tablets' Relief Carving (82 by SMU Central University Librari (No restrictions) via Wikimedia Commons\n- Adult alphabet blocks. (31907021871).jpg by Billie Grace Ward from New Yor (CC BY 2.0) via Wikimedia Commons\n- Drawing, album (BM 1920,0214.1.1 1).jpg by unknown (Public domain) via Wikimedia Commons\n- Apologia de barbis manuscript, opening page.jpg by Unknown authorUnknown author (Public domain) via Wikimedia Commons\n- Bird Feather Feather Paper Bird feather made int by Tool Dude8mm (CC BY 2.0) via Wikimedia Commons\n- IMG_0597 by bjornmeansbear (CC BY-SA) via Openverse\n- Canaletto, Capriccio-River Landscape with a Colu by Giovanni Antonio Canal (Public domain) via Wikimedia Commons\n- 1653 map of Ancient Armenia by Philippe de la Ru by Philippe de la Rue (Public domain) via Wikimedia Commons\n- St John's College Old Library - Books by ben.gallagher (CC BY) via Openverse\n- Old library books by Paolocmartin (CC BY-SA) via Openverse\n- Old Books by cbransto (CC BY) via Openverse\n- Closeup of old books in the library.jpg by Shixart1985 (CC BY 2.0) via Wikimedia Commons\n- Halki Seminary library old books Heybeliada 2024 by Furkan Akkurt (CC BY-SA 4.0) via Wikimedia Commons",
+  "duration": 30.189649,
+  "yt_tags": [
+    "history",
+    "linguistics",
+    "alphabet",
+    "writing",
+    "etymology",
+    "latin alphabet",
+    "shorts"
+  ],
+  "youtube_id": "pl1QmjAr_Jg",
+  "watch_url": "https://youtube.com/shorts/pl1QmjAr_Jg",
+  "thumbnail": "set"
+}
