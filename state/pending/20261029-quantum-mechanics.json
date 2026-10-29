@@ -1,0 +1,47 @@
+{
+  "slug": "20261029-quantum-mechanics",
+  "subject": "Quantum mechanics",
+  "hook": "QUANTUM MECHANICS IS NOT WHAT YOU THINK",
+  "angle": "Quantum mechanics isn’t limited to single atoms – it has been experimentally confirmed in complex molecules containing thousands of atoms, showing truly macroscopic quantum behavior",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "\"it has been demonstrated to hold for complex molecules with thousands of atoms\"",
+    "\"electrons, atoms, and molecules are all found to exhibit the same dual behavior when fired towards a double slit\""
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Quantum Mechanics is Everywhere, Not Just in Atoms",
+  "description": "While many assume quantum behavior is confined to subatomic particles, experimental evidence confirms that large, complex molecules also follow these fundamental laws of nature.",
+  "tags": [
+    "quantum physics",
+    "science",
+    "atoms",
+    "physics",
+    "quantum mechanics"
+  ],
+  "narration": "QUANTUM MECHANICS IS NOT WHAT YOU THINK You picture tiny subatomic particles behaving strangely. You assume these bizarre rules only apply to isolated atoms. It was closer to reality that they govern massive, complex structures. Experiments confirm that molecules containing thousands of individual atoms exhibit true quantum interference. These massive, complex systems reveal that wave-particle duality and entanglement are not restricted to the microscopic world. Size is not the final barrier. The laws of the very small rule the entire physical world.",
+  "built_at": "2026-10-29T15:28:56.965934+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- particles, disco, light, colorful, colors, dots, by Vimeo-Free-Videos (Pixabay Licence) via Pixabay\n- Close-up of the objective lenses of a microscope by Shixart1985 (CC BY 2.0) via Wikimedia Commons\n- atoms, electrons, logo, logo animation, advertis by PIRO4D (Pixabay Licence) via Pixabay\n- science, atom, network, bond, chemistry, physics by motionstock (Pixabay Licence) via Pixabay\n- ai generated, liquid, chemistry, loop, science,  by doktorkleinmusic (Pixabay Licence) via Pixabay\n- magnetic stirrer, fluid mixing, chemical reactio by doktorkleinmusic (Pixabay Licence) via Pixabay\n- beaker, chemistry, laboratory, lab, science, res by doktorkleinmusic (Pixabay Licence) via Pixabay\n- candle, macro, burn, tea light, wooden table by RobVanDerMeijden (Pixabay Licence) via Pixabay\n- Magical Winter Tree with Cosmic Touch by Coverr (Coverr Licence) via Coverr",
+  "duration": 30.189649,
+  "yt_tags": [
+    "quantum physics",
+    "science",
+    "atoms",
+    "physics",
+    "quantum mechanics",
+    "shorts"
+  ],
+  "youtube_id": "mB-ZkqQKYHs",
+  "watch_url": "https://youtube.com/shorts/mB-ZkqQKYHs",
+  "thumbnail": "set"
+}
