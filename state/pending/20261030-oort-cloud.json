@@ -1,0 +1,46 @@
+{
+  "slug": "20261030-oort-cloud",
+  "subject": "Oort cloud",
+  "hook": "OORT CLOUD IS NOT WHAT YOU THINK",
+  "angle": "The Oort cloud is not actually a dense region of space; its objects are so far apart that 'neighboring' bodies are separated by tens of millions of kilometers.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "On this analysis, 'neighboring' objects in the outer cloud are separated by a significant fraction of 1 AU, tens of millions of kilometres."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "The Oort Cloud Is Mostly Empty Space",
+  "description": "Contrary to the dense swarm depicted in popular media, the Oort cloud is an incredibly sparse collection of objects spread across a massive volume of space.",
+  "tags": [
+    "space",
+    "astronomy",
+    "science",
+    "solar system",
+    "oort cloud"
+  ],
+  "narration": "OORT CLOUD IS NOT WHAT YOU THINK You picture a dense, swirling swarm of icy debris surrounding our Sun. It was closer to a vast, empty expanse of nearly isolated, drifting, individual objects. Although trillions of planetesimals exist within this region, the scale is incomprehensible. Because it spans such a massive volume, neighboring bodies in the outer cloud are typically separated by tens of millions of kilometers of empty space. It is less like a cloud and more like a void.",
+  "built_at": "2026-10-30T02:39:06.295586+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- nebula, galaxy, space, fantasy, exploration, cos by tommyvideo (Pixabay Licence) via Pixabay\n- planet, asteroid belt, cosmos, space, moon by Mikkehouse (Pixabay Licence) via Pixabay\n- abstract, tunnel, tunnel vision, light, design,  by Activedia (Pixabay Licence) via Pixabay\n- Magical Winter Tree with Cosmic Touch by Coverr (Coverr Licence) via Coverr\n- Boeing 247-D - DPLA - 069d557576650fed45a422612b by Boeing Aircraft Co (CC0) via Wikimedia Commons\n- galaxy, spinning, zooming in, andromeda, milky w by ChristianBodhi (Pixabay Licence) via Pixabay\n- ai generated, golden stars, starry night sky, dr by MrWashingt0n (Pixabay Licence) via Pixabay\n- planet earth, world, planets, outer space, galax by Osckar (Pixabay Licence) via Pixabay\n- earth, universe, space, planet, world, globe, sc by TBIT (Pixabay Licence) via Pixabay\n- planet, solar system, space travel, earth, orbit by AdisResic (Pixabay Licence) via Pixabay\n- ai generated, blackhole, loop, space, galaxy, vo by doktorkleinmusic (Pixabay Licence) via Pixabay",
+  "duration": 29.856315,
+  "yt_tags": [
+    "space",
+    "astronomy",
+    "science",
+    "solar system",
+    "oort cloud",
+    "shorts"
+  ],
+  "youtube_id": "RY12drTkxPo",
+  "watch_url": "https://youtube.com/shorts/RY12drTkxPo",
+  "thumbnail": "set"
+}
