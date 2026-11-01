@@ -1,0 +1,48 @@
+{
+  "slug": "20261101-blood-types",
+  "subject": "Blood types",
+  "hook": "BLOOD TYPES IS NOT WHAT YOU THINK",
+  "angle": "While most people believe your blood type is fixed for life, a bone marrow transplant can permanently change it to match your donor's. As the donor's stem cells take over and produce new red blood cells, a patient's ABO blood type completely transforms.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "Almost always, an individual has the same blood group for life, but very rarely an individual's blood type changes through addition or suppression of an antigen in infection, malignancy, or autoimmune disease.",
+    "If a person receives bone marrow from someone of a different ABO type (e.g., a type O patient receives a type A bone marrow), the patient's blood type should eventually become the donor's type, as the patient's hematopoietic stem cells (HSCs) are destroyed, either by ablation of the bone marrow or by the donor's T-cells."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Bone Marrow Transplants Can Rewrite Your Blood Type",
+  "description": "Most people assume their blood type never changes. However, after a bone‑marrow transplant, the donor's stem cells repopulate the blood, permanently altering the recipient's ABO type. This rare but documented shift shows blood type isn’t always fixed for life.",
+  "tags": [
+    "blood type",
+    "bone marrow",
+    "transplant",
+    "hematology",
+    "science"
+  ],
+  "narration": "BLOOD TYPES IS NOT WHAT YOU THINK You think your blood type stays the same forever, a lifelong genetic label. In reality, a bone‑marrow transplant can rewrite it to match the donor’s type. When donor hematopoietic stem cells engraft, they produce all new red cells. As the patient’s original cells die, the surface antigens shift, so a type O recipient of type A marrow might help end up type A. Your blood type can change permanently after transplant, lasting a lifetime.",
+  "built_at": "2026-11-01T15:25:12.859266+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- 1913 ABO Blood Groups.jpg by OpenStax College (CC BY 3.0) via Wikimedia Commons\n- 1969. Water quality monitoring during a controll by R6, State &amp; Private Forest (Public domain) via Wikimedia Commons\n- vj, loop, knot, endless by Medigrade (Pixabay Licence) via Pixabay\n- Endobronchial Epstein-Barr Virus Associated Post by S. Feuillet, V. Meignin, J. Br (CC BY 3.0) via Wikimedia Commons\n- artificial insemination, human anatomy, bench, b by AleksAndrC (Pixabay Licence) via Pixabay\n- medicine, blood cells, health, blood donation, a by allinonemovie (Pixabay Licence) via Pixabay\n- red blood cells, biology, medical, science, vein by motionstock (Pixabay Licence) via Pixabay\n- computer keyboard, typing, hands, female, keyboa by Coverr-Free-Footage (Pixabay Licence) via Pixabay\n- On St. Nicholas Day, Volodymyr Zelenskyy Visited by President Of Ukraine (CC0) via Wikimedia Commons\n- On St. Nicholas Day, Volodymyr Zelenskyy Visited by President Of Ukraine (CC0) via Wikimedia Commons",
+  "duration": 29.856315,
+  "yt_tags": [
+    "blood type",
+    "bone marrow",
+    "transplant",
+    "hematology",
+    "science",
+    "blood types",
+    "shorts"
+  ],
+  "youtube_id": "NQPD9P5yiEU",
+  "watch_url": "https://youtube.com/shorts/NQPD9P5yiEU",
+  "thumbnail": "set"
+}
