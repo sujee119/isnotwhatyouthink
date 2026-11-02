@@ -1,0 +1,47 @@
+{
+  "slug": "20261102-empire-state-building",
+  "subject": "Empire State Building",
+  "hook": "EMPIRE STATE BUILDING IS NOT WHAT YOU THINK",
+  "angle": "The Empire State Building has its own ZIP code (10118), making it one of just 43 New York City buildings with a unique postal code",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "\"the building is so large that it was assigned its own ZIP Code, 10118; as of 2012, it is one of 43 buildings in New York City that have their own ZIP codes.\"",
+    "\"Visitors to the observatories use an entrance at 20 West 34th Street; prior to August 2018, visitors entered through the Fifth Avenue lobby.\""
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Why the Empire State Building has its own ZIP code",
+  "description": "The Empire State Building is so massive that it operates under its own unique ZIP code. It is one of only 43 buildings in New York City with this distinction.",
+  "tags": [
+    "empire state building",
+    "nyc",
+    "architecture",
+    "zip codes",
+    "manhattan"
+  ],
+  "narration": "EMPIRE STATE BUILDING IS NOT WHAT YOU THINK You picture a simple office skyscraper serving a neighborhood. It was actually closer to a private postal district. The sheer scale demanded its own unique mailing code. Because of its immense size, the structure holds the exclusive ZIP code 10118. This makes it one of only 43 individual buildings in all of New York City to have its own dedicated postal designation. A single building with its own private slice of the mail.",
+  "built_at": "2026-11-02T08:23:52.241605+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- The Empire State Building by Coverr (Coverr Licence) via Coverr\n- Timelapse of Manhattan at sunset  by Coverr (Coverr Licence) via Coverr\n- Walking in the city  by Coverr (Coverr Licence) via Coverr\n- mailbox, vintage, rusty, old, rural, road, rain, by Solarselle77 (Pixabay Licence) via Pixabay\n- building, architecture, modern, high street, sky by ChristianBodhi (Pixabay Licence) via Pixabay\n- dog, pet, animal, small, furry, cute, fur, outdo by moshehar (Pixabay Licence) via Pixabay\n- box, taper, industrial, production, packaging, c by matlevesque (Pixabay Licence) via Pixabay\n- city, new york, building, night, cement, crystal by carl_watermark (Pixabay Licence) via Pixabay\n- Galveston US Post Office, Custom House and Court by Jim Evans (CC BY-SA 4.0) via Wikimedia Commons\n- city, bridge, art deco by JamesBarley1985 (Pixabay Licence) via Pixabay\n- money, money stack, stack, currency, finance, we by ClickingLoop (Pixabay Licence) via Pixabay\n- atoms, electrons, logo, logo animation, advertis by PIRO4D (Pixabay Licence) via Pixabay",
+  "duration": 29.856315,
+  "yt_tags": [
+    "empire state building",
+    "nyc",
+    "architecture",
+    "zip codes",
+    "manhattan",
+    "shorts"
+  ],
+  "youtube_id": "wVM2HclUHS0",
+  "watch_url": "https://youtube.com/shorts/wVM2HclUHS0",
+  "thumbnail": "set"
+}
