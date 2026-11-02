@@ -1,0 +1,47 @@
+{
+  "slug": "20261102-nuclear-fusion",
+  "subject": "Nuclear fusion",
+  "hook": "NUCLEAR FUSION IS NOT WHAT YOU THINK",
+  "angle": "Nuclear fusion's most favorable reaction, deuterium-tritium (DT) fusion, was not initially assumed to be the best path; it was only discovered to be 100 times more reactive than other methods due to a resonance enhancement discovered years after research began.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "Theoretical assumptions about DT fusion gave it a similar cross-section to DD.",
+    "However, in 1946 Egon Bretscher discovered a resonance enhancement giving the DT reaction a cross-section ~100 times larger."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "The Accidental Discovery Behind Modern Nuclear Fusion",
+  "description": "Scientists once believed fusing deuterium with tritium offered no practical advantage over other fuels. An unexpected laboratory finding in 1946 completely transformed atomic research. This hidden nuclear property made one specific combination the foundation for modern power concepts.",
+  "tags": [
+    "nuclear fusion",
+    "physics history",
+    "energy",
+    "science history",
+    "atomic research"
+  ],
+  "narration": "NUCLEAR FUSION IS NOT WHAT YOU THINK You picture physicists immediately knowing the golden fuel recipe. In reality, early researchers assumed blending deuterium and tritium offered no real advantage over plain deuterium. Theorists predicted both pairings would perform identically. That changed in 1946 when Egon Bretscher measured the interaction. He discovered a nuclear resonance enhancement that made the combination roughly one hundred times more reactive than expected, turning a dismissed match into fusion's primary path. The premier fuel of future energy was once deemed completely ordinary.",
+  "built_at": "2026-11-02T02:31:18.781367+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- rocks, stones, dolmen, trees, tombs, portal, pre by Matthias_Groeneveld (Pixabay Licence) via Pixabay\n- albert einstein, portrait, theoretician physicia by janeb13 (Pixabay Licence) via Pixabay\n- scientist, laboratory, research, space, science, by SciQuestYT (Pixabay Licence) via Pixabay\n- rain, thunder, water, lightning, thunderstorm, w by DistillVideos (Pixabay Licence) via Pixabay\n- Flicking through notebook pages by Coverr (Coverr Licence) via Coverr\n- tunnel, stars, light, freedom, escape, music, wo by ChristianBodhi (Pixabay Licence) via Pixabay\n- phone, smartphone, mobile, portable, screen, dig by Natures_Embrace (Pixabay Licence) via Pixabay\n- plasma ball, plasma lamp, lamp, discharge, elect by anncapictures (Pixabay Licence) via Pixabay\n- chernobyl, nuclear, radiation, radioactive, zone by blackmarketmusic (Pixabay Licence) via Pixabay\n- science, atom, network, bond, chemistry, physics by motionstock (Pixabay Licence) via Pixabay",
+  "duration": 31.522982,
+  "yt_tags": [
+    "nuclear fusion",
+    "physics history",
+    "energy",
+    "science history",
+    "atomic research",
+    "shorts"
+  ],
+  "youtube_id": "_AqOa-Cv1Vk",
+  "watch_url": "https://youtube.com/shorts/_AqOa-Cv1Vk",
+  "thumbnail": "set"
+}
