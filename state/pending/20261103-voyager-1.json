@@ -1,0 +1,66 @@
+{
+  "slug": "20261103-voyager-1",
+  "subject": "Voyager 1",
+  "hook": "VOYAGER 1 IS NOT WHAT YOU THINK",
+  "angle": "Voyager 1 is so far away that it is about to reach the milestone of being one \"light-day\" from Earth, meaning radio communications take a full 24 hours to travel in each direction.",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "The spacecraft is approaching the one-light-day milestone, when radio signals will take 24 hours to travel between Earth and Voyager 1.",
+    "Voyager 1 is projected to reach a distance of one light day from Earth on November 18, 2026."
+  ],
+  "is_person": false,
+  "topic_source": "trends",
+  "trending_on": [
+    "voyager 1"
+  ],
+  "title": "The True Distance of Voyager 1",
+  "description": "Voyager 1 is pushing the boundaries of human exploration further than ever. It is about to reach a distance where light itself takes 24 hours to travel back to our planet.",
+  "tags": [
+    "voyager1",
+    "nasa",
+    "space",
+    "astronomy",
+    "science"
+  ],
+  "narration": "VOYAGER 1 IS NOT WHAT YOU THINK You picture a spacecraft buzzing through our local neighborhood. It was closer to home. In reality, Voyager 1 has traveled so far that space itself defies standard intuition. By November 2026, the probe reaches a historic milestone: one light-day from Earth. At this vast distance of sixteen billion miles, radio signals must travel for twenty-four hours in each direction to complete a single communication. Even light now takes an entire day to bridge the gap.",
+  "built_at": "2026-11-03T04:04:56.623261+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    },
+    {
+      "kind": "origin",
+      "url": "https://science.nasa.gov/blogs/voyager/2026/10/29/nasas-voyager-1-conserves-power-resolves-brief-communications-pause/"
+    },
+    {
+      "kind": "trend-news",
+      "url": "https://science.nasa.gov/blogs/voyager/2026/10/29/nasas-voyager-1-conserves-power-resolves-brief-communications-pause/"
+    },
+    {
+      "kind": "trend-news",
+      "url": "https://mashable.com/science/nasa-voyager-1-communication-outage"
+    },
+    {
+      "kind": "trend-news",
+      "url": "https://interestingengineering.com/space/nasas-voyager-1-briefly-went-silent"
+    }
+  ],
+  "credits": "Image credits:\n- cluster, constellation, space, dark, deep, explo by Gam-Ol (Pixabay Licence) via Pixabay\n- voyager, probe, universe, galaxy, space, stars,  by ChristianBodhi (Pixabay Licence) via Pixabay\n- earth, earth seen from space, earth from space,  by AiVreaSaStii (Pixabay Licence) via Pixabay\n- corridor, beautiful wallpaper, space, outer spac by Prettysleepy (Pixabay Licence) via Pixabay\n- asteroids, belt, field, meteors, asteroid, inter by Genty (Pixabay Licence) via Pixabay\n- love, love you, valentine, february, heart, wedd by PrettyPixels (Pixabay Licence) via Pixabay\n- subscription, sign, social, subscribe, channel,  by olenchic (Pixabay Licence) via Pixabay\n- antenna, astronomy, communication, data, dish, e by Matthias_Groeneveld (Pixabay Licence) via Pixabay\n- Grand Central Clock by Coverr (Coverr Licence) via Coverr\n- Macro Soap Bubble with Dandelion Seed and Irides by Coverr (Coverr Licence) via Coverr",
+  "duration": 30.189649,
+  "yt_tags": [
+    "voyager1",
+    "nasa",
+    "space",
+    "astronomy",
+    "science",
+    "voyager 1",
+    "shorts"
+  ],
+  "youtube_id": "ykr6H6LhE1I",
+  "watch_url": "https://youtube.com/shorts/ykr6H6LhE1I",
+  "thumbnail": "set"
+}
