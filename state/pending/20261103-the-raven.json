@@ -1,0 +1,48 @@
+{
+  "slug": "20261103-the-raven",
+  "subject": "The Raven",
+  "hook": "THE RAVEN IS NOT WHAT YOU THINK",
+  "angle": "The raven that inspired Poe’s famous poem was a real taxidermied bird owned by Charles Dickens, now on display at the Free Library of Philadelphia",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "The Free Library of Philadelphia has on display a taxidermied raven that is reputed to be the very one that Dickens owned and that helped inspire Poe's poem.",
+    "Poe based the poem in part on a talking raven in the 1841 novel Barnaby Rudge by Charles Dickens"
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "The True Origin of Poe’s Raven",
+  "description": "Edgar Allan Poe’s famous poem was inspired by a real-life pet raven owned by author Charles Dickens. You can actually visit the preserved specimen at the Free Library of Philadelphia.",
+  "tags": [
+    "poe",
+    "literature",
+    "history",
+    "dickens",
+    "philadelphia"
+  ],
+  "narration": "THE RAVEN IS NOT WHAT YOU THINK You picture a dark, supernatural omen birthed from Poe’s imagination. It was closer to a real, taxidermied pet that lived long before the poem was ever written. Edgar Allan Poe drew his chilling inspiration from Grip, the talkative bird owned by Charles Dickens. That very raven was preserved after death and now resides at the Free Library of Philadelphia for visitors to see today. The literary masterpiece started as a stuffed bird on a shelf.",
+  "built_at": "2026-11-03T22:29:11.596816+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- Chatterers (1913) Harry Willson Watrous by unknown (CC0) via Openverse\n- book, candle, quill, inkwell, vintage, antique,  by DEZYNE_3D (Pixabay Licence) via Pixabay\n- curtain, wind, silence, silent, museum by Elcin_Qarayev (Pixabay Licence) via Pixabay\n- In a club corner [Spine and front cover] by Boston Public Library (CC BY) via Openverse\n- Edgar A. Poe - NARA - 528345 (cropped).jpg by Mathew Benjamin Brady (Public domain) via Wikimedia Commons\n- dog, pet, animal, small, furry, cute, fur, brown by moshehar (Pixabay Licence) via Pixabay\n- Intense Close-Up of a Raven's Face, Beak and Fea by Coverr (Coverr Licence) via Coverr\n- Free Library of Philadelphia, Lewis E 170, 1r by Peter Lombard (CC BY-SA) via Openverse\n- The Free Library of Philadelphia, July 27, 2022 by the bridge (CC BY) via Openverse\n- Tower of Old Hardcover Books on Library Shelf Cl by Coverr (Coverr Licence) via Coverr",
+  "duration": 30.189649,
+  "yt_tags": [
+    "poe",
+    "literature",
+    "history",
+    "dickens",
+    "philadelphia",
+    "the raven",
+    "shorts"
+  ],
+  "youtube_id": "NoTCDgxOuqE",
+  "watch_url": "https://youtube.com/shorts/NoTCDgxOuqE",
+  "thumbnail": "set"
+}
