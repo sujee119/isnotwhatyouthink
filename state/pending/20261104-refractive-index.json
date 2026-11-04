@@ -1,0 +1,48 @@
+{
+  "slug": "20261104-refractive-index",
+  "subject": "Refractive index",
+  "hook": "REFRACTIVE INDEX IS NOT WHAT YOU THINK",
+  "angle": "Refractive index can be less than 1—water’s index for 30 keV X‑rays is 0.99999974, slightly below vacuum",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "This can occur close to resonance frequencies, for absorbing media, in plasmas, and for X-rays. In the X‑ray regime the refractive indices are lower than but very close to 1 (exceptions close to some resonance frequencies).",
+    "As an example, water has a refractive index of 0.99999974 = 1 − 2.6×10⁻⁷ for X‑ray radiation at a photon energy of 30 keV (0.04 nm wavelength)."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Why Water Is Faster Than Light",
+  "description": "We explore how the refractive index of water can fall below one when interacting with X-rays. This phenomenon challenges the common assumption that light must always slow down in matter.",
+  "tags": [
+    "physics",
+    "optics",
+    "science",
+    "light",
+    "xrays"
+  ],
+  "narration": "REFRACTIVE INDEX IS NOT WHAT YOU THINK You picture a number that must always be higher than one. It was closer to the idea that light always slows down when entering a dense material. Actually, the refractive index can drop below unity. For X-rays at 30 keV, water exhibits an index of 0.99999974. This occurs because the phase velocity of these high-energy waves briefly exceeds the speed of light in vacuum. The laws of physics allow light to behave in unexpected ways.",
+  "built_at": "2026-11-04T18:30:00.479802+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- abstract, light, flare, rainbow, lens, overlay,  by AbstractBackground (Pixabay Licence) via Pixabay\n- woman, glasses, tablet, reflection, screen, ligh by Suraajm20 (Pixabay Licence) via Pixabay\n- chess, chess board, strategy, play, board game,  by OrcaTec (Pixabay Licence) via Pixabay\n- binary, binary code, binary system, matrix, futu by geralt (Pixabay Licence) via Pixabay\n- dollar, bill, money, cash, currency, finance, 1, by Ceos_Stock (Pixabay Licence) via Pixabay\n- Retro Cream Espresso Machine on Sunny Kitchen Co by Coverr (Coverr Licence) via Coverr\n- A man is swimming over a mid-ocean ridge by Coverr (Coverr Licence) via Coverr\n- sea, wave, beach, sunset, ocean, sunrise, sunlig by Mario_Krimer (Pixabay Licence) via Pixabay\n- Energetic Home Cook Shows High-Speed Blender Tip by Coverr (Coverr Licence) via Coverr\n- dna, molecule, health, covid-19, corona, virus,  by motionstock (Pixabay Licence) via Pixabay",
+  "duration": 30.189649,
+  "yt_tags": [
+    "physics",
+    "optics",
+    "science",
+    "light",
+    "xrays",
+    "refractive index",
+    "shorts"
+  ],
+  "youtube_id": "xuce1zaQNX4",
+  "watch_url": "https://youtube.com/shorts/xuce1zaQNX4",
+  "thumbnail": "set"
+}
