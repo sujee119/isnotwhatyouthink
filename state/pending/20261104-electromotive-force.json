@@ -1,0 +1,47 @@
+{
+  "slug": "20261104-electromotive-force",
+  "subject": "Electromotive force",
+  "hook": "ELECTROMOTIVE FORCE IS NOT WHAT YOU THINK",
+  "angle": "Despite its name, electromotive force is not a physical force at all, and the term has been formally deprecated by international standards in favor of source voltage.",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "However, electromotive force itself is not a physical force, and ISO/IEC standards have deprecated the term in favor of source voltage or source tension instead"
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Why Electromotive Force is a Lie",
+  "description": "Despite its common name, electromotive force has nothing to do with physical forces. It is simply an energy transfer per unit of charge, leading international standards to officially move away from the term.",
+  "tags": [
+    "physics",
+    "science",
+    "electricity",
+    "engineering",
+    "education"
+  ],
+  "narration": "ELECTROMOTIVE FORCE IS NOT WHAT YOU THINK You picture a physical force pushing electrons through a wire. It was closer to energy transfer. It is not a force at all; it is actually energy. International standards have formally deprecated the term entirely. Scientists now prefer the label source voltage. It describes work done per charge, measured in volts, rather than a literal mechanical push exerted by a physical, classical force. Names can be misleading, especially when they imply hidden physical pushing.",
+  "built_at": "2026-11-04T03:04:55.213179+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- on the table lies a thick textbook, homework, te by chayka1270 (Pixabay Licence) via Pixabay\n- Warm Filament Lightbulbs with Tiny Cloud Concept by Coverr (Coverr Licence) via Coverr\n- power socket, electricity, fork, wire, turn on,  by klimkin (Pixabay Licence) via Pixabay\n- battery, energy, stack, recycling, to recycle, t by MASTERSYSTEM60 (Pixabay Licence) via Pixabay\n- ukraine, flag, symbol, sky, city, country, state by AlexKopeykin (Pixabay Licence) via Pixabay\n- book, pencil, notebook, paper, document, educati by wonderlandwoo (Pixabay Licence) via Pixabay\n- file, folder, document, cabinet, archive, spread by MuhammadAhmad10 (Pixabay Licence) via Pixabay\n- All multimeters.jpg by Ecomponents (CC BY-SA 4.0) via Wikimedia Commons\n- Analogmultimeter Multavi.jpg by Harke (Public domain) via Wikimedia Commons\n- lines, stripes, curves, flow, energy, banner, ab by Gam-Ol (Pixabay Licence) via Pixabay\n- ai generated, abstract, background, particles, w by WhiteHatDesigner (Pixabay Licence) via Pixabay\n- kefalonia, greece, island, road, asphalt, drone, by Matthias_Groeneveld (Pixabay Licence) via Pixabay",
+  "duration": 29.856315,
+  "yt_tags": [
+    "physics",
+    "science",
+    "electricity",
+    "engineering",
+    "education",
+    "electromotive force",
+    "shorts"
+  ],
+  "youtube_id": "4IcJataG350",
+  "watch_url": "https://youtube.com/shorts/4IcJataG350",
+  "thumbnail": "set"
+}
