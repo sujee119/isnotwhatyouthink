@@ -1,0 +1,48 @@
+{
+  "slug": "20261104-binary-star",
+  "subject": "Binary star",
+  "hook": "BINARY STAR IS NOT WHAT YOU THINK",
+  "angle": "Binary stars were not originally discovered to be orbiting pairs; they were initially studied by astronomers like William Herschel to measure stellar parallax in hopes of calculating the distance to stars.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "William Herschel began observing double stars in 1779, hoping to find a near star paired with a distant star so he could measure the near star's changing position as the Earth orbited the Sun",
+    "By 1803, he had observed changes in the relative positions in a number of double stars over the course of 25 years, and concluded that, instead of showing parallax changes, they seemed to be orbiting each other in binary systems."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "The Accidental Discovery of Binary Stars",
+  "description": "Binary stars were not originally discovered to be orbiting pairs; they were initially studied by astronomers like William Herschel to measure stellar parallax in hopes of calculating the distance to stars.",
+  "tags": [
+    "astronomy",
+    "science",
+    "stars",
+    "history",
+    "space"
+  ],
+  "narration": "BINARY STAR IS NOT WHAT YOU THINK You picture these as pairs orbiting each other. It was actually closer to a failed experiment. Astronomers sought to use these close stars to measure stellar distance. William Herschel began tracking double stars in 1779. He hoped to use their shifting positions to calculate parallax. Instead, he observed them moving in arcs, eventually realizing they were gravitationally locked systems orbiting a shared center. The goal was to map space, but he found gravity instead.",
+  "built_at": "2026-11-04T23:09:08.223227+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- astrology, astronomy, astrophotography, backgrou by Buvrix27 (Pixabay Licence) via Pixabay\n- mars, planet, space, science, travel, orbit, ear by caelan (Pixabay Licence) via Pixabay\n- abandoned, rust, telescope, old, broken, rusted, by Matthias_Groeneveld (Pixabay Licence) via Pixabay\n- chart, diagram, pie chart, statistics, browsing by devidbrosme (Pixabay Licence) via Pixabay\n- dog, pet, animal, small, furry, cute, fur, brown by moshehar (Pixabay Licence) via Pixabay\n- science, movement, curve, sphere, motion, design by TheDigitalArtist (Pixabay Licence) via Pixabay\n- Caldwell 46 by NASA Hubble (CC BY) via Openverse\n- atoms, electrons, logo, logo animation, advertis by PIRO4D (Pixabay Licence) via Pixabay\n- space, nebula, background, galaxy, panorama, sta by Gam-Ol (Pixabay Licence) via Pixabay\n- stars, beautiful wallpaper, christmas, loop, glo by TIMETORELAXSCREENSAVER (Pixabay Licence) via Pixabay",
+  "duration": 29.856315,
+  "yt_tags": [
+    "astronomy",
+    "science",
+    "stars",
+    "history",
+    "space",
+    "binary star",
+    "shorts"
+  ],
+  "youtube_id": "EI6Uuf3eRLI",
+  "watch_url": "https://youtube.com/shorts/EI6Uuf3eRLI",
+  "thumbnail": "set"
+}
