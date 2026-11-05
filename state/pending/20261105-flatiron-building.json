@@ -1,0 +1,48 @@
+{
+  "slug": "20261105-flatiron-building",
+  "subject": "Flatiron Building",
+  "hook": "FLATIRON BUILDING IS NOT WHAT YOU THINK",
+  "angle": "The Flatiron Building’s footprint is a scalene right triangle, not the isosceles‑shaped “flat‑iron” most people picture",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "\"The Flatiron Building occupies a triangular city block… Despite the building's name, the site is shaped like a scalene right triangle; a genuine flatiron is shaped like an isosceles triangle.\"",
+    "\"The Flatiron Building (originally the Fuller Building) is a 22‑story… triangular building… The shape of the site arises from Broadway's diagonal alignment relative to the Manhattan street grid.\""
+  ],
+  "is_person": false,
+  "topic_source": "wikipedia",
+  "trending_on": [],
+  "title": "The Flatiron Building's Secret Geometry",
+  "description": "We reveal the surprising truth about the Flatiron Building's unique footprint. It turns out the iconic structure isn't the shape you assume it is.",
+  "tags": [
+    "architecture",
+    "nyc",
+    "flatiron",
+    "geometry",
+    "history"
+  ],
+  "narration": "FLATIRON BUILDING IS NOT WHAT YOU THINK You picture a classic, symmetric flat-iron. It was closer to a scalene right triangle. The building's footprint defies the simple shape that gave it a famous name. Its sides measure exactly 197.5 feet, 214.5 feet, and 86 feet. Because these edges are unequal, it creates an irregular, slanted profile. A true clothes iron is isosceles, but this skyscraper is mathematically distinct and lopsided. The city grid forced a geometry that never matched its nickname.",
+  "built_at": "2026-11-05T13:31:38.274021+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Flatiron_Building"
+    }
+  ],
+  "credits": "Image credits:\n- castle, church, tower, city, architecture, build by caelan (Pixabay Licence) via Pixabay\n- laundry, washing machine, cleaning clothes, clea by iha31 (Pixabay Licence) via Pixabay\n- investment, finance, business, company, graphic, by Natures_Embrace (Pixabay Licence) via Pixabay\n- new york city, manhattan, people, cars, crossroa by Coverr-Free-Footage (Pixabay Licence) via Pixabay\n- electronics, circuit, component, background, eng by tommyvideo (Pixabay Licence) via Pixabay\n- electronics, circuit, component, background, bea by tommyvideo (Pixabay Licence) via Pixabay\n- blue, rectangles, geometrical, shapes, figures,  by ArtSqb (Pixabay Licence) via Pixabay\n- machine, gears, metal, old, wheel, industry, ind by TungArt7 (Pixabay Licence) via Pixabay\n- Giant Electric-Blue Energy Drink Can Towers Over by Coverr (Coverr Licence) via Coverr\n- grid, digital grid, particles, lines by olenchic (Pixabay Licence) via Pixabay",
+  "duration": 29.856315,
+  "yt_tags": [
+    "architecture",
+    "nyc",
+    "flatiron",
+    "geometry",
+    "history",
+    "flatiron building",
+    "shorts"
+  ],
+  "youtube_id": "wpQPs_r6UcQ",
+  "watch_url": "https://youtube.com/shorts/wpQPs_r6UcQ",
+  "thumbnail": "set"
+}
