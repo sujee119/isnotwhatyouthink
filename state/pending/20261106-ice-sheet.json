@@ -1,0 +1,48 @@
+{
+  "slug": "20261106-ice-sheet",
+  "subject": "Ice sheet",
+  "hook": "ICE SHEET IS NOT WHAT YOU THINK",
+  "angle": "Ice sheets are actually warmer at their base than at the surface, and that meltwater lubricates the base causing the ice to flow faster",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "\"Although the surface is cold, the base of an ice sheet is generally warmer by means of geothermal heat.\"",
+    "\"In places, melting occurs and the melt-water lubricates the ice sheet so that it flows more rapidly.\""
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Why Ice Sheets Actually Slide",
+  "description": "Ice sheets are not just frozen static masses. They are dynamic systems kept in motion by geothermal heat melting their undersides.",
+  "tags": [
+    "glacier",
+    "science",
+    "geology",
+    "nature",
+    "ice"
+  ],
+  "narration": "ICE SHEET IS NOT WHAT YOU THINK You imagine a frozen, solid block. It was closer to a sliding machine. We assume the surface is the coldest part, but the base is actually warmer. Geothermal heat warms the bottom, creating meltwater. This liquid acts like a lubricant between the ice and the ground. This flow is so efficient that it creates fast-moving channels within the ice sheet known as ice streams. The ground beneath the ice is often much wetter than expected.",
+  "built_at": "2026-11-06T22:42:28.331303+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- river, ice cream, frozen, winter, china, aerial  by AcornStudioSpain (Pixabay Licence) via Pixabay\n- ai generated, vanilla ice cream, chocolate sauce by MoonpetalMedia (Pixabay Licence) via Pixabay\n- ice cream, slow motion chocolate syrup, chocolat by Poor-Designer (Pixabay Licence) via Pixabay\n- ice, lake, winter, frost, icy, country, nature,  by IgorKocka (Pixabay Licence) via Pixabay\n- geothermal, iceland, nature, steam, landscape, n by Gylfi (Pixabay Licence) via Pixabay\n- glacier, melting, water, whooshing, snowmelt, me by FlickrVideos (Pixabay Licence) via Pixabay\n- atmospheric, sky, clouds, cloudscape, sunset, mo by DancingSky (Pixabay Licence) via Pixabay\n- train, rail, weather, railroad, transport, engin by VariousPhotography (Pixabay Licence) via Pixabay\n- aletsch glacier, glacier, landscape, eternal ice by adege (Pixabay Licence) via Pixabay\n- river, stream, brook, forest, log, wood, nature, by 25347980 (Pixabay Licence) via Pixabay",
+  "duration": 30.189649,
+  "yt_tags": [
+    "glacier",
+    "science",
+    "geology",
+    "nature",
+    "ice",
+    "ice sheet",
+    "shorts"
+  ],
+  "youtube_id": "S_GYYLSXEHk",
+  "watch_url": "https://youtube.com/shorts/S_GYYLSXEHk",
+  "thumbnail": "set"
+}
