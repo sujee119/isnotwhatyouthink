@@ -1,0 +1,48 @@
+{
+  "slug": "20261106-cmyk-color-model",
+  "subject": "CMYK color model",
+  "hook": "CMYK COLOR MODEL IS NOT WHAT YOU THINK",
+  "angle": "CMYK printing does not actually create millions of colors by mixing ink in the traditional sense; without halftoning, it would only be capable of producing eight basic colors.",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "Without halftoning, CMYK inks would only produce eight colors: the three primaries (cyan, magenta, yellow), the three secondaries (red, green, blue), white, and black.",
+    "Halftoning (or screening) allows a printer to produce continuous tones by varying the size and spacing of small ink dots."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "The Secret Behind CMYK Color Printing",
+  "description": "CMYK printing is often misunderstood as a simple liquid mixing process. In reality, it relies on halftoning to create the illusion of millions of colors from just eight basic options.",
+  "tags": [
+    "printing",
+    "cmyk",
+    "design",
+    "graphicdesign",
+    "color"
+  ],
+  "narration": "CMYK COLOR MODEL IS NOT WHAT YOU THINK You picture a vibrant printer mixing liquid pigments to create millions of shades. It was closer to a simple system that, alone, can only output eight colors. Without a process called halftoning, printers are limited to cyan, magenta, yellow, black, red, green, blue, and white. Halftoning creates the illusion of continuous tones by varying the size and spacing of tiny ink dots. Your eyes do the work of blending these tiny dots together.",
+  "built_at": "2026-11-06T17:42:31.832804+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- typewriter, typing, writing, author, book author by LisaRedfern (Pixabay Licence) via Pixabay\n- bacterium, germ, bacteria, virus, infection, mic by HazarMan (Pixabay Licence) via Pixabay\n- bullets, gun, weapon, cartridges, shot, lead, ca by x_OI (Pixabay Licence) via Pixabay\n- Inkjet Printed FSLs by Xiphiaz (CC BY-SA) via Openverse\n- solid to process by bburky (CC BY) via Openverse\n- pixel, mosaic, design, beautiful wallpaper, patt by tommyvideo (Pixabay Licence) via Pixabay\n- fiber, light, design, space, wallpaper, beautifu by tommyvideo (Pixabay Licence) via Pixabay\n- design, backdrop, halftone, space, graphic, wall by tommyvideo (Pixabay Licence) via Pixabay\n- Macaria alternata (6009035375).jpg by Ben Sale from UK (CC BY 2.0) via Wikimedia Commons\n- eyeball, eye, anatomy, human, vision, eyesight,  by sbtlneet (Pixabay Licence) via Pixabay",
+  "duration": 29.856315,
+  "yt_tags": [
+    "printing",
+    "cmyk",
+    "design",
+    "graphicdesign",
+    "color",
+    "cmyk color model",
+    "shorts"
+  ],
+  "youtube_id": "_mmxNEiCvQw",
+  "watch_url": "https://youtube.com/shorts/_mmxNEiCvQw",
+  "thumbnail": "set"
+}
