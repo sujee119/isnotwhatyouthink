@@ -1,0 +1,48 @@
+{
+  "slug": "20261107-dynamical-systems",
+  "subject": "Dynamical systems",
+  "hook": "DYNAMICAL SYSTEMS IS NOT WHAT YOU THINK",
+  "angle": "Dynamical systems don’t require a smooth manifold—any set (even without geometric structure) equipped with a semigroup can serve as the state space",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "\"the space may be a manifold or simply a set, without the need of a smooth space-time structure defined on it\" (Wikipedia, overview)",
+    "\"From a mathematics perspective in the most general case the state space X is treated as a generic set of abstract algebra. This space X has a semi‑group structure on it...\" (Wikipedia, Mathematical intuition)"
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Why Dynamical Systems Don't Need Smooth Space",
+  "description": "Most people assume dynamic systems require calculus, smooth geometry, or physical dimensions. In reality, the mathematical foundation requires neither space nor continuous time to operate. An abstract set and an algebraic operation are sufficient.",
+  "tags": [
+    "mathematics",
+    "chaos theory",
+    "physics",
+    "abstract algebra",
+    "stem"
+  ],
+  "narration": "DYNAMICAL SYSTEMS IS NOT WHAT YOU THINK You picture swinging clock pendulums, orbiting planets, or continuous trajectories flowing across smooth geometric manifolds. You assume motion demands differential equations and smooth physical space. It does not. Under its broadest mathematical definition, physical space-time completely vanishes. Any arbitrary set, entirely stripped of geometric structure, serves as the state space—advancing step by step solely through an associative algebraic semigroup with a base identity element. Dynamics never needed physical space, just a bare algebraic rule.",
+  "built_at": "2026-11-07T10:10:06.764047+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- macro, clock, glitter, mechanism, time by Danil_Shostak (Pixabay Licence) via Pixabay\n- pendulum, frequency, wave, sine, relaxing by GrantMuller (Pixabay Licence) via Pixabay\n- topographic map, contour lines, topography, terr by Ceos_Stock (Pixabay Licence) via Pixabay\n- math, mathematics, algebra, free use download, g by fspik_now (Pixabay Licence) via Pixabay\n- Green liquid with black particles by Coverr (Coverr Licence) via Coverr\n- yellow, frame, typography, dots by wicketsix (Pixabay Licence) via Pixabay\n- digital matrix landscape, data network infrastru by MrWashingt0n (Pixabay Licence) via Pixabay\n- ai generated, book, reading, magic, study, liter by stefaniejockschat (Pixabay Licence) via Pixabay\n- ai generated, abstract background, floating sphe by MrWashingt0n (Pixabay Licence) via Pixabay",
+  "duration": 29.856315,
+  "yt_tags": [
+    "mathematics",
+    "chaos theory",
+    "physics",
+    "abstract algebra",
+    "stem",
+    "dynamical systems",
+    "shorts"
+  ],
+  "youtube_id": "1VXnBkA8oW4",
+  "watch_url": "https://youtube.com/shorts/1VXnBkA8oW4",
+  "thumbnail": "set"
+}
