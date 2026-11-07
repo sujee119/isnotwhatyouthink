@@ -1,0 +1,46 @@
+{
+  "slug": "20261106-ordinary-differential-equations",
+  "subject": "Ordinary differential equations",
+  "hook": "ORDINARY DIFFERENTIAL EQUATIONS IS NOT WHAT YOU THINK",
+  "angle": "Some non‑linear autonomous ODEs have solutions that exist only for a finite time, reaching zero and staying there, contrary to the usual belief that ODE solutions always extend for all time",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "\"A solution defined on all of ℝ is called a global solution.\" (definition of global solution)",
+    "\"For non-linear autonomous ODEs it is possible ... to develop solutions of finite duration, meaning ... the system will reach the value zero at an ending time and stays there in zero forever after.\" (description of finite‑duration solutions)"
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Why Some Equations End Forever",
+  "description": "While most ordinary differential equations have solutions that extend indefinitely, certain non-linear autonomous systems exhibit finite-duration behavior. These specific solutions reach zero and stay there, defying the common expectation of global existence.",
+  "tags": [
+    "mathematics",
+    "calculus",
+    "differential equations",
+    "science"
+  ],
+  "narration": "ORDINARY DIFFERENTIAL EQUATIONS IS NOT WHAT YOU THINK You assume every solution exists forever across the entire real line. It is actually possible for some non-linear autonomous systems to reach zero and stay there permanently. Consider the equation y prime equals negative sign of y times the square root of y. With an initial value of one, the system hits zero at a finite time, then remains fixed at zero for all eternity. Dynamics can terminate abruptly rather than extending into infinite time horizons.",
+  "built_at": "2026-11-06T23:58:37.301719+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- T͢h͢e͢ ͢W͢e͢a͢t͢h͢e͢r͢ ͢M͢a͢c͢h͢i͢n͢e͢ by jurvetson (CC BY) via Openverse\n- meeting, chalkboard, write, meeting time chalkbo by 2seewell (Pixabay Licence) via Pixabay\n- Accelerated-Worldlines-Gullstrand-Painleve.png by Yukterez (Simon Tyran, Vienna) (CC BY-SA 4.0) via Wikimedia Commons\n- heart rate, frequency, medicine, rhythm, pulse,  by TBIT (Pixabay Licence) via Pixabay\n- blue, rectangles, geometrical, shapes, figures,  by ArtSqb (Pixabay Licence) via Pixabay\n- graph, gain graph, chart, data, up graph, busine by terski (Pixabay Licence) via Pixabay\n- binary, binary code, binary system, matrix, futu by geralt (Pixabay Licence) via Pixabay\n- winter, snow, nature, landscape, frost, cold, tr by XanhSen901 (Pixabay Licence) via Pixabay\n- Ledger Book by Calsidyrose (CC BY) via Openverse\n- dollar, bill, money, cash, currency, finance, 1, by Ceos_Stock (Pixabay Licence) via Pixabay\n- love, love you, valentine, february, heart, wedd by PrettyPixels (Pixabay Licence) via Pixabay\n- france, paris, lion, statue, center, city, marbl by caelan (Pixabay Licence) via Pixabay\n- After this, I give up. Probably. by iphwin (CC BY) via Openverse\n- grid, digital grid, particles, lines by olenchic (Pixabay Licence) via Pixabay\n- Closed restaurant in Paris  by Coverr (Coverr Licence) via Coverr\n- smoke, ascending, haze, blue, step out by TH-DARK-Media (Pixabay Licence) via Pixabay\n- Close-Up of a Fresh Red Apple with Water Droplet by Coverr (Coverr Licence) via Coverr\n- nebula, galaxy, space, fantasy, exploration, cos by tommyvideo (Pixabay Licence) via Pixabay\n- Waves crashing near the coast by Coverr (Coverr Licence) via Coverr\n- highway, road, cars, traffic, line, straight, dr by otohp_by_sakul (Pixabay Licence) via Pixabay\n- astronaut, space, outer space, earth from space, by InfinityByte (Pixabay Licence) via Pixabay",
+  "duration": 30.856315,
+  "yt_tags": [
+    "mathematics",
+    "calculus",
+    "differential equations",
+    "science",
+    "ordinary differential equations",
+    "shorts"
+  ],
+  "youtube_id": "tZ04doXRfR4",
+  "watch_url": "https://youtube.com/shorts/tZ04doXRfR4",
+  "thumbnail": "set"
+}
