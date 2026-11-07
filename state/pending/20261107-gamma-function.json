@@ -1,0 +1,48 @@
+{
+  "slug": "20261107-gamma-function",
+  "subject": "Gamma function",
+  "hook": "GAMMA FUNCTION IS NOT WHAT YOU THINK",
+  "angle": "The Gamma function is not the only way to extend the factorial function to non-integers; there are infinitely many \"pseudogamma\" functions that satisfy the same basic factorial property.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "The gamma function is not only smooth but analytic... but it is not the only analytic function that extends the factorial, as one may add any analytic function that is zero on the positive integers, such as ksin(mπx) for an integer m.",
+    "But this still does not give a unique solution, since it allows for multiplication by any periodic function g(x) with g(x)=g(x+1) and g(0)=1, such as g(x)=eksin(mπx) for any integer m."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Infinite Pseudogamma Functions: More Than Just the Gamma",
+  "description": "Most people think the Gamma function uniquely extends factorials to non‑integers. Mathematics shows you can multiply it by any period‑1 analytic function and still satisfy the factorial recurrence, creating endless alternatives. This reveals a whole family of \"pseudogamma\" functions.",
+  "tags": [
+    "gamma",
+    "factorial",
+    "pseudogamma",
+    "math",
+    "analysis"
+  ],
+  "narration": "GAMMA FUNCTION IS NOT WHAT YOU THINK You assume the Gamma function is the sole way to extend n! to non‑integers. In fact, countless other functions meet the same factorial rule for all positive x. If g(x) is any period‑1 analytic function with g(0)=1, then f(x)=Γ(x)·g(x) satisfies f(x+1)=x f(x). Examples include g(x)=e^{k sin(mπx)} for any integer m, yielding infinitely many pseudogamma functions such as the Hadamard function on the positive real line. Infinite pseudogamma families prove factorial extension isn’t unique for real arguments.",
+  "built_at": "2026-11-07T16:40:45.311617+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- L&S Rules for Students 1 by mick62 (CC BY-SA) via Openverse\n- iGEM-A-5 by igemhq (CC BY) via Openverse\n- write, notebook, phone wallpaper, pen, hand, pap by fotografierende (Pixabay Licence) via Pixabay\n- Auringon ja kuun korkeuskulma isojoella kyllikki by Merikanto (CC0) via Wikimedia Commons\n- graph, gain graph, chart, data, up graph, busine by terski (Pixabay Licence) via Pixabay\n- skate, sport, water, action, exercise, flying, g by JosephSenior (Pixabay Licence) via Pixabay\n- design, art, wallpaper, background, wireframe, h by tunnelmotions (Pixabay Licence) via Pixabay\n- Future infinite by Artist Mrinal Kanty Das (CC BY-SA) via Openverse\n- ETH-BIB-Internationaler Mathematikerkongress, Zü by Johannes Meiner (Public domain) via Wikimedia Commons\n- dice, points, roll the dice, to play, toy, rando by betexion (Pixabay Licence) via Pixabay\n- investment, finance, business, company, graphic, by Natures_Embrace (Pixabay Licence) via Pixabay\n- chart, diagram, pie chart, statistics, browsing by devidbrosme (Pixabay Licence) via Pixabay",
+  "duration": 30.522982,
+  "yt_tags": [
+    "gamma",
+    "factorial",
+    "pseudogamma",
+    "math",
+    "analysis",
+    "gamma function",
+    "shorts"
+  ],
+  "youtube_id": "Nt-roDm8riA",
+  "watch_url": "https://youtube.com/shorts/Nt-roDm8riA",
+  "thumbnail": "set"
+}
