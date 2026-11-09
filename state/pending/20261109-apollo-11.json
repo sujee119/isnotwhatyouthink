@@ -1,0 +1,48 @@
+{
+  "slug": "20261109-apollo-11",
+  "subject": "Apollo 11",
+  "hook": "APOLLO 11 IS NOT WHAT YOU THINK",
+  "angle": "Apollo 11 wasn’t the only mission on the Moon that day – the Soviet Luna 15 probe crashed on the lunar surface while Armstrong and Aldrin were still walking there",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "the Soviet Union, despite early leads in spaceflight, was unable to match the Saturn V rocket, and its uncrewed lunar probe Luna 15 crashed on the Moon on July 21, while Neil Armstrong and Buzz Aldrin were still on the lunar surface",
+    "while Neil Armstrong and Buzz Aldrin were still on the lunar surface, Luna 15 crashed on the Moon on July 21"
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Luna 15 Crashed While Apollo 11 Walked the Moon",
+  "description": "While Armstrong and Aldrin were exploring the Sea of Tranquility, the Soviet Luna 15 probe attempted its own landing and crashed. The space race had two missions on the Moon the same day.",
+  "tags": [
+    "apollo11",
+    "luna15",
+    "space race",
+    "moon landing",
+    "soviet"
+  ],
+  "narration": "APOLLO 11 IS NOT WHAT YOU THINK You assume the Moon had just the two American astronauts that July day. In reality, a Soviet unmanned probe was also descending, crashing while they walked. The Luna 15 mission launched on July 13, entered lunar orbit on July 17, and on July 21, 1969 it attempted a landing. Its descent module slammed into the Sea of Tranquility while Armstrong and Aldrin were on the surface. Two nations raced the Moon, and only one crashed that day.",
+  "built_at": "2026-11-09T21:00:17.783934+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- space ship, rocket launch, nasa, space travel, o by NASA-Imagery (Pixabay Licence) via Pixabay\n- neptune, moon, triton, triton moon surface, moon by UniverseUnique (Pixabay Licence) via Pixabay\n- apollo 11, nasa, moon landing, space exploration by NASA-Imagery (Pixabay Licence) via Pixabay\n- spacecraft, space travel, rest, module, futurist by spacetrip (Pixabay Licence) via Pixabay\n- spaceship, spacecraft, futuristic, scifi, fantas by dcpweb (Pixabay Licence) via Pixabay\n- frogs, jump, lily pad, animal, nature, amphibian by anncapictures (Pixabay Licence) via Pixabay\n- earth, universe, space, planet, world, globe, sc by TBIT (Pixabay Licence) via Pixabay\n- cosmic, particles, overlay, explosion, burst, or by couponblaze (Pixabay Licence) via Pixabay\n- rock, stone, sunset, water, calm, summer, sea, s by Mario_Krimer (Pixabay Licence) via Pixabay\n- working site, excavator, construction, site, equ by bellergy (Pixabay Licence) via Pixabay\n- full moon, night, spooky, woods, forest, moon, m by Iconikmg (Pixabay Licence) via Pixabay",
+  "duration": 30.856315,
+  "yt_tags": [
+    "apollo11",
+    "luna15",
+    "space race",
+    "moon landing",
+    "soviet",
+    "apollo 11",
+    "shorts"
+  ],
+  "youtube_id": "DUy85yNrMm0",
+  "watch_url": "https://youtube.com/shorts/DUy85yNrMm0",
+  "thumbnail": "set"
+}
