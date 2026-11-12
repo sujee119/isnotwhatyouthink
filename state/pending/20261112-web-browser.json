@@ -1,0 +1,48 @@
+{
+  "slug": "20261112-web-browser",
+  "subject": "Web browser",
+  "hook": "WEB BROWSER IS NOT WHAT YOU THINK",
+  "angle": "The very first web browser was not Mosaic—it was Tim Berners‑Lee’s WorldWideWeb, launched in 1990, predating Mosaic by three years",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "The first web browser, called WorldWideWeb, was created in 1990 by Sir Tim Berners‑Lee.",
+    "The Mosaic web browser was released in April 1993, and was later credited as the first web browser to find mainstream popularity."
+  ],
+  "is_person": false,
+  "topic_source": "wikipedia",
+  "trending_on": [],
+  "title": "The First Browser Wasn't Mosaic – It Was WorldWideWeb",
+  "description": "Most people think Mosaic launched the web, but Tim Berners‑Lee’s WorldWideWeb predates it by three years. Launched in 1990, it was a text‑only browser that paved the way for later graphical browsers.",
+  "tags": [
+    "web",
+    "browser",
+    "history",
+    "mosaic",
+    "tim-berners-lee"
+  ],
+  "narration": "WEB BROWSER IS NOT WHAT YOU THINK You picture the first web browser as Mosaic, a colorful graphical program from 1993. In reality, Tim Berners‑Lee released WorldWideWeb in 1990, three years earlier on the early web for the public. WorldWideWeb, written by Tim Berners‑Lee in 1990 on a NeXT workstation, was the first browser. Mosaic arrived in April 1993, three years later, adding full‑screen graphics and a mouse‑driven UI that sparked mass adoption among users. The web began with a text‑only browser, not Mosaic, truly back in 1990.",
+  "built_at": "2026-11-12T22:57:56.802171+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Web_browser"
+    }
+  ],
+  "credits": "Image credits:\n- Man puts away his laptop and reads a newspaper by Coverr (Coverr Licence) via Coverr\n- science, school, math, lab, learn, geometry, mat by tommyvideo (Pixabay Licence) via Pixabay\n- White Collar, c. 1940 - Linocuts by Giacomo G. P by Thomas Shahan 3 (CC BY) via Openverse\n- dog, pet, animal, small, furry, cute, fur, brown by moshehar (Pixabay Licence) via Pixabay\n- design, digital, land, future, futuristic, globa by Gam-Ol (Pixabay Licence) via Pixabay\n- Beaker Browser screenshot of Wikipedia.png by Blue Link Labs (browser), auth (CC BY-SA 4.0) via Wikimedia Commons\n- Multiple tabs in the Ecosia browser (August 2023 by Various authors, most Wikipedi (CC BY-SA 4.0) via Wikimedia Commons\n- NCSA Mosaic Browser Screenshot.png by Charles Severance (CC0) via Wikimedia Commons\n- morocco, mosque, architecture, gallery, building by GregMontani (Pixabay Licence) via Pixabay\n- samarkand, architecture, registan, ulugbek, cent by xusenru (Pixabay Licence) via Pixabay",
+  "duration": 32.188998,
+  "yt_tags": [
+    "web",
+    "browser",
+    "history",
+    "mosaic",
+    "tim-berners-lee",
+    "web browser",
+    "shorts"
+  ],
+  "youtube_id": "lnP8ydXHeYs",
+  "watch_url": "https://youtube.com/shorts/lnP8ydXHeYs",
+  "thumbnail": "set"
+}
