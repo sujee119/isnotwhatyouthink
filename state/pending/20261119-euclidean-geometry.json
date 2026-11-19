@@ -1,0 +1,48 @@
+{
+  "slug": "20261119-euclidean-geometry",
+  "subject": "Euclidean geometry",
+  "hook": "EUCLIDEAN GEOMETRY IS NOT WHAT YOU THINK",
+  "angle": "Euclidean geometry is not just a study of shapes, but a textbook that spends a significant portion of its contents on what we now classify as algebra and number theory.",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "Books V and VII–X deal with number theory, with numbers treated geometrically as lengths of line segments or areas of surface regions.",
+    "Much of the Elements states results of what are now called algebra and number theory, explained in geometrical language."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Euclid's Hidden Algebra",
+  "description": "While famous for its geometric shapes, Euclid's Elements is actually a foundational work of algebra and number theory expressed through visual logic.",
+  "tags": [
+    "euclid",
+    "geometry",
+    "mathematics",
+    "algebra",
+    "history of science"
+  ],
+  "narration": "EUCLIDEAN GEOMETRY IS NOT WHAT YOU THINK You picture a dusty textbook full of circles, triangles, and squares. It was closer to a deep exploration of abstract numerical laws. You assume this system is strictly about shapes and space, but that is merely the visual language used to hide its true mathematical core. Consider the thirteen books of the Elements. While the first few cover plane figures, nearly half of the text is actually dedicated to number theory and algebraic relationships. Euclid represents prime numbers, rational values, and irrational quantities as lengths of lines and areas of surfaces. He proves there are infinitely many primes using these geometric constructions. Every proof is a logical bridge between basic arithmetic principles and complex spatial reasoning, showing that geometry was simply the ancient way to perform formal algebra. The shapes are just a distraction from the hidden world of numbers buried inside the lines.",
+  "built_at": "2026-11-19T19:26:54.712444+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- wall, texture, vintage, grunge, aged, antique, o by tommyvideo (Pixabay Licence) via Pixabay\n- blue, rectangles, geometrical, shapes, figures,  by ArtSqb (Pixabay Licence) via Pixabay\n- Tower of Old Hardcover Books on Library Shelf Cl by Coverr (Coverr Licence) via Coverr\n- camera, hat, fallen leaves, retro, autumn, lawn, by Sunriseforever (Pixabay Licence) via Pixabay\n- meeting, chalkboard, write, meeting time chalkbo by 2seewell (Pixabay Licence) via Pixabay\n- neptune, greek, roman, statue, bologna, salerno, by caelan (Pixabay Licence) via Pixabay\n- Coding technology by Coverr (Coverr Licence) via Coverr\n- countdown, numbers, 3d numbers, start sequence,  by perianjs (Pixabay Licence) via Pixabay\n- countdown, timer, begin, startup, start sequence by PIRO4D (Pixabay Licence) via Pixabay\n- antique book, book opening, book scrolling, book by AttilaPergel (Pixabay Licence) via Pixabay\n- scroll, paper, parchment, ancient, history, old, by jeffjacobs1990 (Pixabay Licence) via Pixabay\n- city, scroll, day by Nico_NCO (Pixabay Licence) via Pixabay\n- heart, love, love greeting, glitter, message, lo by Dieter_G (Pixabay Licence) via Pixabay\n- science, school, math, lab, learn, geometry, mat by tommyvideo (Pixabay Licence) via Pixabay\n- abstract, background, code, coordinates, corpora by skarletmotion (Pixabay Licence) via Pixabay\n- Drawing a cube by Coverr (Coverr Licence) via Coverr\n- hi tech, vj loops, tech, technology, lines, colo by Activedia (Pixabay Licence) via Pixabay\n- axons, brain, thinking, neurons, intelligence, t by olenchic (Pixabay Licence) via Pixabay\n- brain, head, mind, intelligence, thinking, psych by ChristianBodhi (Pixabay Licence) via Pixabay\n- harp, support, device, musical instrument, percu by tommyvideo (Pixabay Licence) via Pixabay\n- blue, squares, shapes, figures, geometric, anima by ArtSqb (Pixabay Licence) via Pixabay\n- grid, digital grid, particles, lines by olenchic (Pixabay Licence) via Pixabay",
+  "duration": 53.188998,
+  "yt_tags": [
+    "euclid",
+    "geometry",
+    "mathematics",
+    "algebra",
+    "history of science",
+    "euclidean geometry",
+    "shorts"
+  ],
+  "youtube_id": "I_1Vz_9qe0U",
+  "watch_url": "https://youtube.com/shorts/I_1Vz_9qe0U",
+  "thumbnail": "set"
+}
