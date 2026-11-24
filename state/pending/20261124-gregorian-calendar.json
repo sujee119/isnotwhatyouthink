@@ -1,0 +1,48 @@
+{
+  "slug": "20261124-gregorian-calendar",
+  "subject": "Gregorian calendar",
+  "hook": "GREGORIAN CALENDAR IS NOT WHAT YOU THINK",
+  "angle": "The Gregorian calendar was not created to improve general timekeeping, but specifically to correct a drift in the date of the equinox so that the Christian church could accurately calculate the date of Easter.",
+  "angle_verdict": "agree",
+  "countdown": true,
+  "countdown_arm": "with",
+  "angle_support": [
+    "The motivation for the adjustment was to bring the date for the celebration of Easter to the time of year in which it was celebrated when it was introduced by the early Church.",
+    "In the years since the First Council of Nicaea in AD 325, the excess leap days introduced by the Julian algorithm had caused the calendar to drift such that the March equinox was occurring well before its nominal 21 March date. This date was important to the Christian churches because it is fundamental to the calculation of the date of Easter."
+  ],
+  "is_person": false,
+  "topic_source": "famous",
+  "trending_on": [],
+  "title": "Why the Gregorian Calendar Was Actually Created",
+  "description": "The Gregorian calendar was not an effort to perfect timekeeping, but a theological necessity to fix the date of Easter after centuries of solar drift.",
+  "tags": [
+    "history",
+    "calendar",
+    "easter",
+    "science",
+    "time"
+  ],
+  "narration": "GREGORIAN CALENDAR IS NOT WHAT YOU THINK You picture a scientific endeavor to align our daily lives with the solar cycle. It was closer to a religious deadline. The reform was not primarily intended to improve general timekeeping for the public, but specifically to correct a massive drift in the date of the equinox. Since the year 325, the Julian calendar accumulated an error of ten days. This shift pushed the spring equinox away from its nominal date. Because the Church calculates the date of Easter based on this specific equinox, the drift made it impossible to maintain a consistent liturgical schedule. To restore the original timing, Pope Gregory XIII simply skipped those ten days in October 1582 and introduced a new leap year rule to prevent future errors. This ensured the ecclesiastical lunar tables aligned with observed reality once again. The calendar was not built for the seasons, but to keep the feast of Easter holy.",
+  "built_at": "2026-11-24T04:11:45.979615+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    }
+  ],
+  "credits": "Image credits:\n- days, week, every day, calendar, planner by chandorobray (Pixabay Licence) via Pixabay\n- storm cloud, sun rays, sky, clouds, cumulonimbus by doktorkleinmusic (Pixabay Licence) via Pixabay\n- fabric, sewing machine, seamstress, workshop, cu by AlexKopeykin (Pixabay Licence) via Pixabay\n- man, fabric, cutter, knives, cutting table, tool by AlexKopeykin (Pixabay Licence) via Pixabay\n- castle, church, tower, city, architecture, build by caelan (Pixabay Licence) via Pixabay\n- book, pencil, notebook, paper, document, educati by wonderlandwoo (Pixabay Licence) via Pixabay\n- business, professional, office, workplace, corpo by ipsglobal (Pixabay Licence) via Pixabay\n- stained glass, chromatic, color by Jacques_Barrette (Pixabay Licence) via Pixabay\n- blue, earth, world, beautiful wallpaper, globe,  by tommyvideo (Pixabay Licence) via Pixabay\n- map, world, medieval, old map by tarlamu (Pixabay Licence) via Pixabay\n- Before the Concert - Spring Equinox at Bayou St. by Bart Everson (CC BY 2.0) via Wikimedia Commons\n- bible, book, christian, religion, worship, relig by tommyvideo (Pixabay Licence) via Pixabay\n- bible, book, read, pray, religion, god, christia by Josh_Malic (Pixabay Licence) via Pixabay\n- Manuscript painting of an equestrian portrait of by Unknown artist (however the pa (Public domain) via Wikimedia Commons\n- incantation, conjuration, spell, witchcraft, sor by Ann_Milovidova (Pixabay Licence) via Pixabay\n- ai generated, book, reading, magic, study, liter by stefaniejockschat (Pixabay Licence) via Pixabay\n- smoke, ascending, haze, blue, step out by TH-DARK-Media (Pixabay Licence) via Pixabay\n- bud, leaf, sprout, rise up, time lapse, leaf bud by adege (Pixabay Licence) via Pixabay\n- moon, moon phases, lunar cycle, full moon, cresc by Solarselle77 (Pixabay Licence) via Pixabay\n- racing bike, sports, bike, race, bicycle, biking by Vimeo-Free-Videos (Pixabay Licence) via Pixabay\n- god, jesus, christ, holy, spirit, bible, gospel, by jeffjacobs1990 (Pixabay Licence) via Pixabay\n- worship, bible, church, cross, christian cross by tommyvideo (Pixabay Licence) via Pixabay",
+  "duration": 55.189649,
+  "yt_tags": [
+    "history",
+    "calendar",
+    "easter",
+    "science",
+    "time",
+    "gregorian calendar",
+    "shorts"
+  ],
+  "youtube_id": "tlM47TBqo-k",
+  "watch_url": "https://youtube.com/shorts/tlM47TBqo-k",
+  "thumbnail": "set"
+}
