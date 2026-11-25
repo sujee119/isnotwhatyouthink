@@ -1,0 +1,52 @@
+{
+  "slug": "20261125-mechanical-watch",
+  "subject": "Mechanical watch",
+  "hook": "MECHANICAL WATCH IS NOT WHAT YOU THINK",
+  "angle": "The iconic 'ticking' sound of a mechanical watch is not the sound of time passing, but the specific noise of the escapement mechanism locking and unlocking to control the gears.",
+  "angle_verdict": "agree",
+  "countdown": false,
+  "countdown_arm": "without",
+  "angle_support": [
+    "The escapement is what makes the 'ticking' sound which is heard in an operating mechanical watch.",
+    "The tooth escapes , and that is where the name comes from... The step ends when the next tooth lands on a stone, hard enough to make a sound. This is the tick and the tock of a watch."
+  ],
+  "is_person": false,
+  "topic_source": "hn",
+  "trending_on": [],
+  "title": "Why Your Watch Ticks",
+  "description": "We often assume the ticking of a watch is the sound of time moving. In reality, it is the sound of a gear train being repeatedly stopped and released by the escapement mechanism.",
+  "tags": [
+    "horology",
+    "watches",
+    "engineering",
+    "mechanics",
+    "physics"
+  ],
+  "narration": "MECHANICAL WATCH IS NOT WHAT YOU THINK You picture the rhythmic ticking as the actual sound of time passing by. It was closer to a mechanical arrest. You imagine the heartbeat of seconds, but that noise is actually the sound of a gear train being forced to stop moving entirely. Inside the movement, a mainspring provides constant power to the gears. However, they cannot simply spin, or the energy would vanish in seconds. Instead, an escapement mechanism repeatedly locks the wheel train. Each time a pallet fork stone catches a gear tooth, the motion halts abruptly. That sudden impact against the jewel produces the audible tick. The balance wheel swings to release the fork, allowing one gear to advance before it is caught again. The sound is not a steady flow of time, but a series of violent, controlled mechanical collisions.",
+  "built_at": "2026-11-25T02:01:39.964558+00:00",
+  "status": "published",
+  "sources": [
+    {
+      "kind": "wikipedia",
+      "url": ""
+    },
+    {
+      "kind": "origin",
+      "url": "https://martincmartin.github.io/slidev-stem/watches/article/1/"
+    }
+  ],
+  "credits": "Image credits:\n- time, clock, time travel, journey, watch, hours, by ChristianBodhi (Pixabay Licence) via Pixabay\n- Green-Dial Luxury Watch Close-Up with Water Drop by Coverr (Coverr Licence) via Coverr\n- clocks, time, clockwork, mechanically, old, retr by MegaSchwôb (Pixabay Licence) via Pixabay\n- hourglass, sand, time, clock, timer, glass, hour by MattHrusc (Pixabay Licence) via Pixabay\n- gear, mechanism, device, gearing, metal, steel,  by tommyvideo (Pixabay Licence) via Pixabay\n- gear, mechanism, coil, gearing, structure, devic by tommyvideo (Pixabay Licence) via Pixabay\n- steampunk, train, electromagnetic, levitation, c by doktorkleinmusic (Pixabay Licence) via Pixabay\n- timepiece, clockwork, clock, parts, time, mechan by Kost9n4 (Pixabay Licence) via Pixabay\n- alarm, clock, watch, time, retro, vintage by wastedgeneration (Pixabay Licence) via Pixabay\n- 20th century catalogue of supplies for watchmake by Internet Archive Book Images (No restrictions) via Wikimedia Commons\n- device, metal, gearshift, technology, mechanism, by tommyvideo (Pixabay Licence) via Pixabay\n- coil, structure, knot, fastener, coil spring, re by tommyvideo (Pixabay Licence) via Pixabay\n- Chinese movement escapement and jewels by Hustvedt (CC BY-SA) via Openverse\n- Chinese movement escapement and jewels.jpg by Hustvedt (CC BY-SA 3.0) via Wikimedia Commons\n- Great Barrier Reef, Australia by NASA Goddard Photo and Video (CC BY) via Openverse\n- Watch timelapse by Coverr (Coverr Licence) via Coverr\n- watch, mechanical, movement, gear, spring, gossa by crows (Pixabay Licence) via Pixabay\n- mechanical, watch, movement, gear, spring, gossa by crows (Pixabay Licence) via Pixabay\n- Close-Up Shot of iPhone 15 Bottom Ports by Coverr (Coverr Licence) via Coverr",
+  "duration": 49.856315,
+  "yt_tags": [
+    "horology",
+    "watches",
+    "engineering",
+    "mechanics",
+    "physics",
+    "mechanical watch",
+    "shorts"
+  ],
+  "youtube_id": "2xDw7UT0Jw4",
+  "watch_url": "https://youtube.com/shorts/2xDw7UT0Jw4",
+  "thumbnail": "set"
+}
